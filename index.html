@@ -798,6 +798,37 @@
     margin-top: 16px;
     display: none;
   }
+
+  /* ─── LANG SELECTOR ─── */
+  .lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .lang-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--gold-light);
+    opacity: 0.45;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 6px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+
+  .lang-btn:hover { opacity: 0.8; color: var(--gold); }
+  .lang-btn.active { opacity: 1; color: var(--gold); border-bottom: 1px solid var(--gold); }
+
+  @media(max-width:600px) {
+    .lang-selector { gap: 4px; }
+    .lang-btn { font-size: 9px; padding: 3px 4px; }
+  }
+
 </style>
 </head>
 <body>
@@ -806,6 +837,16 @@
 <nav>
   <a class="nav-logo" href="#"><span>YouWiz</span>Me</a>
   <span class="nav-tagline">L'analyse de compatibilité par l'IA</span>
+  <div class="lang-selector">
+    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">AR</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1145,6 +1186,552 @@
 </footer>
 
 <script>
+
+// ─── TRANSLATIONS ───
+const LANGS = {
+  fr: {
+    dir: 'ltr',
+    nav_tagline: "L'analyse de compatibilité par l'IA",
+    hero_label: "Compatibilité · Personnalité · Prénoms",
+    hero_sub: "Découvrez la profondeur de votre lien à travers vos prénoms",
+    hero_cta: "Commencer l'analyse",
+    scroll: "Défiler",
+    section_label: "Questionnaire · 3 étapes",
+    restore_msg: "✦ Vos dernières réponses ont été restaurées",
+    restore_clear: "Effacer",
+    step1: "Premier prénom", step2: "Second prénom", step3: "Votre lien",
+    panel1_title: "Le <span class='accent f'>premier</span> prénom",
+    panel1_desc: "Parlez-nous de la première personne",
+    panel2_title: "Le <span class='accent o'>second</span> prénom",
+    panel2_desc: "Parlez-nous de la seconde personne",
+    panel3_title: "Votre <span class='accent' style='color:var(--gold-light)'>lien</span>",
+    panel3_desc: "Quelques dernières précisions pour affiner l'analyse",
+    label_name: "Prénom *", label_origin: "Origine du prénom", label_age: "Tranche d'âge",
+    label_traits: "Traits de caractère principaux", label_value: "Valeur la plus importante",
+    label_conflict1: "Comment gère-t-elle les conflits ?", label_conflict2: "Comment gère-t-il/elle les conflits ?",
+    label_free1: "En quelques mots, décrivez cette personne (optionnel)",
+    label_free2: "En quelques mots, décrivez cette personne (optionnel)",
+    label_relation: "Quelle est la nature de votre relation ?",
+    label_duration: "Depuis combien de temps vous connaissez-vous ?",
+    label_challenges: "Quel est votre principal défi commun ?",
+    label_bond: "En une phrase : ce qui vous unit le plus",
+    ph_name1: "", ph_name2: "",
+    ph_free: "Une phrase libre sur sa personnalité, ses passions, ce qui la rend unique…",
+    ph_bond: "Ce que vous partagez, ce qui vous attire l'un vers l'autre…",
+    origin_options: ["— Choisir —","Française","Portugaise","Espagnole","Italienne","Arabe","Anglaise","Africaine","Asiatique","Autre"],
+    age_options: ["— Choisir —","Moins de 20 ans","20 – 30 ans","30 – 40 ans","40 – 50 ans","50 – 60 ans","Plus de 60 ans"],
+    traits: ["Intuitif·ve","Rationnel·le","Passionné·e","Calme","Ambitieux·se","Créatif·ve","Loyal·e","Indépendant·e"],
+    values: ["Famille","Liberté","Réussite","Amour","Sécurité","Aventure"],
+    conflicts: ["Évite le conflit","Affronte directement","Cherche le compromis","Se referme"],
+    relations: ["Couple amoureux","Amis proches","Famille","Collègues","Rencontre récente"],
+    durations: ["Moins de 6 mois","6 mois à 2 ans","2 à 5 ans","Plus de 5 ans","Toute la vie"],
+    challenges: ["Communication","Confiance","Différences culturelles","Distance géographique","Rythmes de vie différents","Aucun défi majeur"],
+    err1: "Veuillez saisir au moins le prénom pour continuer.",
+    err2: "Veuillez saisir au moins le prénom pour continuer.",
+    btn_prev: "← Retour", btn_next: "Continuer →", btn_analyze: "✦ Analyser notre compatibilité",
+    loading_msgs: ["L'IA lit entre les lignes de vos prénoms…","Tissage des fils de vos personnalités…","Exploration des résonances symboliques…","Calcul des harmoniques de vos âmes…","Mise en forme de votre analyse…"],
+    loading_sub: "Analyse en cours · Patience",
+    result_label: "Votre analyse · YouWizMe IA",
+    summary_note: "Analyse symbolique & poétique · YouWizMe · Propulsé par l'IA",
+    btn_reset: "↺ Nouvelle analyse",
+    footer: "YouWizMe · Analyse symbolique par intelligence artificielle · Usage poétique & ludique",
+    system_prompt: `Tu es YouWizMe, un oracle poétique et bienveillant spécialisé dans l'analyse de compatibilité entre personnes à partir de leurs prénoms et personnalités. Tu réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, sans texte avant ou après. Le JSON doit avoir exactement cette structure : {"score":<50-98>,"verdict":"<6-10 mots poétiques>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 phrases>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 phrases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 phrases>","vigilances":"<1-2 phrases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 phrases poétiques>"}`
+  },
+  en: {
+    dir: 'ltr',
+    nav_tagline: "AI-powered compatibility analysis",
+    hero_label: "Compatibility · Personality · Names",
+    hero_sub: "Discover the depth of your connection through your first names",
+    hero_cta: "Start the analysis",
+    scroll: "Scroll",
+    section_label: "Questionnaire · 3 steps",
+    restore_msg: "✦ Your last answers have been restored",
+    restore_clear: "Clear",
+    step1: "First name", step2: "Second name", step3: "Your bond",
+    panel1_title: "The <span class='accent f'>first</span> name",
+    panel1_desc: "Tell us about the first person",
+    panel2_title: "The <span class='accent o'>second</span> name",
+    panel2_desc: "Tell us about the second person",
+    panel3_title: "Your <span class='accent' style='color:var(--gold-light)'>bond</span>",
+    panel3_desc: "A few last details to refine the analysis",
+    label_name: "First name *", label_origin: "Name origin", label_age: "Age range",
+    label_traits: "Main personality traits", label_value: "Most important value",
+    label_conflict1: "How do they handle conflict?", label_conflict2: "How do they handle conflict?",
+    label_free1: "Describe this person in a few words (optional)",
+    label_free2: "Describe this person in a few words (optional)",
+    label_relation: "What is the nature of your relationship?",
+    label_duration: "How long have you known each other?",
+    label_challenges: "What is your main shared challenge?",
+    label_bond: "In one sentence: what unites you most",
+    ph_name1: "", ph_name2: "",
+    ph_free: "A free sentence about their personality, passions, what makes them unique…",
+    ph_bond: "What you share, what draws you to each other…",
+    origin_options: ["— Choose —","French","Portuguese","Spanish","Italian","Arabic","English","African","Asian","Other"],
+    age_options: ["— Choose —","Under 20","20 – 30","30 – 40","40 – 50","50 – 60","Over 60"],
+    traits: ["Intuitive","Rational","Passionate","Calm","Ambitious","Creative","Loyal","Independent"],
+    values: ["Family","Freedom","Success","Love","Security","Adventure"],
+    conflicts: ["Avoids conflict","Confronts directly","Seeks compromise","Withdraws"],
+    relations: ["Romantic couple","Close friends","Family","Colleagues","Recent meeting"],
+    durations: ["Less than 6 months","6 months to 2 years","2 to 5 years","More than 5 years","All our lives"],
+    challenges: ["Communication","Trust","Cultural differences","Geographic distance","Different life rhythms","No major challenge"],
+    err1: "Please enter at least a first name to continue.",
+    err2: "Please enter at least a first name to continue.",
+    btn_prev: "← Back", btn_next: "Continue →", btn_analyze: "✦ Analyse our compatibility",
+    loading_msgs: ["AI is reading between the lines of your names…","Weaving the threads of your personalities…","Exploring symbolic resonances…","Calculating the harmonics of your souls…","Shaping your analysis…"],
+    loading_sub: "Analysis in progress · Please wait",
+    result_label: "Your analysis · YouWizMe AI",
+    summary_note: "Symbolic & poetic analysis · YouWizMe · Powered by AI",
+    btn_reset: "↺ New analysis",
+    footer: "YouWizMe · Symbolic analysis by artificial intelligence · Poetic & playful use",
+    system_prompt: `You are YouWizMe, a poetic and benevolent oracle specializing in compatibility analysis between people based on their first names and personalities. Reply ONLY in valid JSON, no markdown, no backticks, no text before or after. The JSON must have exactly this structure: {"score":<50-98>,"verdict":"<6-10 poetic words>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 sentences>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 sentences>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 sentences>","vigilances":"<1-2 sentences>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetic sentences>"}`
+  },
+  es: {
+    dir: 'ltr',
+    nav_tagline: "Análisis de compatibilidad por IA",
+    hero_label: "Compatibilidad · Personalidad · Nombres",
+    hero_sub: "Descubre la profundidad de tu vínculo a través de vuestros nombres",
+    hero_cta: "Comenzar el análisis",
+    scroll: "Desplazar",
+    section_label: "Cuestionario · 3 pasos",
+    restore_msg: "✦ Tus últimas respuestas han sido restauradas",
+    restore_clear: "Borrar",
+    step1: "Primer nombre", step2: "Segundo nombre", step3: "Vuestro vínculo",
+    panel1_title: "El <span class='accent f'>primer</span> nombre",
+    panel1_desc: "Cuéntanos sobre la primera persona",
+    panel2_title: "El <span class='accent o'>segundo</span> nombre",
+    panel2_desc: "Cuéntanos sobre la segunda persona",
+    panel3_title: "Vuestro <span class='accent' style='color:var(--gold-light)'>vínculo</span>",
+    panel3_desc: "Algunos detalles finales para afinar el análisis",
+    label_name: "Nombre *", label_origin: "Origen del nombre", label_age: "Rango de edad",
+    label_traits: "Rasgos de personalidad principales", label_value: "Valor más importante",
+    label_conflict1: "¿Cómo gestiona los conflictos?", label_conflict2: "¿Cómo gestiona los conflictos?",
+    label_free1: "Describe a esta persona en pocas palabras (opcional)",
+    label_free2: "Describe a esta persona en pocas palabras (opcional)",
+    label_relation: "¿Cuál es la naturaleza de vuestra relación?",
+    label_duration: "¿Desde cuándo os conocéis?",
+    label_challenges: "¿Cuál es vuestro principal desafío común?",
+    label_bond: "En una frase: lo que más os une",
+    ph_name1: "", ph_name2: "",
+    ph_free: "Una frase libre sobre su personalidad, pasiones, lo que le hace único/a…",
+    ph_bond: "Lo que compartís, lo que os atrae el uno hacia el otro…",
+    origin_options: ["— Elegir —","Francesa","Portuguesa","Española","Italiana","Árabe","Inglesa","Africana","Asiática","Otra"],
+    age_options: ["— Elegir —","Menos de 20 años","20 – 30 años","30 – 40 años","40 – 50 años","50 – 60 años","Más de 60 años"],
+    traits: ["Intuitivo/a","Racional","Apasionado/a","Tranquilo/a","Ambicioso/a","Creativo/a","Leal","Independiente"],
+    values: ["Familia","Libertad","Éxito","Amor","Seguridad","Aventura"],
+    conflicts: ["Evita el conflicto","Afronta directamente","Busca el compromiso","Se cierra"],
+    relations: ["Pareja romántica","Amigos íntimos","Familia","Compañeros de trabajo","Encuentro reciente"],
+    durations: ["Menos de 6 meses","6 meses a 2 años","2 a 5 años","Más de 5 años","Toda la vida"],
+    challenges: ["Comunicación","Confianza","Diferencias culturales","Distancia geográfica","Ritmos de vida diferentes","Sin desafío mayor"],
+    err1: "Por favor introduce al menos el nombre para continuar.",
+    err2: "Por favor introduce al menos el nombre para continuar.",
+    btn_prev: "← Volver", btn_next: "Continuar →", btn_analyze: "✦ Analizar nuestra compatibilidad",
+    loading_msgs: ["La IA lee entre líneas de vuestros nombres…","Tejiendo los hilos de vuestras personalidades…","Explorando resonancias simbólicas…","Calculando las armónicas de vuestras almas…","Dando forma a vuestro análisis…"],
+    loading_sub: "Análisis en curso · Paciencia",
+    result_label: "Vuestro análisis · YouWizMe IA",
+    summary_note: "Análisis simbólico & poético · YouWizMe · Impulsado por IA",
+    btn_reset: "↺ Nuevo análisis",
+    footer: "YouWizMe · Análisis simbólico por inteligencia artificial · Uso poético & lúdico",
+    system_prompt: `Eres YouWizMe, un oráculo poético y benevolente especializado en análisis de compatibilidad entre personas basándose en sus nombres y personalidades. Responde ÚNICAMENTE en JSON válido, sin markdown, sin backticks, sin texto antes ni después. El JSON debe tener exactamente esta estructura: {"score":<50-98>,"verdict":"<6-10 palabras poéticas>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frases>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frases>","vigilances":"<1-2 frases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frases poéticas>"}`
+  },
+  pt: {
+    dir: 'ltr',
+    nav_tagline: "Análise de compatibilidade por IA",
+    hero_label: "Compatibilidade · Personalidade · Nomes",
+    hero_sub: "Descubra a profundidade do seu vínculo através dos seus nomes",
+    hero_cta: "Começar a análise",
+    scroll: "Rolar",
+    section_label: "Questionário · 3 etapas",
+    restore_msg: "✦ As suas últimas respostas foram restauradas",
+    restore_clear: "Apagar",
+    step1: "Primeiro nome", step2: "Segundo nome", step3: "O vosso vínculo",
+    panel1_title: "O <span class='accent f'>primeiro</span> nome",
+    panel1_desc: "Fale-nos sobre a primeira pessoa",
+    panel2_title: "O <span class='accent o'>segundo</span> nome",
+    panel2_desc: "Fale-nos sobre a segunda pessoa",
+    panel3_title: "O vosso <span class='accent' style='color:var(--gold-light)'>vínculo</span>",
+    panel3_desc: "Alguns últimos detalhes para afinar a análise",
+    label_name: "Nome *", label_origin: "Origem do nome", label_age: "Faixa etária",
+    label_traits: "Principais traços de personalidade", label_value: "Valor mais importante",
+    label_conflict1: "Como gere os conflitos?", label_conflict2: "Como gere os conflitos?",
+    label_free1: "Descreva esta pessoa em poucas palavras (opcional)",
+    label_free2: "Descreva esta pessoa em poucas palavras (opcional)",
+    label_relation: "Qual é a natureza da vossa relação?",
+    label_duration: "Há quanto tempo se conhecem?",
+    label_challenges: "Qual é o vosso principal desafio comum?",
+    label_bond: "Numa frase: o que mais vos une",
+    ph_name1: "", ph_name2: "",
+    ph_free: "Uma frase livre sobre a sua personalidade, paixões, o que o/a torna único/a…",
+    ph_bond: "O que partilham, o que os atrai um para o outro…",
+    origin_options: ["— Escolher —","Francesa","Portuguesa","Espanhola","Italiana","Árabe","Inglesa","Africana","Asiática","Outra"],
+    age_options: ["— Escolher —","Menos de 20 anos","20 – 30 anos","30 – 40 anos","40 – 50 anos","50 – 60 anos","Mais de 60 anos"],
+    traits: ["Intuitivo/a","Racional","Apaixonado/a","Calmo/a","Ambicioso/a","Criativo/a","Leal","Independente"],
+    values: ["Família","Liberdade","Sucesso","Amor","Segurança","Aventura"],
+    conflicts: ["Evita o conflito","Enfrenta diretamente","Procura o compromisso","Fecha-se"],
+    relations: ["Casal romântico","Amigos próximos","Família","Colegas","Encontro recente"],
+    durations: ["Menos de 6 meses","6 meses a 2 anos","2 a 5 anos","Mais de 5 anos","A vida toda"],
+    challenges: ["Comunicação","Confiança","Diferenças culturais","Distância geográfica","Ritmos de vida diferentes","Nenhum desafio maior"],
+    err1: "Por favor introduza pelo menos o nome para continuar.",
+    err2: "Por favor introduza pelo menos o nome para continuar.",
+    btn_prev: "← Voltar", btn_next: "Continuar →", btn_analyze: "✦ Analisar a nossa compatibilidade",
+    loading_msgs: ["A IA lê nas entrelinhas dos vossos nomes…","Tecendo os fios das vossas personalidades…","Explorando ressonâncias simbólicas…","Calculando as harmónicas das vossas almas…","Formatando a vossa análise…"],
+    loading_sub: "Análise em curso · Paciência",
+    result_label: "A vossa análise · YouWizMe IA",
+    summary_note: "Análise simbólica & poética · YouWizMe · Impulsionado por IA",
+    btn_reset: "↺ Nova análise",
+    footer: "YouWizMe · Análise simbólica por inteligência artificial · Uso poético & lúdico",
+    system_prompt: `És YouWizMe, um oráculo poético e benevolente especializado em análise de compatibilidade entre pessoas com base nos seus nomes e personalidades. Responde APENAS em JSON válido, sem markdown, sem backticks, sem texto antes ou depois. O JSON deve ter exatamente esta estrutura: {"score":<50-98>,"verdict":"<6-10 palavras poéticas>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frases>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frases>","vigilances":"<1-2 frases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frases poéticas>"}`
+  },
+  ar: {
+    dir: 'rtl',
+    nav_tagline: "تحليل التوافق بالذكاء الاصطناعي",
+    hero_label: "التوافق · الشخصية · الأسماء",
+    hero_sub: "اكتشف عمق علاقتك من خلال أسمائكما",
+    hero_cta: "ابدأ التحليل",
+    scroll: "تمرير",
+    section_label: "استبيان · ٣ خطوات",
+    restore_msg: "✦ تمت استعادة إجاباتك الأخيرة",
+    restore_clear: "مسح",
+    step1: "الاسم الأول", step2: "الاسم الثاني", step3: "رابطكما",
+    panel1_title: "الاسم <span class='accent f'>الأول</span>",
+    panel1_desc: "أخبرنا عن الشخص الأول",
+    panel2_title: "الاسم <span class='accent o'>الثاني</span>",
+    panel2_desc: "أخبرنا عن الشخص الثاني",
+    panel3_title: "<span class='accent' style='color:var(--gold-light)'>رابطكما</span>",
+    panel3_desc: "بعض التفاصيل الأخيرة لتدقيق التحليل",
+    label_name: "الاسم *", label_origin: "أصل الاسم", label_age: "الفئة العمرية",
+    label_traits: "السمات الشخصية الرئيسية", label_value: "أهم قيمة",
+    label_conflict1: "كيف يتعامل مع النزاعات؟", label_conflict2: "كيف يتعامل مع النزاعات؟",
+    label_free1: "صف هذا الشخص بكلمات قليلة (اختياري)",
+    label_free2: "صف هذا الشخص بكلمات قليلة (اختياري)",
+    label_relation: "ما طبيعة علاقتكما؟",
+    label_duration: "منذ متى تعرفان بعضكما؟",
+    label_challenges: "ما هو تحديكما المشترك الرئيسي؟",
+    label_bond: "في جملة واحدة: ما الذي يجمعكما أكثر",
+    ph_name1: "", ph_name2: "",
+    ph_free: "جملة حرة عن شخصيته، شغفه، ما يجعله مميزاً…",
+    ph_bond: "ما تشتركان فيه، ما يجذب كل منكما للآخر…",
+    origin_options: ["— اختر —","فرنسي","برتغالي","إسباني","إيطالي","عربي","إنجليزي","أفريقي","آسيوي","آخر"],
+    age_options: ["— اختر —","أقل من 20 سنة","20 – 30 سنة","30 – 40 سنة","40 – 50 سنة","50 – 60 سنة","أكثر من 60 سنة"],
+    traits: ["حدسي","عقلاني","متحمس","هادئ","طموح","مبدع","وفي","مستقل"],
+    values: ["العائلة","الحرية","النجاح","الحب","الأمان","المغامرة"],
+    conflicts: ["يتجنب النزاع","يواجه مباشرة","يبحث عن حل وسط","ينغلق على نفسه"],
+    relations: ["زوجان عاشقان","أصدقاء مقربون","عائلة","زملاء","لقاء حديث"],
+    durations: ["أقل من 6 أشهر","من 6 أشهر إلى سنتين","من 2 إلى 5 سنوات","أكثر من 5 سنوات","طوال الحياة"],
+    challenges: ["التواصل","الثقة","الاختلافات الثقافية","البُعد الجغرافي","إيقاعات حياة مختلفة","لا تحديات كبيرة"],
+    err1: "الرجاء إدخال الاسم على الأقل للمتابعة.",
+    err2: "الرجاء إدخال الاسم على الأقل للمتابعة.",
+    btn_prev: "← رجوع", btn_next: "متابعة →", btn_analyze: "✦ تحليل توافقنا",
+    loading_msgs: ["الذكاء الاصطناعي يقرأ بين سطور أسمائكما…","نسج خيوط شخصياتكما…","استكشاف الرنين الرمزي…","حساب انسجام أرواحكما…","تشكيل تحليلكما…"],
+    loading_sub: "التحليل جارٍ · انتظر",
+    result_label: "تحليلكما · YouWizMe AI",
+    summary_note: "تحليل رمزي وشعري · YouWizMe · مدعوم بالذكاء الاصطناعي",
+    btn_reset: "↺ تحليل جديد",
+    footer: "YouWizMe · تحليل رمزي بالذكاء الاصطناعي · للاستخدام الشعري والترفيهي",
+    system_prompt: `أنت YouWizMe، أوراكل شعري ومحب متخصص في تحليل التوافق بين الأشخاص بناءً على أسمائهم وشخصياتهم. أجب فقط بـ JSON صالح، بدون markdown، بدون backticks، بدون نص قبل أو بعد. يجب أن يكون لـ JSON هذا الهيكل بالضبط: {"score":<50-98>,"verdict":"<6-10 كلمات شعرية>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 جمل>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 جمل>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 جمل>","vigilances":"<1-2 جمل>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 جمل شعرية>"}`
+  },
+  it: {
+    dir: 'ltr',
+    nav_tagline: "Analisi di compatibilità tramite IA",
+    hero_label: "Compatibilità · Personalità · Nomi",
+    hero_sub: "Scopri la profondità del vostro legame attraverso i vostri nomi",
+    hero_cta: "Inizia l'analisi",
+    scroll: "Scorri",
+    section_label: "Questionario · 3 fasi",
+    restore_msg: "✦ Le tue ultime risposte sono state ripristinate",
+    restore_clear: "Cancella",
+    step1: "Primo nome", step2: "Secondo nome", step3: "Il vostro legame",
+    panel1_title: "Il <span class='accent f'>primo</span> nome",
+    panel1_desc: "Parlaci della prima persona",
+    panel2_title: "Il <span class='accent o'>secondo</span> nome",
+    panel2_desc: "Parlaci della seconda persona",
+    panel3_title: "Il vostro <span class='accent' style='color:var(--gold-light)'>legame</span>",
+    panel3_desc: "Alcuni ultimi dettagli per affinare l'analisi",
+    label_name: "Nome *", label_origin: "Origine del nome", label_age: "Fascia d'età",
+    label_traits: "Principali tratti di personalità", label_value: "Valore più importante",
+    label_conflict1: "Come gestisce i conflitti?", label_conflict2: "Come gestisce i conflitti?",
+    label_free1: "Descrivi questa persona in poche parole (facoltativo)",
+    label_free2: "Descrivi questa persona in poche parole (facoltativo)",
+    label_relation: "Qual è la natura della vostra relazione?",
+    label_duration: "Da quanto tempo vi conoscete?",
+    label_challenges: "Qual è la vostra principale sfida comune?",
+    label_bond: "In una frase: ciò che vi unisce di più",
+    ph_name1: "", ph_name2: "",
+    ph_free: "Una frase libera sulla sua personalità, passioni, ciò che lo/la rende unico/a…",
+    ph_bond: "Ciò che condividete, ciò che vi attrae l'uno verso l'altro…",
+    origin_options: ["— Scegliere —","Francese","Portoghese","Spagnola","Italiana","Araba","Inglese","Africana","Asiatica","Altra"],
+    age_options: ["— Scegliere —","Meno di 20 anni","20 – 30 anni","30 – 40 anni","40 – 50 anni","50 – 60 anni","Più di 60 anni"],
+    traits: ["Intuitivo/a","Razionale","Appassionato/a","Calmo/a","Ambizioso/a","Creativo/a","Leale","Indipendente"],
+    values: ["Famiglia","Libertà","Successo","Amore","Sicurezza","Avventura"],
+    conflicts: ["Evita il conflitto","Affronta direttamente","Cerca il compromesso","Si chiude"],
+    relations: ["Coppia romantica","Amici intimi","Famiglia","Colleghi","Incontro recente"],
+    durations: ["Meno di 6 mesi","Da 6 mesi a 2 anni","Da 2 a 5 anni","Più di 5 anni","Tutta la vita"],
+    challenges: ["Comunicazione","Fiducia","Differenze culturali","Distanza geografica","Ritmi di vita diversi","Nessuna sfida maggiore"],
+    err1: "Inserisci almeno il nome per continuare.",
+    err2: "Inserisci almeno il nome per continuare.",
+    btn_prev: "← Indietro", btn_next: "Continua →", btn_analyze: "✦ Analizza la nostra compatibilità",
+    loading_msgs: ["L'IA legge tra le righe dei vostri nomi…","Tessendo i fili delle vostre personalità…","Esplorando risonanze simboliche…","Calcolando le armoniche delle vostre anime…","Modellando la vostra analisi…"],
+    loading_sub: "Analisi in corso · Pazienza",
+    result_label: "La vostra analisi · YouWizMe IA",
+    summary_note: "Analisi simbolica & poetica · YouWizMe · Alimentato dall'IA",
+    btn_reset: "↺ Nuova analisi",
+    footer: "YouWizMe · Analisi simbolica tramite intelligenza artificiale · Uso poetico & ludico",
+    system_prompt: `Sei YouWizMe, un oracolo poetico e benevolo specializzato nell'analisi della compatibilità tra persone in base ai loro nomi e personalità. Rispondi SOLO in JSON valido, senza markdown, senza backtick, senza testo prima o dopo. Il JSON deve avere esattamente questa struttura: {"score":<50-98>,"verdict":"<6-10 parole poetiche>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frasi>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frasi>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frasi>","vigilances":"<1-2 frasi>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frasi poetiche>"}`
+  },
+  de: {
+    dir: 'ltr',
+    nav_tagline: "KI-gestützte Kompatibilitätsanalyse",
+    hero_label: "Kompatibilität · Persönlichkeit · Namen",
+    hero_sub: "Entdeckt die Tiefe eurer Verbindung durch eure Vornamen",
+    hero_cta: "Analyse starten",
+    scroll: "Scrollen",
+    section_label: "Fragebogen · 3 Schritte",
+    restore_msg: "✦ Eure letzten Antworten wurden wiederhergestellt",
+    restore_clear: "Löschen",
+    step1: "Erster Vorname", step2: "Zweiter Vorname", step3: "Eure Verbindung",
+    panel1_title: "Der <span class='accent f'>erste</span> Vorname",
+    panel1_desc: "Erzähl uns von der ersten Person",
+    panel2_title: "Der <span class='accent o'>zweite</span> Vorname",
+    panel2_desc: "Erzähl uns von der zweiten Person",
+    panel3_title: "Eure <span class='accent' style='color:var(--gold-light)'>Verbindung</span>",
+    panel3_desc: "Ein paar letzte Details zur Verfeinerung der Analyse",
+    label_name: "Vorname *", label_origin: "Herkunft des Namens", label_age: "Altersgruppe",
+    label_traits: "Hauptpersönlichkeitsmerkmale", label_value: "Wichtigster Wert",
+    label_conflict1: "Wie geht diese Person mit Konflikten um?", label_conflict2: "Wie geht diese Person mit Konflikten um?",
+    label_free1: "Beschreibe diese Person in wenigen Worten (optional)",
+    label_free2: "Beschreibe diese Person in wenigen Worten (optional)",
+    label_relation: "Was ist die Art eurer Beziehung?",
+    label_duration: "Wie lange kennt ihr euch schon?",
+    label_challenges: "Was ist eure wichtigste gemeinsame Herausforderung?",
+    label_bond: "In einem Satz: Was euch am meisten verbindet",
+    ph_name1: "", ph_name2: "",
+    ph_free: "Ein freier Satz über seine Persönlichkeit, Leidenschaften, was ihn/sie einzigartig macht…",
+    ph_bond: "Was ihr teilt, was euch zueinander zieht…",
+    origin_options: ["— Wählen —","Französisch","Portugiesisch","Spanisch","Italienisch","Arabisch","Englisch","Afrikanisch","Asiatisch","Andere"],
+    age_options: ["— Wählen —","Unter 20 Jahre","20 – 30 Jahre","30 – 40 Jahre","40 – 50 Jahre","50 – 60 Jahre","Über 60 Jahre"],
+    traits: ["Intuitiv","Rational","Leidenschaftlich","Ruhig","Ehrgeizig","Kreativ","Loyal","Unabhängig"],
+    values: ["Familie","Freiheit","Erfolg","Liebe","Sicherheit","Abenteuer"],
+    conflicts: ["Vermeidet Konflikte","Konfrontiert direkt","Sucht Kompromisse","Zieht sich zurück"],
+    relations: ["Romantisches Paar","Enge Freunde","Familie","Kollegen","Kürzlich getroffen"],
+    durations: ["Weniger als 6 Monate","6 Monate bis 2 Jahre","2 bis 5 Jahre","Mehr als 5 Jahre","Das ganze Leben"],
+    challenges: ["Kommunikation","Vertrauen","Kulturelle Unterschiede","Geografische Distanz","Unterschiedliche Lebensrhythmen","Keine großen Herausforderungen"],
+    err1: "Bitte mindestens den Vornamen eingeben, um fortzufahren.",
+    err2: "Bitte mindestens den Vornamen eingeben, um fortzufahren.",
+    btn_prev: "← Zurück", btn_next: "Weiter →", btn_analyze: "✦ Unsere Kompatibilität analysieren",
+    loading_msgs: ["Die KI liest zwischen den Zeilen eurer Namen…","Die Fäden eurer Persönlichkeiten werden gewebt…","Symbolische Resonanzen werden erkundet…","Die Harmonien eurer Seelen werden berechnet…","Eure Analyse wird gestaltet…"],
+    loading_sub: "Analyse läuft · Geduld",
+    result_label: "Eure Analyse · YouWizMe KI",
+    summary_note: "Symbolische & poetische Analyse · YouWizMe · KI-gestützt",
+    btn_reset: "↺ Neue Analyse",
+    footer: "YouWizMe · Symbolische Analyse durch künstliche Intelligenz · Poetische & spielerische Nutzung",
+    system_prompt: `Du bist YouWizMe, ein poetisches und wohlwollendes Orakel, das auf Kompatibilitätsanalysen zwischen Personen basierend auf ihren Vornamen und Persönlichkeiten spezialisiert ist. Antworte NUR mit gültigem JSON, ohne Markdown, ohne Backticks, ohne Text davor oder danach. Das JSON muss genau diese Struktur haben: {"score":<50-98>,"verdict":"<6-10 poetische Wörter>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 Sätze>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 Sätze>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 Sätze>","vigilances":"<1-2 Sätze>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetische Sätze>"}`
+  },
+  zh: {
+    dir: 'ltr',
+    nav_tagline: "AI驱动的相容性分析",
+    hero_label: "相容性 · 个性 · 名字",
+    hero_sub: "通过你们的名字发现彼此联系的深度",
+    hero_cta: "开始分析",
+    scroll: "滚动",
+    section_label: "问卷 · 3个步骤",
+    restore_msg: "✦ 您的上次回答已恢复",
+    restore_clear: "清除",
+    step1: "第一个名字", step2: "第二个名字", step3: "你们的纽带",
+    panel1_title: "<span class='accent f'>第一个</span>名字",
+    panel1_desc: "告诉我们关于第一个人的情况",
+    panel2_title: "<span class='accent o'>第二个</span>名字",
+    panel2_desc: "告诉我们关于第二个人的情况",
+    panel3_title: "你们的<span class='accent' style='color:var(--gold-light)'>纽带</span>",
+    panel3_desc: "最后几个细节来完善分析",
+    label_name: "名字 *", label_origin: "名字来源", label_age: "年龄段",
+    label_traits: "主要性格特征", label_value: "最重要的价值观",
+    label_conflict1: "他/她如何处理冲突？", label_conflict2: "他/她如何处理冲突？",
+    label_free1: "用几句话描述这个人（可选）",
+    label_free2: "用几句话描述这个人（可选）",
+    label_relation: "你们关系的性质是什么？",
+    label_duration: "你们认识多久了？",
+    label_challenges: "你们共同的主要挑战是什么？",
+    label_bond: "一句话：最能将你们联系在一起的是什么",
+    ph_name1: "", ph_name2: "",
+    ph_free: "关于他/她的个性、热情、独特之处的自由句子…",
+    ph_bond: "你们共同的东西，彼此吸引的原因…",
+    origin_options: ["— 选择 —","法国","葡萄牙","西班牙","意大利","阿拉伯","英国","非洲","亚洲","其他"],
+    age_options: ["— 选择 —","20岁以下","20 – 30岁","30 – 40岁","40 – 50岁","50 – 60岁","60岁以上"],
+    traits: ["直觉型","理性型","热情型","冷静型","雄心勃勃","富有创意","忠诚","独立"],
+    values: ["家庭","自由","成功","爱情","安全","冒险"],
+    conflicts: ["避免冲突","直接面对","寻求妥协","自我封闭"],
+    relations: ["恋人","亲密朋友","家人","同事","新认识"],
+    durations: ["不到6个月","6个月至2年","2至5年","5年以上","一辈子"],
+    challenges: ["沟通","信任","文化差异","地理距离","生活节奏不同","没有重大挑战"],
+    err1: "请至少输入名字才能继续。",
+    err2: "请至少输入名字才能继续。",
+    btn_prev: "← 返回", btn_next: "继续 →", btn_analyze: "✦ 分析我们的相容性",
+    loading_msgs: ["AI正在解读你们名字的深层含义…","编织你们个性的线索…","探索象征性共鸣…","计算你们灵魂的和谐…","呈现你们的分析…"],
+    loading_sub: "分析进行中 · 请稍候",
+    result_label: "你们的分析 · YouWizMe AI",
+    summary_note: "象征性与诗意分析 · YouWizMe · AI驱动",
+    btn_reset: "↺ 新的分析",
+    footer: "YouWizMe · 人工智能象征性分析 · 诗意与娱乐用途",
+    system_prompt: `你是YouWizMe，一个专门根据人们的名字和个性分析相容性的诗意神谕。只用有效的JSON回答，没有markdown，没有反引号，没有前后文本。JSON必须有这个确切的结构: {"score":<50-98>,"verdict":"<6-10个诗意词语>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3句话>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3句话>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3句话>","vigilances":"<1-2句话>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3句诗意的话>"}`
+  }
+};
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = LANGS[lang];
+  
+  // Direction
+  document.documentElement.dir = t.dir;
+  document.documentElement.lang = lang;
+  
+  // Nav
+  document.querySelector('.nav-tagline').textContent = t.nav_tagline;
+  
+  // Hero
+  document.querySelector('.hero-label').textContent = t.hero_label;
+  document.querySelector('.hero-sub').textContent = t.hero_sub;
+  document.querySelector('.hero-cta').textContent = t.hero_cta;
+  document.querySelector('.scroll-hint span').textContent = t.scroll;
+  
+  // Section label
+  document.querySelector('.section-label').textContent = t.section_label;
+  
+  // Restore banner
+  document.querySelector('#restore-banner span').textContent = t.restore_msg;
+  document.querySelector('#restore-banner button').textContent = t.restore_clear;
+  
+  // Steps
+  document.querySelector('#s1 .step-label').textContent = t.step1;
+  document.querySelector('#s2 .step-label').textContent = t.step2;
+  document.querySelector('#s3 .step-label').textContent = t.step3;
+  
+  // Panel titles & descs
+  document.querySelector('#panel1 .panel-title').innerHTML = t.panel1_title;
+  document.querySelector('#panel1 .panel-desc').textContent = t.panel1_desc;
+  document.querySelector('#panel2 .panel-title').innerHTML = t.panel2_title;
+  document.querySelector('#panel2 .panel-desc').textContent = t.panel2_desc;
+  document.querySelector('#panel3 .panel-title').innerHTML = t.panel3_title;
+  document.querySelector('#panel3 .panel-desc').textContent = t.panel3_desc;
+  
+  // Labels
+  const labels = document.querySelectorAll('label');
+  const labelMap = {
+    'p1_name': t.label_name, 'p2_name': t.label_name,
+    'p1_origin': t.label_origin, 'p2_origin': t.label_origin,
+    'p1_age': t.label_age, 'p2_age': t.label_age
+  };
+  labels.forEach(lbl => {
+    const forAttr = lbl.getAttribute('for');
+    if (labelMap[forAttr]) lbl.textContent = labelMap[forAttr];
+  });
+  
+  // Update all label texts using data-key
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  
+  // Placeholders
+  document.getElementById('p1_name').placeholder = t.ph_name1;
+  document.getElementById('p2_name').placeholder = t.ph_name2;
+  document.querySelectorAll('[id$="_free"]').forEach(el => el.placeholder = t.ph_free);
+  document.getElementById('bond_free').placeholder = t.ph_bond;
+  
+  // Select options - origins
+  ['p1_origin','p2_origin'].forEach(id => {
+    const sel = document.getElementById(id);
+    const val = sel.value;
+    sel.innerHTML = t.origin_options.map((o,i) => `<option value="${i===0?'':o}">${o}</option>`).join('');
+  });
+  
+  // Select options - ages
+  ['p1_age','p2_age'].forEach(id => {
+    const sel = document.getElementById(id);
+    sel.innerHTML = t.age_options.map((o,i) => `<option value="${i===0?'':o}">${o}</option>`).join('');
+  });
+  
+  // Checkboxes - traits
+  ['p1','p2'].forEach(p => {
+    const group = document.getElementById(p+'_traits');
+    if (!group) return;
+    group.querySelectorAll('.check-btn label').forEach((lbl, i) => {
+      if (t.traits[i]) {
+        lbl.textContent = t.traits[i];
+        group.querySelectorAll('input')[i].value = t.traits[i];
+      }
+    });
+  });
+  
+  // Radios - values
+  ['p1v','p2v'].forEach((name,pi) => {
+    document.querySelectorAll(`input[name="${name}"]`).forEach((inp, i) => {
+      if (t.values[i]) {
+        inp.value = t.values[i];
+        inp.nextElementSibling.textContent = t.values[i];
+      }
+    });
+  });
+  
+  // Radios - conflicts
+  ['p1c','p2c'].forEach(name => {
+    document.querySelectorAll(`input[name="${name}"]`).forEach((inp, i) => {
+      if (t.conflicts[i]) {
+        inp.value = t.conflicts[i];
+        inp.nextElementSibling.textContent = t.conflicts[i];
+      }
+    });
+  });
+  
+  // Radios - relations
+  document.querySelectorAll('input[name="rel"]').forEach((inp, i) => {
+    if (t.relations[i]) { inp.value = t.relations[i]; inp.nextElementSibling.textContent = t.relations[i]; }
+  });
+  
+  // Radios - durations
+  document.querySelectorAll('input[name="dur"]').forEach((inp, i) => {
+    if (t.durations[i]) { inp.value = t.durations[i]; inp.nextElementSibling.textContent = t.durations[i]; }
+  });
+  
+  // Checkboxes - challenges
+  document.querySelectorAll('#questionnaire input[id^="ch"]').forEach((inp, i) => {
+    if (t.challenges[i]) { inp.value = t.challenges[i]; inp.nextElementSibling.textContent = t.challenges[i]; }
+  });
+  
+  // Buttons
+  document.querySelectorAll('.btn-prev').forEach(b => b.textContent = t.btn_prev);
+  document.querySelectorAll('.btn-next:not(#analyzeBtn)').forEach(b => b.textContent = t.btn_next);
+  document.getElementById('analyzeBtn').textContent = t.btn_analyze;
+  
+  // Errors
+  document.getElementById('err1').textContent = t.err1;
+  document.getElementById('err2').textContent = t.err2;
+  
+  // Loading
+  document.getElementById('loadingText').textContent = t.loading_msgs[0];
+  document.querySelector('.loading-sub').textContent = t.loading_sub;
+  
+  // Result section
+  document.querySelector('#result-section .section-label').textContent = t.result_label;
+  document.querySelector('.summary-note').textContent = t.summary_note;
+  if (document.querySelector('.btn-reset')) document.querySelector('.btn-reset').textContent = t.btn_reset;
+  
+  // Footer
+  document.querySelector('footer p').textContent = t.footer;
+  
+  // Update active lang button
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  
+  // Save lang preference
+  try { localStorage.setItem('youwizme_lang', lang); } catch(e) {}
+}
+
+// Override loadingMsgs to use current lang
+function getLoadingMsgs() { return LANGS[currentLang].loading_msgs; }
+function getSystemPrompt() { return LANGS[currentLang].system_prompt; }
+
 // ─── STATE ───
 let currentStep = 1;
 
@@ -1219,11 +1806,12 @@ const loadingMsgs = [
 let loadingInterval;
 function startLoading() {
   let i = 0;
+  const msgs = getLoadingMsgs();
   const el = document.getElementById('loadingText');
-  el.textContent = loadingMsgs[0];
+  el.textContent = msgs[0];
   loadingInterval = setInterval(() => {
-    i = (i + 1) % loadingMsgs.length;
-    el.textContent = loadingMsgs[i];
+    i = (i + 1) % msgs.length;
+    el.textContent = msgs[i];
   }, 2200);
 }
 
@@ -1305,7 +1893,11 @@ document.addEventListener('change', saveForm);
 document.addEventListener('input', saveForm);
 
 // Load on page ready
-window.addEventListener('DOMContentLoaded', loadForm);
+window.addEventListener('DOMContentLoaded', () => {
+  loadForm();
+  const savedLang = (() => { try { return localStorage.getItem('youwizme_lang'); } catch(e) { return null; } })();
+  setLang(savedLang || 'fr');
+});
 
 // ─── LAUNCH ANALYSIS ───
 async function launchAnalysis() {
@@ -1323,7 +1915,7 @@ async function launchAnalysis() {
     const response = await fetch("/.netlify/functions/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: prompt })
+      body: JSON.stringify({ prompt: prompt, system: getSystemPrompt() })
     });
 
     if (!response.ok) {
