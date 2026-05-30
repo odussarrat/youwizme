@@ -10,6 +10,7 @@ exports.handler = async function(event, context) {
 
   try {
     const body = JSON.parse(event.body);
+    const systemPrompt = body.system || `Tu es YouWizMe, un oracle poétique...`;
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -21,7 +22,7 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({
         model: 'claude-sonnet-4-5',
         max_tokens: 1000,
-        system: `Tu es YouWizMe, un oracle poétique et bienveillant spécialisé dans l'analyse de compatibilité entre personnes à partir de leurs prénoms et personnalités.
+        system: systemPrompt || `Tu es YouWizMe, un oracle poétique et bienveillant spécialisé dans l'analyse de compatibilité entre personnes à partir de leurs prénoms et personnalités.
 Tu réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, sans texte avant ou après.
 Le JSON doit avoir exactement cette structure :
 {
