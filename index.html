@@ -82,9 +82,9 @@
 
   /* ─── HERO PROCESS ─── */
   .hero-process {
-    margin-top: 44px;
+    margin-top: 56px;
     display: flex;
-    gap: 32px;
+    gap: 40px;
     justify-content: center;
     flex-wrap: wrap;
     max-width: 680px;
@@ -96,7 +96,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 14px;
     max-width: 180px;
   }
 
@@ -137,6 +137,21 @@
     .hero-process { gap: 20px; }
     .process-connector { display: none; }
     .process-step { max-width: 130px; }
+  }
+
+
+  .hero-ie-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0.6;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
   }
 
   /* ─── HERO VISUAL ─── */
@@ -254,13 +269,16 @@
   .hero-title .t2 { color: var(--gold); }
 
   .hero-sub {
-    font-size: clamp(16px, 3vw, 22px);
-    font-style: italic;
-    color: var(--gold-light);
-    opacity: 0.65;
-    margin-bottom: 50px;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(11px, 1.8vw, 14px);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rose);
     opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.7s;
+    margin-top: 32px;
+    animation: fadeUp 0.8s ease forwards 1.6s;
   }
 
   .hero-cta {
@@ -283,6 +301,7 @@
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(201,169,110,0.3);
   }
+
 
   .scroll-hint {
     position: absolute;
@@ -1177,7 +1196,7 @@
     <h1 class="hero-title">
       <span class="t1">YouWiz</span><span class="amp">✦</span><span class="t2">Me</span>
     </h1>
-    <p class="hero-sub">Découvrez la profondeur de votre lien à travers vos prénoms</p>
+    <p class="hero-ie-label">Intelligence Émotionnelle</p>
     <button class="hero-cta" onclick="document.getElementById('questionnaire').scrollIntoView({behavior:'smooth'})">
       Commencer l'analyse
     </button>
@@ -1198,6 +1217,7 @@
         <div class="process-text">Votre cartographie de compatibilité révélée</div>
       </div>
     </div>
+    <p class="hero-sub">Découvrez la profondeur de votre lien à travers vos prénoms</p>
   </div>
 
   <div class="scroll-hint">
@@ -1957,7 +1977,7 @@ function setLang(lang) {
   
   // Hero
   document.querySelector('.hero-label').textContent = t.hero_label;
-  document.querySelector('.hero-sub').textContent = t.hero_sub;
+  const heroSub = document.querySelector('.hero-sub'); if(heroSub) heroSub.textContent = t.hero_sub;
   document.querySelector('.hero-cta').textContent = t.hero_cta;
   document.querySelector('.scroll-hint span').textContent = t.scroll;
   
