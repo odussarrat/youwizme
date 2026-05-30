@@ -68,10 +68,14 @@
   .nav-logo span { color: var(--rose); }
 
   .nav-tagline {
-    font-size: 19px;
-    font-style: italic;
-    color: var(--gold-light);
-    opacity: 0.5;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #C8C8C8;
+    opacity: 0.75;
     display: none;
   }
 
@@ -1071,7 +1075,7 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#"><span>YouWiz</span>Me</a>
-  <span class="nav-tagline">L'analyse de compatibilité par l'IA</span>
+  <span class="nav-tagline">Intelligence Émotionnelle Artificielle</span>
   <div class="lang-selector">
     <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
     <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
@@ -1578,7 +1582,7 @@
 const LANGS = {
   fr: {
     dir: 'ltr',
-    nav_tagline: "L'analyse de compatibilité par l'IA",
+    nav_tagline: "Intelligence Émotionnelle Artificielle",
     hero_label: "Compatibilité · Personnalité · Prénoms",
     hero_sub: "Découvrez la profondeur de votre lien à travers vos prénoms",
     hero_cta: "Commencer l'analyse",
