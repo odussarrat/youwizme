@@ -1076,16 +1076,6 @@
 <nav>
   <a class="nav-logo" href="#"><span>YouWiz</span>Me</a>
   <span class="nav-tagline">Intelligence Émotionnelle Artificielle</span>
-  <div class="lang-selector">
-    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
-    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
-    <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">AR</button>
-    <button class="lang-btn" data-lang="it" onclick="setLang('it')">IT</button>
-    <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
-  </div>
 </nav>
 
 <!-- HERO -->
@@ -1602,6 +1592,16 @@
 </section>
 
 <footer>
+  <div class="lang-selector" style="justify-content:center; margin-bottom:20px;">
+    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">AR</button>
+    <button class="lang-btn" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
+  </div>
   <p>YouWizMe · Intelligence Émotionnelle Artificielle · Usage poétique & ludique</p>
 </footer>
 
@@ -2317,7 +2317,14 @@ document.addEventListener('input', saveForm);
 window.addEventListener('DOMContentLoaded', () => {
   loadForm();
   const savedLang = (() => { try { return localStorage.getItem('youwizme_lang'); } catch(e) { return null; } })();
-  setLang(savedLang || 'fr');
+  if (savedLang) {
+    setLang(savedLang);
+  } else {
+    // Auto-detect browser language
+    const browserLang = (navigator.language || navigator.userLanguage || 'fr').substring(0, 2).toLowerCase();
+    const supported = ['fr', 'en', 'es', 'pt', 'ar', 'it', 'de', 'zh'];
+    setLang(supported.includes(browserLang) ? browserLang : 'fr');
+  }
 });
 
 // ─── LAUNCH ANALYSIS ───
