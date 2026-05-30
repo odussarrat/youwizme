@@ -78,6 +78,68 @@
   @media(min-width:600px){ .nav-tagline { display:block; } }
 
   /* ─── HERO ─── */
+
+
+  /* ─── HERO PROCESS ─── */
+  .hero-process {
+    margin-top: 44px;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 680px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.3s;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    max-width: 180px;
+  }
+
+  .process-icon {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    opacity: 0.6;
+    border: 1px solid rgba(201,169,110,0.25);
+    padding: 7px 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .process-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    color: var(--gold-light);
+    opacity: 0.65;
+    text-align: center;
+    line-height: 1.55;
+    letter-spacing: 0.3px;
+  }
+
+  .process-connector {
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(to right, rgba(201,169,110,0.2), rgba(201,169,110,0.4), rgba(201,169,110,0.2));
+    align-self: center;
+    margin-top: -16px;
+    flex-shrink: 0;
+  }
+
+  @media(max-width:600px) {
+    .hero-process { gap: 20px; }
+    .process-connector { display: none; }
+    .process-step { max-width: 130px; }
+  }
+
+  /* ─── HERO VISUAL ─── */
   .hero {
     position: relative;
     z-index: 1;
@@ -88,7 +150,84 @@
     justify-content: center;
     text-align: center;
     padding: 120px 30px 80px;
+    overflow: hidden;
   }
+
+  .hero-visual {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards 0.2s;
+  }
+
+  .hero-visual svg {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Animated orbital dots */
+  .orbit-dot-l { animation: orbitL 8s linear infinite; transform-origin: 200px 240px; }
+  .orbit-dot-r { animation: orbitR 10s linear infinite; transform-origin: 480px 240px; }
+  .orbit-dot-l2 { animation: orbitL 12s linear infinite reverse; transform-origin: 200px 240px; }
+  .orbit-dot-r2 { animation: orbitR 9s linear infinite reverse; transform-origin: 480px 240px; }
+
+  @keyframes orbitL {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbitR {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Pulse on core nodes */
+  .core-pulse {
+    animation: corePulse 3s ease-in-out infinite;
+  }
+
+  .core-pulse-r {
+    animation: corePulse 3s ease-in-out infinite 1.5s;
+  }
+
+  @keyframes corePulse {
+    0%, 100% { opacity: 0.08; r: 20; }
+    50% { opacity: 0.18; r: 26; }
+  }
+
+  /* Diamond pulse */
+  .diamond-pulse {
+    animation: diamondPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes diamondPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* Scan line sweep */
+  .scan-line {
+    animation: scanMove 4s ease-in-out infinite;
+  }
+
+  @keyframes scanMove {
+    0%, 100% { opacity: 0.05; transform: translateX(-20px); }
+    50% { opacity: 0.18; transform: translateX(20px); }
+  }
+
 
   .hero-label {
     font-family: 'Cinzel', serif;
@@ -928,14 +1067,139 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-label">Compatibilité · Personnalité · Prénoms</div>
-  <h1 class="hero-title">
-    <span class="t1">YouWiz</span><span class="amp">✦</span><span class="t2">Me</span>
-  </h1>
-  <p class="hero-sub">Découvrez la profondeur de votre lien à travers vos prénoms</p>
-  <button class="hero-cta" onclick="document.getElementById('questionnaire').scrollIntoView({behavior:'smooth'})">
-    Commencer l'analyse
-  </button>
+
+  <!-- VISUAL BACKGROUND -->
+  <div class="hero-visual">
+    <svg viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="glowL" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.14"/>
+          <stop offset="100%" stop-color="#C9A96E" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="glowR" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C97B8A" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="#C97B8A" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Background glows -->
+      <ellipse cx="200" cy="240" rx="180" ry="180" fill="url(#glowL)"/>
+      <ellipse cx="480" cy="240" rx="180" ry="180" fill="url(#glowR)"/>
+
+      <!-- Orbit rings left -->
+      <circle cx="200" cy="240" r="95" fill="none" stroke="#C9A96E" stroke-opacity="0.1" stroke-width="0.5"/>
+      <circle cx="200" cy="240" r="68" fill="none" stroke="#C9A96E" stroke-opacity="0.16" stroke-width="0.5"/>
+      <circle cx="200" cy="240" r="44" fill="none" stroke="#C9A96E" stroke-opacity="0.25" stroke-width="0.5"/>
+
+      <!-- Orbit rings right -->
+      <circle cx="480" cy="240" r="95" fill="none" stroke="#C97B8A" stroke-opacity="0.1" stroke-width="0.5"/>
+      <circle cx="480" cy="240" r="68" fill="none" stroke="#C97B8A" stroke-opacity="0.16" stroke-width="0.5"/>
+      <circle cx="480" cy="240" r="44" fill="none" stroke="#C97B8A" stroke-opacity="0.25" stroke-width="0.5"/>
+
+      <!-- Connection lines -->
+      <line x1="244" y1="222" x2="436" y2="222" stroke="#C9A96E" stroke-opacity="0.12" stroke-width="0.5"/>
+      <line x1="244" y1="240" x2="436" y2="240" stroke="#C9A96E" stroke-opacity="0.22" stroke-width="0.5"/>
+      <line x1="244" y1="258" x2="436" y2="258" stroke="#C97B8A" stroke-opacity="0.12" stroke-width="0.5"/>
+      <line x1="262" y1="204" x2="418" y2="276" stroke="#C9A96E" stroke-opacity="0.08" stroke-width="0.5"/>
+      <line x1="262" y1="276" x2="418" y2="204" stroke="#C97B8A" stroke-opacity="0.08" stroke-width="0.5"/>
+
+      <!-- Scan line sweep -->
+      <rect class="scan-line" x="150" y="140" width="380" height="200" fill="none" stroke="#C9A96E" stroke-opacity="0.06" stroke-width="40"/>
+
+      <!-- Animated orbital dots left -->
+      <g class="orbit-dot-l">
+        <circle cx="200" cy="145" r="3" fill="#C9A96E" fill-opacity="0.75"/>
+      </g>
+      <g class="orbit-dot-l2">
+        <circle cx="135" cy="282" r="2" fill="#C9A96E" fill-opacity="0.45"/>
+      </g>
+      <circle cx="265" cy="198" r="2" fill="#C9A96E" fill-opacity="0.4"/>
+      <circle cx="265" cy="282" r="1.5" fill="#C9A96E" fill-opacity="0.3"/>
+      <circle cx="200" cy="335" r="2" fill="#C9A96E" fill-opacity="0.4"/>
+      <circle cx="135" cy="198" r="1.5" fill="#C9A96E" fill-opacity="0.3"/>
+
+      <!-- Animated orbital dots right -->
+      <g class="orbit-dot-r">
+        <circle cx="480" cy="145" r="3" fill="#C97B8A" fill-opacity="0.75"/>
+      </g>
+      <g class="orbit-dot-r2">
+        <circle cx="545" cy="282" r="2" fill="#C97B8A" fill-opacity="0.45"/>
+      </g>
+      <circle cx="545" cy="198" r="2" fill="#C97B8A" fill-opacity="0.4"/>
+      <circle cx="415" cy="282" r="1.5" fill="#C97B8A" fill-opacity="0.3"/>
+      <circle cx="480" cy="335" r="2" fill="#C97B8A" fill-opacity="0.4"/>
+      <circle cx="415" cy="198" r="1.5" fill="#C97B8A" fill-opacity="0.3"/>
+
+      <!-- Core pulse rings -->
+      <circle class="core-pulse" cx="200" cy="240" r="20" fill="#C9A96E"/>
+      <circle class="core-pulse-r" cx="480" cy="240" r="20" fill="#C97B8A"/>
+
+      <!-- Core nodes -->
+      <circle cx="200" cy="240" r="30" fill="#1A1614" stroke="#C9A96E" stroke-opacity="0.55" stroke-width="0.8"/>
+      <circle cx="480" cy="240" r="30" fill="#1A1614" stroke="#C97B8A" stroke-opacity="0.55" stroke-width="0.8"/>
+
+      <!-- IE label between nodes -->
+      <text x="340" y="198" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" letter-spacing="3" fill="#C9A96E" fill-opacity="0.4">INTELLIGENCE</text>
+      <text x="340" y="210" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" letter-spacing="3" fill="#C9A96E" fill-opacity="0.4">ÉMOTIONNELLE</text>
+
+      <!-- Central diamond -->
+      <polygon class="diamond-pulse" points="340,226 354,240 340,254 326,240" fill="none" stroke="#C9A96E" stroke-opacity="0.65" stroke-width="0.8"/>
+      <polygon points="340,232 347,240 340,248 333,240" fill="#C9A96E" fill-opacity="0.12"/>
+
+      <!-- Score hint -->
+      <path d="M 314 240 A 26 26 0 0 1 366 240" fill="none" stroke="#C9A96E" stroke-opacity="0.35" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+      <!-- Corner brackets -->
+      <path d="M 44 58 L 44 42 L 60 42" fill="none" stroke="#C9A96E" stroke-opacity="0.3" stroke-width="0.8"/>
+      <path d="M 636 58 L 636 42 L 620 42" fill="none" stroke="#C9A96E" stroke-opacity="0.3" stroke-width="0.8"/>
+      <path d="M 44 422 L 44 438 L 60 438" fill="none" stroke="#C9A96E" stroke-opacity="0.3" stroke-width="0.8"/>
+      <path d="M 636 422 L 636 438 L 620 438" fill="none" stroke="#C9A96E" stroke-opacity="0.3" stroke-width="0.8"/>
+
+      <!-- Subtle tech labels -->
+      <text x="52" y="58" font-family="'Courier New', monospace" font-size="8" fill="#C9A96E" fill-opacity="0.18">IE.v2</text>
+      <text x="628" y="58" text-anchor="end" font-family="'Courier New', monospace" font-size="8" fill="#C9A96E" fill-opacity="0.18">φ=0.618</text>
+      <text x="52" y="434" font-family="'Courier New', monospace" font-size="8" fill="#C9A96E" fill-opacity="0.18">∞</text>
+      <text x="628" y="434" text-anchor="end" font-family="'Courier New', monospace" font-size="8" fill="#C9A96E" fill-opacity="0.18">youwizme.com</text>
+
+      <!-- Scan lines left/right -->
+      <line x1="40" y1="118" x2="118" y2="118" stroke="#C9A96E" stroke-opacity="0.07" stroke-width="0.5"/>
+      <line x1="40" y1="124" x2="100" y2="124" stroke="#C9A96E" stroke-opacity="0.05" stroke-width="0.5"/>
+      <line x1="562" y1="118" x2="640" y2="118" stroke="#C97B8A" stroke-opacity="0.07" stroke-width="0.5"/>
+      <line x1="580" y1="124" x2="640" y2="124" stroke="#C97B8A" stroke-opacity="0.05" stroke-width="0.5"/>
+      <line x1="40" y1="362" x2="118" y2="362" stroke="#C9A96E" stroke-opacity="0.07" stroke-width="0.5"/>
+      <line x1="562" y1="362" x2="640" y2="362" stroke="#C97B8A" stroke-opacity="0.07" stroke-width="0.5"/>
+    </svg>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="hero-content">
+    <div class="hero-label">Compatibilité · Personnalité · Prénoms</div>
+    <h1 class="hero-title">
+      <span class="t1">YouWiz</span><span class="amp">✦</span><span class="t2">Me</span>
+    </h1>
+    <p class="hero-sub">Découvrez la profondeur de votre lien à travers vos prénoms</p>
+    <button class="hero-cta" onclick="document.getElementById('questionnaire').scrollIntoView({behavior:'smooth'})">
+      Commencer l'analyse
+    </button>
+    <!-- PROCESS EXPLANATION -->
+    <div class="hero-process">
+      <div class="process-step">
+        <div class="process-icon">01</div>
+        <div class="process-text">Vos profils émotionnels analysés en profondeur</div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-icon">02</div>
+        <div class="process-text">Résonance entre vos intelligences émotionnelles calculée</div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-icon">03</div>
+        <div class="process-text">Votre cartographie de compatibilité révélée</div>
+      </div>
+    </div>
+  </div>
+
   <div class="scroll-hint">
     <span>Défiler</span>
     <div class="scroll-arrow"></div>
