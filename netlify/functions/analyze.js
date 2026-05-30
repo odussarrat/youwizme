@@ -26,7 +26,7 @@ exports.handler = async function(event, context) {
 Tu réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, sans texte avant ou après.
 Le JSON doit avoir exactement cette structure :
 {
-  "score": <nombre entre 50 et 98>,
+  "score": <nombre entre 0 et 100>,
   "verdict": "<phrase courte et poétique de 6-10 mots>",
   "profil1": {
     "traits": ["<trait1>", "<trait2>", "<trait3>", "<trait4>"],
