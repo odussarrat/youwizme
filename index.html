@@ -951,6 +951,93 @@
     50% { opacity: 1; transform: rotate(45deg) scale(1.2); }
   }
 
+  /* ─── VOCALMIA BANNER ─── */
+  .vocalmia-banner {
+    display: none;
+    max-width: 580px;
+    margin: 44px auto 0;
+    border: 1px solid rgba(201,169,110,0.18);
+    background: rgba(255,255,255,0.02);
+    padding: 22px 28px;
+    animation: fadeUp 0.8s ease forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vocalmia-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--rose));
+    opacity: 0.6;
+  }
+
+  .vocalmia-banner.active { display: block; }
+
+  .voc-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.45;
+    margin-bottom: 10px;
+  }
+
+  .voc-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .voc-text { flex: 1; min-width: 180px; }
+
+  .voc-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--cream);
+    margin-bottom: 5px;
+  }
+
+  .voc-title span { color: var(--gold); }
+
+  .voc-desc {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--gold-light);
+    opacity: 0.65;
+    line-height: 1.6;
+  }
+
+  .voc-cta {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dark);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none;
+    padding: 11px 22px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+  }
+
+  .voc-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201,169,110,0.25);
+  }
+
+  /* rotating messages */
+  .voc-desc { transition: opacity 0.4s; }
+
   /* Error */
   .error-msg {
     color: var(--rose-light);
@@ -1485,6 +1572,18 @@
     </div>
     <div class="loading-text" id="loadingText">L'IA explore vos âmes…</div>
     <div class="loading-sub">Analyse en cours · Patience</div>
+
+    <!-- VOCALMIA BANNER -->
+    <div class="vocalmia-banner active" id="vocalmia-banner">
+      <div class="voc-tag">Partenaire · Publicité</div>
+      <div class="voc-inner">
+        <div class="voc-text">
+          <div class="voc-title"><span>Vocalmia</span> — Agents IA Vocaux</div>
+          <div class="voc-desc" id="voc-desc">Transformez vos appels en expériences intelligentes.</div>
+        </div>
+        <a class="voc-cta" href="https://vocalmia.com" target="_blank" rel="noopener">Découvrir →</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2229,6 +2328,7 @@ const loadingMsgs = [
 
 let loadingInterval;
 function startLoading() {
+  startVocalmia();
   let i = 0;
   const msgs = getLoadingMsgs();
   const el = document.getElementById('loadingText');
@@ -2239,7 +2339,7 @@ function startLoading() {
   }, 2200);
 }
 
-function stopLoading() { clearInterval(loadingInterval); }
+function stopLoading() { clearInterval(loadingInterval); stopVocalmia(); }
 
 
 // ─── LOCALSTORAGE SAVE / RESTORE ───
@@ -2597,6 +2697,31 @@ function updateShareTexts() {
   const copyBtn = document.getElementById('share-copy');
   if (copyBtn) copyBtn.lastChild.textContent = ' ' + (copyBtnLabels[currentLang] || copyBtnLabels.fr);
 }
+
+// ─── VOCALMIA BANNER ROTATION ───
+const vocMsgs = [
+  "Transformez vos appels en expériences intelligentes.",
+  "Un agent vocal IA disponible 24h/24 pour vos clients.",
+  "Automatisez vos appels entrants sans perdre en qualité.",
+  "L'IA vocale au service de votre relation client."
+];
+let vocIdx = 0, vocInterval;
+
+function startVocalmia() {
+  const el = document.getElementById('voc-desc');
+  if (!el) return;
+  el.style.opacity = '1';
+  vocInterval = setInterval(() => {
+    el.style.opacity = '0';
+    setTimeout(() => {
+      vocIdx = (vocIdx + 1) % vocMsgs.length;
+      el.textContent = vocMsgs[vocIdx];
+      el.style.opacity = '1';
+    }, 400);
+  }, 3500);
+}
+
+function stopVocalmia() { clearInterval(vocInterval); }
 
 // ─── RESET ───
 function resetAll() {
