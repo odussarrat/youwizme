@@ -1067,6 +1067,69 @@
     box-shadow: 0 4px 16px rgba(232,255,71,0.3);
   }
 
+  /* ─── OMBRES / DÉFAUTS ─── */
+  .defauts-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(201,123,138,0.18);
+  }
+
+  .defauts-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+    opacity: 0.7;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .defauts-label::before {
+    content: '⚠';
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  .check-btn.dark label {
+    border-color: rgba(201,123,138,0.25);
+    color: var(--rose-light);
+    opacity: 0.7;
+  }
+
+  .check-btn.dark input:checked + label {
+    border-color: var(--rose);
+    color: var(--rose-light);
+    background: rgba(201,123,138,0.08);
+    opacity: 1;
+  }
+
+  /* Ombres in result cards */
+  .ombres-wrap {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(201,123,138,0.15);
+  }
+
+  .ombres-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--rose);
+    opacity: 0.6;
+    margin-bottom: 7px;
+  }
+
+  .trait.ombre {
+    border-color: rgba(201,123,138,0.3);
+    color: var(--rose-light);
+    opacity: 0.75;
+    font-size: 14px;
+  }
+
   /* Error */
   .error-msg {
     color: var(--rose-light);
@@ -1443,6 +1506,21 @@
         <label>En quelques mots, décrivez cette personne (optionnel)</label>
         <textarea id="p1_free" placeholder="Une phrase libre sur sa personnalité, ses passions, ce qui la rend unique…"></textarea>
       </div>
+
+      <div class="form-field full defauts-section">
+        <div class="defauts-label">Ses défauts / zones d'ombre</div>
+        <div class="check-group" id="p1_defauts">
+          <div class="check-btn dark"><input type="checkbox" id="p1d1" value="Jaloux·se"><label for="p1d1">Jaloux·se</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d2" value="Impulsif·ve"><label for="p1d2">Impulsif·ve</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d3" value="Possessif·ve"><label for="p1d3">Possessif·ve</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d4" value="Têtu·e"><label for="p1d4">Têtu·e</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d5" value="Anxieux·se"><label for="p1d5">Anxieux·se</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d6" value="Distant·e"><label for="p1d6">Distant·e</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d7" value="Colérique"><label for="p1d7">Colérique</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d8" value="Manipulateur·rice"><label for="p1d8">Manipulateur·rice</label></div>
+        </div>
+        <textarea id="p1_defauts_free" placeholder="Autres défauts, zones d'ombre… (optionnel)" style="margin-top:10px;"></textarea>
+      </div>
     </div>
 
     <div class="error-msg" id="err1">Veuillez saisir au moins le prénom pour continuer.</div>
@@ -1530,6 +1608,21 @@
       <div class="form-field full">
         <label>En quelques mots, décrivez cette personne (optionnel)</label>
         <textarea id="p2_free" placeholder="Une phrase libre sur sa personnalité, ses passions, ce qui la rend unique…"></textarea>
+      </div>
+
+      <div class="form-field full defauts-section">
+        <div class="defauts-label">Ses défauts / zones d'ombre</div>
+        <div class="check-group" id="p2_defauts">
+          <div class="check-btn dark"><input type="checkbox" id="p2d1" value="Jaloux·se"><label for="p2d1">Jaloux·se</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d2" value="Impulsif·ve"><label for="p2d2">Impulsif·ve</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d3" value="Possessif·ve"><label for="p2d3">Possessif·ve</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d4" value="Têtu·e"><label for="p2d4">Têtu·e</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d5" value="Anxieux·se"><label for="p2d5">Anxieux·se</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d6" value="Distant·e"><label for="p2d6">Distant·e</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d7" value="Colérique"><label for="p2d7">Colérique</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d8" value="Manipulateur·rice"><label for="p2d8">Manipulateur·rice</label></div>
+        </div>
+        <textarea id="p2_defauts_free" placeholder="Autres défauts, zones d'ombre… (optionnel)" style="margin-top:10px;"></textarea>
       </div>
     </div>
 
@@ -1769,7 +1862,7 @@
   </div>
   <p>YouWizMe · Intelligence Émotionnelle Artificielle · Usage poétique & ludique</p>
   <p style="margin-top:12px;">
-    <a href="legal.html" style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold-light); opacity:0.4; text-decoration:none; border-bottom:1px solid rgba(201,169,110,0.2); padding-bottom:2px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.4'">Mentions légales & Confidentialité</a>
+    <a id="footer-legal-link" href="legal.html" style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold-light); opacity:0.4; text-decoration:none; border-bottom:1px solid rgba(201,169,110,0.2); padding-bottom:2px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.4'">Mentions légales & Confidentialité</a>
   </p>
 </footer>
 
@@ -1822,8 +1915,15 @@ const LANGS = {
     result_label: "Votre analyse · YouWizMe · IEA",
     summary_note: "Analyse symbolique & poétique · YouWizMe · Propulsé par l'IEA",
     btn_reset: "↺ Nouvelle analyse",
-    footer: "YouWizMe · Intelligence Émotionnelle Artificielle · Usage poétique & ludique",
-    system_prompt: `Tu es YouWizMe, un oracle poétique et bienveillant spécialisé dans l'analyse de compatibilité entre personnes à partir de leurs prénoms et personnalités. Tu réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, sans texte avant ou après. Le JSON doit avoir exactement cette structure : {"score":<0-100>,"verdict":"<6-10 mots poétiques>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 phrases>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 phrases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 phrases>","vigilances":"<1-2 phrases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 phrases poétiques>"}`
+    defauts_label: "Ses défauts / zones d'ombre",
+    defauts: ["Jaloux·se", "Impulsif·ve", "Possessif·ve", "Têtu·e", "Anxieux·se", "Distant·e", "Colérique", "Manipulateur·rice"],
+    ph_defauts_free: "Autres défauts, zones d'ombre… (optionnel)",
+    voc_tag: "Publicité · Partenaire",
+    voc_title: "Agent IA Téléphonique",
+    voc_cta: "Découvrir",
+    legal_link: "Mentions légales & Confidentialité",
+        footer: "YouWizMe · Intelligence Émotionnelle Artificielle · Usage poétique & ludique",
+    system_prompt: `Tu es YouWizMe, un oracle poétique et lucide spécialisé dans l'analyse de compatibilité entre personnes à partir de leurs prénoms et personnalités. Tu es bienveillant MAIS honnête : tu identifies aussi les zones d'ombre et les défauts de chaque profil. Tu réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, sans texte avant ou après. Le JSON doit avoir exactement cette structure : {"score":<0-100>,"verdict":"<6-10 mots poétiques>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["défaut1","défaut2"],"description":"<2-3 phrases>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["défaut1","défaut2"],"description":"<2-3 phrases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 phrases>","vigilances":"<1-2 phrases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 phrases poétiques>"}`
   },
   en: {
     dir: 'ltr',
@@ -1870,8 +1970,15 @@ const LANGS = {
     result_label: "Your analysis · YouWizMe · AEI",
     summary_note: "Symbolic & poetic analysis · YouWizMe · Powered by Artificial Emotional Intelligence",
     btn_reset: "↺ New analysis",
-    footer: "YouWizMe · Artificial Emotional Intelligence · AEI™ · Poetic & playful use",
-    system_prompt: `You are YouWizMe, a poetic and benevolent oracle specializing in compatibility analysis between people based on their first names and personalities. Reply ONLY in valid JSON, no markdown, no backticks, no text before or after. The JSON must have exactly this structure: {"score":<0-100>,"verdict":"<6-10 poetic words>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 sentences>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 sentences>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 sentences>","vigilances":"<1-2 sentences>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetic sentences>"}`
+    defauts_label: "Their flaws / shadow sides",
+    defauts: ["Jealous", "Impulsive", "Possessive", "Stubborn", "Anxious", "Distant", "Hot-headed", "Manipulative"],
+    ph_defauts_free: "Other flaws, shadow sides… (optional)",
+    voc_tag: "Advertisement · Partner",
+    voc_title: "AI Phone Agent",
+    voc_cta: "Discover",
+    legal_link: "Legal Notice & Privacy Policy",
+        footer: "YouWizMe · Artificial Emotional Intelligence · AEI™ · Poetic & playful use",
+    system_prompt: `You are YouWizMe, a poetic and lucid oracle specializing in compatibility analysis between people based on their first names and personalities. You are benevolent BUT honest: you also identify each profile's shadow sides and flaws. Reply ONLY in valid JSON, no markdown, no backticks, no text before or after. The JSON must have exactly this structure: {"score":<0-100>,"verdict":"<6-10 poetic words>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["flaw1","flaw2"],"description":"<2-3 sentences>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["flaw1","flaw2"],"description":"<2-3 sentences>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 sentences>","vigilances":"<1-2 sentences>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetic sentences>"}`
   },
   es: {
     dir: 'ltr',
@@ -1918,8 +2025,15 @@ const LANGS = {
     result_label: "Vuestro análisis · YouWizMe IA",
     summary_note: "Análisis simbólico & poético · YouWizMe · Impulsado por IEA",
     btn_reset: "↺ Nuevo análisis",
-    footer: "YouWizMe · Inteligencia Emocional Artificial · IEA™ · Uso poético & lúdico",
-    system_prompt: `Eres YouWizMe, un oráculo poético y benevolente especializado en análisis de compatibilidad entre personas basándose en sus nombres y personalidades. Responde ÚNICAMENTE en JSON válido, sin markdown, sin backticks, sin texto antes ni después. El JSON debe tener exactamente esta estructura: {"score":<0-100>,"verdict":"<6-10 palabras poéticas>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frases>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frases>","vigilances":"<1-2 frases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frases poéticas>"}`
+    defauts_label: "Sus defectos / zonas de sombra",
+    defauts: ["Celoso/a", "Impulsivo/a", "Posesivo/a", "Terco/a", "Ansioso/a", "Distante", "Colérico/a", "Manipulador/a"],
+    ph_defauts_free: "Otros defectos, zonas de sombra… (opcional)",
+    voc_tag: "Publicidad · Socio",
+    voc_title: "Agente IA Telefónico",
+    voc_cta: "Descubrir",
+    legal_link: "Avisos Legales & Privacidad",
+        footer: "YouWizMe · Inteligencia Emocional Artificial · IEA™ · Uso poético & lúdico",
+    system_prompt: `Eres YouWizMe, un oráculo poético y lúcido especializado en análisis de compatibilidad entre personas basándose en sus nombres y personalidades. Eres benevolente PERO honesto: también identificas los lados oscuros y defectos de cada perfil. Responde ÚNICAMENTE en JSON válido, sin markdown, sin backticks, sin texto antes ni después. El JSON debe tener exactamente esta estructura: {"score":<0-100>,"verdict":"<6-10 palabras poéticas>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["defecto1","defecto2"],"description":"<2-3 frases>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["defecto1","defecto2"],"description":"<2-3 frases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frases>","vigilances":"<1-2 frases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frases poéticas>"}`
   },
   pt: {
     dir: 'ltr',
@@ -1966,8 +2080,15 @@ const LANGS = {
     result_label: "A vossa análise · YouWizMe IA",
     summary_note: "Análise simbólica & poética · YouWizMe · Impulsionado pela IEA",
     btn_reset: "↺ Nova análise",
-    footer: "YouWizMe · Inteligência Emocional Artificial · IEA™ · Uso poético & lúdico",
-    system_prompt: `És YouWizMe, um oráculo poético e benevolente especializado em análise de compatibilidade entre pessoas com base nos seus nomes e personalidades. Responde APENAS em JSON válido, sem markdown, sem backticks, sem texto antes ou depois. O JSON deve ter exatamente esta estrutura: {"score":<0-100>,"verdict":"<6-10 palavras poéticas>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frases>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frases>","vigilances":"<1-2 frases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frases poéticas>"}`
+    defauts_label: "Os seus defeitos / zonas de sombra",
+    defauts: ["Ciumento/a", "Impulsivo/a", "Possessivo/a", "Teimoso/a", "Ansioso/a", "Distante", "Colérico/a", "Manipulador/a"],
+    ph_defauts_free: "Outros defeitos, zonas de sombra… (opcional)",
+    voc_tag: "Publicidade · Parceiro",
+    voc_title: "Agente IA Telefónico",
+    voc_cta: "Descobrir",
+    legal_link: "Avisos Legais & Privacidade",
+        footer: "YouWizMe · Inteligência Emocional Artificial · IEA™ · Uso poético & lúdico",
+    system_prompt: `És YouWizMe, um oráculo poético e lúcido especializado em análise de compatibilidade entre pessoas com base nos seus nomes e personalidades. És benevolente MAS honesto: identificas também os lados sombrios e defeitos de cada perfil. Responde APENAS em JSON válido, sem markdown, sem backticks, sem texto antes ou depois. O JSON deve ter exatamente esta estrutura: {"score":<0-100>,"verdict":"<6-10 palavras poéticas>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["defeito1","defeito2"],"description":"<2-3 frases>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["defeito1","defeito2"],"description":"<2-3 frases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frases>","vigilances":"<1-2 frases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frases poéticas>"}`
   },
   ar: {
     dir: 'rtl',
@@ -2014,7 +2135,14 @@ const LANGS = {
     result_label: "تحليلكما · YouWizMe AI",
     summary_note: "تحليل رمزي وشعري · YouWizMe · مدعوم بالذكاء العاطفي الاصطناعي",
     btn_reset: "↺ تحليل جديد",
-    footer: "YouWizMe · الذكاء العاطفي الاصطناعي · IEA™",
+    defauts_label: "عيوبه / جوانبه المظلمة",
+    defauts: ["غيور", "متهور", "متملك", "عنيد", "قلق", "بعيد", "سريع الغضب", "متلاعب"],
+    ph_defauts_free: "عيوب أخرى، جوانب مظلمة… (اختياري)",
+    voc_tag: "إعلان · شريك",
+    voc_title: "وكيل ذكاء اصطناعي هاتفي",
+    voc_cta: "اكتشف",
+    legal_link: "الشروط القانونية والخصوصية",
+        footer: "YouWizMe · الذكاء العاطفي الاصطناعي · IEA™",
     system_prompt: `أنت YouWizMe، أوراكل شعري ومحب متخصص في تحليل التوافق بين الأشخاص بناءً على أسمائهم وشخصياتهم. أجب فقط بـ JSON صالح، بدون markdown، بدون backticks، بدون نص قبل أو بعد. يجب أن يكون لـ JSON هذا الهيكل بالضبط: {"score":<0-100>,"verdict":"<6-10 كلمات شعرية>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 جمل>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 جمل>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 جمل>","vigilances":"<1-2 جمل>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 جمل شعرية>"}`
   },
   it: {
@@ -2062,8 +2190,15 @@ const LANGS = {
     result_label: "La vostra analisi · YouWizMe IA",
     summary_note: "Analisi simbolica & poetica · YouWizMe · Alimentato dall'IEA",
     btn_reset: "↺ Nuova analisi",
-    footer: "YouWizMe · Intelligenza Emotiva Artificiale · IEA™ · Uso poetico & ludico",
-    system_prompt: `Sei YouWizMe, un oracolo poetico e benevolo specializzato nell'analisi della compatibilità tra persone in base ai loro nomi e personalità. Rispondi SOLO in JSON valido, senza markdown, senza backtick, senza testo prima o dopo. Il JSON deve avere esattamente questa struttura: {"score":<0-100>,"verdict":"<6-10 parole poetiche>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frasi>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 frasi>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frasi>","vigilances":"<1-2 frasi>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frasi poetiche>"}`
+    defauts_label: "I suoi difetti / zone d'ombra",
+    defauts: ["Geloso/a", "Impulsivo/a", "Possessivo/a", "Testardo/a", "Ansioso/a", "Distante", "Irascibile", "Manipolatore/rice"],
+    ph_defauts_free: "Altri difetti, zone d'ombra… (facoltativo)",
+    voc_tag: "Pubblicità · Partner",
+    voc_title: "Agente IA Telefonico",
+    voc_cta: "Scopri",
+    legal_link: "Note Legali & Privacy",
+        footer: "YouWizMe · Intelligenza Emotiva Artificiale · IEA™ · Uso poetico & ludico",
+    system_prompt: `Sei YouWizMe, un oracolo poetico e lucido specializzato nell'analisi della compatibilità tra persone in base ai loro nomi e personalità. Sei benevolo MA onesto: identifichi anche i lati oscuri e i difetti di ogni profilo. Rispondi SOLO in JSON valido, senza markdown, senza backtick, senza testo prima o dopo. Il JSON deve avere esattamente questa struttura: {"score":<0-100>,"verdict":"<6-10 parole poetiche>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["difetto1","difetto2"],"description":"<2-3 frasi>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["difetto1","difetto2"],"description":"<2-3 frasi>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frasi>","vigilances":"<1-2 frasi>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frasi poetiche>"}`
   },
   de: {
     dir: 'ltr',
@@ -2110,8 +2245,15 @@ const LANGS = {
     result_label: "Eure Analyse · YouWizMe KI",
     summary_note: "Symbolische & poetische Analyse · YouWizMe · IEA-gestützt",
     btn_reset: "↺ Neue Analyse",
-    footer: "YouWizMe · Künstliche Emotionale Intelligenz · IEA™ · Poetische & spielerische Nutzung",
-    system_prompt: `Du bist YouWizMe, ein poetisches und wohlwollendes Orakel, das auf Kompatibilitätsanalysen zwischen Personen basierend auf ihren Vornamen und Persönlichkeiten spezialisiert ist. Antworte NUR mit gültigem JSON, ohne Markdown, ohne Backticks, ohne Text davor oder danach. Das JSON muss genau diese Struktur haben: {"score":<0-100>,"verdict":"<6-10 poetische Wörter>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 Sätze>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 Sätze>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 Sätze>","vigilances":"<1-2 Sätze>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetische Sätze>"}`
+    defauts_label: "Seine/Ihre Schwächen / Schattenseiten",
+    defauts: ["Eifersüchtig", "Impulsiv", "Besitzergreifend", "Stur", "Ängstlich", "Distanziert", "Jähzornig", "Manipulativ"],
+    ph_defauts_free: "Weitere Schwächen, Schattenseiten… (optional)",
+    voc_tag: "Werbung · Partner",
+    voc_title: "KI-Telefonagent",
+    voc_cta: "Entdecken",
+    legal_link: "Rechtliches & Datenschutz",
+        footer: "YouWizMe · Künstliche Emotionale Intelligenz · IEA™ · Poetische & spielerische Nutzung",
+    system_prompt: `Du bist YouWizMe, ein poetisches und klarsichtiges Orakel, das auf Kompatibilitätsanalysen zwischen Personen basierend auf ihren Vornamen und Persönlichkeiten spezialisiert ist. Du bist wohlwollend ABER ehrlich: Du identifizierst auch die Schattenseiten und Schwächen jedes Profils. Antworte NUR mit gültigem JSON, ohne Markdown, ohne Backticks, ohne Text davor oder danach. Das JSON muss genau diese Struktur haben: {"score":<0-100>,"verdict":"<6-10 poetische Wörter>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["Schwäche1","Schwäche2"],"description":"<2-3 Sätze>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["Schwäche1","Schwäche2"],"description":"<2-3 Sätze>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 Sätze>","vigilances":"<1-2 Sätze>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetische Sätze>"}`
   },
   zh: {
     dir: 'ltr',
@@ -2158,7 +2300,14 @@ const LANGS = {
     result_label: "你们的分析 · YouWizMe AI",
     summary_note: "象征性与诗意分析 · YouWizMe · IEA驱动",
     btn_reset: "↺ 新的分析",
-    footer: "YouWizMe · 人工情感智能 · IEA™ · 诗意与娱乐用途",
+    defauts_label: "他/她的缺点 / 阴暗面",
+    defauts: ["嫉妒", "冲动", "占有欲强", "固执", "焦虑", "疏远", "易怒", "操控性"],
+    ph_defauts_free: "其他缺点、阴暗面…（可选）",
+    voc_tag: "广告 · 合作伙伴",
+    voc_title: "AI电话助手",
+    voc_cta: "了解更多",
+    legal_link: "法律声明与隐私政策",
+        footer: "YouWizMe · 人工情感智能 · IEA™ · 诗意与娱乐用途",
     system_prompt: `你是YouWizMe，一个专门根据人们的名字和个性分析相容性的诗意神谕。只用有效的JSON回答，没有markdown，没有反引号，没有前后文本。JSON必须有这个确切的结构: {"score":<0-100>,"verdict":"<6-10个诗意词语>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3句话>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3句话>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3句话>","vigilances":"<1-2句话>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3句诗意的话>"}`
   }
 };
@@ -2311,6 +2460,55 @@ function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
+
+  // ─── Défauts / ombres labels ───
+  document.querySelectorAll('.defauts-label').forEach(el => {
+    if (t.defauts_label) el.innerHTML = '⚠ ' + t.defauts_label;
+  });
+
+  // Défauts checkboxes p1 & p2
+  ['p1','p2'].forEach(p => {
+    const group = document.getElementById(p+'_defauts');
+    if (!group) return;
+    group.querySelectorAll('.check-btn label').forEach((lbl, i) => {
+      if (t.defauts && t.defauts[i]) {
+        lbl.textContent = t.defauts[i];
+        group.querySelectorAll('input')[i].value = t.defauts[i];
+      }
+    });
+  });
+
+  // Défauts free placeholders
+  ['p1_defauts_free','p2_defauts_free'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && t.ph_defauts_free) el.placeholder = t.ph_defauts_free;
+  });
+
+  // ─── Vocalmia banner ───
+  document.querySelectorAll('.voc-tag').forEach(el => {
+    if (t.voc_tag) el.textContent = t.voc_tag;
+  });
+  document.querySelectorAll('.voc-title').forEach(el => {
+    if (t.voc_title) el.innerHTML = 'Vocal<em>mia</em> — ' + t.voc_title;
+  });
+  document.querySelectorAll('.voc-cta').forEach(el => {
+    if (t.voc_cta) el.textContent = t.voc_cta;
+  });
+
+  // ─── Legal link ───
+  const legalLink = document.getElementById('footer-legal-link');
+  if (legalLink && t.legal_link) legalLink.textContent = t.legal_link;
+
+  // ─── Vocalmia rotating messages ───
+  if (VOC_MSGS[lang]) {
+    vocMsgs = VOC_MSGS[lang];
+    vocIdx = 0;
+    const descEls = [
+      document.getElementById('voc-desc'),
+      document.getElementById('voc-desc-result')
+    ];
+    descEls.forEach(el => { if (el) el.textContent = vocMsgs[0]; });
+  }
   
   // Save lang preference
   try { localStorage.setItem('youwizme_lang', lang); } catch(e) {}
@@ -2363,18 +2561,22 @@ function collectData() {
       origin: document.getElementById('p1_origin').value,
       age: document.getElementById('p1_age').value,
       traits: getCheckboxGroup(['p1t1','p1t2','p1t3','p1t4','p1t5','p1t6','p1t7','p1t8']),
+      defauts: getCheckboxGroup(['p1d1','p1d2','p1d3','p1d4','p1d5','p1d6','p1d7','p1d8']),
       value: getChecked('p1v'),
       conflict: getChecked('p1c'),
-      free: document.getElementById('p1_free').value.trim()
+      free: document.getElementById('p1_free').value.trim(),
+      defauts_free: document.getElementById('p1_defauts_free').value.trim()
     },
     p2: {
       name: document.getElementById('p2_name').value.trim(),
       origin: document.getElementById('p2_origin').value,
       age: document.getElementById('p2_age').value,
       traits: getCheckboxGroup(['p2t1','p2t2','p2t3','p2t4','p2t5','p2t6','p2t7','p2t8']),
+      defauts: getCheckboxGroup(['p2d1','p2d2','p2d3','p2d4','p2d5','p2d6','p2d7','p2d8']),
       value: getChecked('p2v'),
       conflict: getChecked('p2c'),
-      free: document.getElementById('p2_free').value.trim()
+      free: document.getElementById('p2_free').value.trim(),
+      defauts_free: document.getElementById('p2_defauts_free').value.trim()
     },
     relation: getChecked('rel'),
     duration: getChecked('dur'),
@@ -2550,6 +2752,8 @@ function buildPrompt(d) {
   if (p1.value) prompt += `Valeur principale : ${p1.value}\n`;
   if (p1.conflict) prompt += `Gestion des conflits : ${p1.conflict}\n`;
   if (p1.free) prompt += `Description libre : ${p1.free}\n`;
+  if (p1.defauts) prompt += `Défauts / zones d'ombre (cochés) : ${p1.defauts}\n`;
+  if (p1.defauts_free) prompt += `Autres défauts (libre) : ${p1.defauts_free}\n`;
 
   prompt += `\nPERSONNE 2 — Prénom : ${p2.name}\n`;
   if (p2.origin) prompt += `Origine du prénom : ${p2.origin}\n`;
@@ -2558,6 +2762,8 @@ function buildPrompt(d) {
   if (p2.value) prompt += `Valeur principale : ${p2.value}\n`;
   if (p2.conflict) prompt += `Gestion des conflits : ${p2.conflict}\n`;
   if (p2.free) prompt += `Description libre : ${p2.free}\n`;
+  if (p2.defauts) prompt += `Défauts / zones d'ombre (cochés) : ${p2.defauts}\n`;
+  if (p2.defauts_free) prompt += `Autres défauts (libre) : ${p2.defauts_free}\n`;
 
   prompt += `\nRELATION\n`;
   if (d.relation) prompt += `Nature : ${d.relation}\n`;
@@ -2589,21 +2795,35 @@ function displayResult(data, a) {
   grid.innerHTML = '';
 
   // Card 1 — Profil 1
+  const ombres1HTML = (a.profil1.ombres && a.profil1.ombres.length) ? `
+    <div class="ombres-wrap">
+      <div class="ombres-label">⚠ Zones d'ombre</div>
+      <div class="traits">${a.profil1.ombres.map(o=>`<span class="trait ombre">${o}</span>`).join('')}</div>
+    </div>` : '';
+
   grid.innerHTML += `
     <div class="rcard">
       <div class="rcard-icon">🌹</div>
       <div class="rcard-title">${data.p1.name} — Profil</div>
       <div class="traits">${(a.profil1.traits||[]).map(t=>`<span class="trait f">${t}</span>`).join('')}</div>
       <br><div class="rcard-body">${a.profil1.description||''}</div>
+      ${ombres1HTML}
     </div>`;
 
   // Card 2 — Profil 2
+  const ombres2HTML = (a.profil2.ombres && a.profil2.ombres.length) ? `
+    <div class="ombres-wrap">
+      <div class="ombres-label">⚠ Zones d'ombre</div>
+      <div class="traits">${a.profil2.ombres.map(o=>`<span class="trait ombre">${o}</span>`).join('')}</div>
+    </div>` : '';
+
   grid.innerHTML += `
     <div class="rcard">
       <div class="rcard-icon">🌿</div>
       <div class="rcard-title">${data.p2.name} — Profil</div>
       <div class="traits">${(a.profil2.traits||[]).map(t=>`<span class="trait o">${t}</span>`).join('')}</div>
       <br><div class="rcard-body">${a.profil2.description||''}</div>
+      ${ombres2HTML}
     </div>`;
 
   // Card 3 — Dimensions
@@ -2766,12 +2986,17 @@ function updateShareTexts() {
 }
 
 // ─── VOCALMIA BANNER ROTATION ───
-const vocMsgs = [
-  "Zéro appel manqué. Zéro effort. 24h/24.",
-  "Répond, comprend, qualifie — sans décrocher.",
-  "Opérationnel le jour même. 7 jours offerts.",
-  "Votre standard téléphonique, piloté par l'IA."
-];
+const VOC_MSGS = {
+  fr: ["Zéro appel manqué. Zéro effort. 24h/24.", "Répond, comprend, qualifie — sans décrocher.", "Opérationnel le jour même. 7 jours offerts.", "Votre standard téléphonique, piloté par l'IA."],
+  en: ["Zero missed calls. Zero effort. 24/7.", "Answers, understands, qualifies — automatically.", "Up and running the same day. 7 days free.", "Your phone line, powered by AI."],
+  es: ["Cero llamadas perdidas. Cero esfuerzo. 24/7.", "Responde, entiende, califica — automáticamente.", "Operativo el mismo día. 7 días gratis.", "Tu centralita telefónica, impulsada por IA."],
+  pt: ["Zero chamadas perdidas. Zero esforço. 24/7.", "Responde, compreende, qualifica — automaticamente.", "Operacional no mesmo dia. 7 dias grátis.", "A sua linha telefónica, gerida por IA."],
+  ar: ["صفر مكالمات فائتة. صفر جهد. 24/7.", "يرد، يفهم، يؤهل — تلقائياً.", "جاهز في نفس اليوم. 7 أيام مجاناً.", "خطك الهاتفي، مدعوم بالذكاء الاصطناعي."],
+  it: ["Zero chiamate perse. Zero sforzo. 24/7.", "Risponde, capisce, qualifica — automaticamente.", "Operativo lo stesso giorno. 7 giorni gratis.", "Il tuo centralino telefonico, gestito dall'IA."],
+  de: ["Null verpasste Anrufe. Null Aufwand. 24/7.", "Antwortet, versteht, qualifiziert — automatisch.", "Noch am selben Tag einsatzbereit. 7 Tage gratis.", "Ihre Telefonzentrale, KI-gesteuert."],
+  zh: ["零未接来电。零努力。24/7。", "接听、理解、筛选 — 自动完成。", "当天即可运营。免费7天。", "您的电话系统，由AI驱动。"]
+};
+let vocMsgs = VOC_MSGS['fr'];
 let vocIdx = 0, vocInterval;
 
 function startVocalmia() {
@@ -2806,6 +3031,8 @@ function resetAll() {
 
   // Reset form
   document.querySelectorAll('input[type="text"], textarea').forEach(i => i.value = '');
+  document.getElementById('p1_defauts_free').value = '';
+  document.getElementById('p2_defauts_free').value = '';
   document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
   document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(i => i.checked = false);
 
