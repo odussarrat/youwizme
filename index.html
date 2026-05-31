@@ -954,89 +954,117 @@
   /* ─── VOCALMIA BANNER ─── */
   .vocalmia-banner {
     display: none;
-    max-width: 580px;
-    margin: 44px auto 0;
-    border: 1px solid rgba(201,169,110,0.18);
-    background: rgba(255,255,255,0.02);
-    padding: 22px 28px;
-    animation: fadeUp 0.8s ease forwards;
+    max-width: 560px;
+    margin: 48px auto 0;
+    background: #0a0a0a;
+    border: 1px solid rgba(232,255,71,0.18);
+    padding: 0;
+    animation: fadeUp 0.9s ease forwards;
     position: relative;
     overflow: hidden;
   }
 
-  .vocalmia-banner::before {
+  .vocalmia-banner::after {
     content: '';
     position: absolute;
-    top: 0; left: 0;
-    width: 3px; height: 100%;
-    background: linear-gradient(to bottom, var(--gold), var(--rose));
-    opacity: 0.6;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 10% 50%, rgba(232,255,71,0.04) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .vocalmia-banner.active { display: block; }
 
-  .voc-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 8px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0.45;
-    margin-bottom: 10px;
+  .voc-inner {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
   }
 
-  .voc-inner {
+  /* Left accent bar with waveform */
+  .voc-wave {
+    width: 52px;
+    flex-shrink: 0;
+    background: rgba(232,255,71,0.06);
+    border-right: 1px solid rgba(232,255,71,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .voc-wave svg { display: block; }
+
+  .voc-body {
+    flex: 1;
+    padding: 18px 22px 18px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
   }
 
-  .voc-text { flex: 1; min-width: 180px; }
+  .voc-text { flex: 1; min-width: 160px; }
 
-  .voc-title {
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--cream);
-    margin-bottom: 5px;
+  .voc-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(232,255,71,0.4);
+    margin-bottom: 6px;
   }
 
-  .voc-title span { color: var(--gold); }
+  .voc-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: #f5f5f0;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .voc-title em {
+    color: #e8ff47;
+    font-style: normal;
+  }
 
   .voc-desc {
-    font-size: 15px;
-    font-style: italic;
-    color: var(--gold-light);
-    opacity: 0.65;
-    line-height: 1.6;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(245,245,240,0.5);
+    line-height: 1.5;
+    transition: opacity 0.35s ease;
+    letter-spacing: 0.2px;
   }
 
   .voc-cta {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    letter-spacing: 2px;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--dark);
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #0a0a0a;
+    background: #e8ff47;
     border: none;
-    padding: 11px 22px;
+    padding: 10px 20px;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
     white-space: nowrap;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     flex-shrink: 0;
+    align-self: center;
   }
 
   .voc-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(201,169,110,0.25);
+    background: #f5ff8a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(232,255,71,0.3);
   }
-
-  /* rotating messages */
-  .voc-desc { transition: opacity 0.4s; }
 
   /* Error */
   .error-msg {
@@ -1575,13 +1603,25 @@
 
     <!-- VOCALMIA BANNER -->
     <div class="vocalmia-banner active" id="vocalmia-banner">
-      <div class="voc-tag">Partenaire · Publicité</div>
       <div class="voc-inner">
-        <div class="voc-text">
-          <div class="voc-title"><span>Vocalmia</span> — Agents IA Vocaux</div>
-          <div class="voc-desc" id="voc-desc">Transformez vos appels en expériences intelligentes.</div>
+        <!-- Waveform icon -->
+        <div class="voc-wave">
+          <svg width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0"  y="12" width="3" height="8"  rx="1.5" fill="#e8ff47" opacity="0.7"/>
+            <rect x="5"  y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
+            <rect x="10" y="2"  width="3" height="28" rx="1.5" fill="#e8ff47"/>
+            <rect x="15" y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
+            <rect x="20" y="11" width="3" height="10" rx="1.5" fill="#e8ff47" opacity="0.7"/>
+          </svg>
         </div>
-        <a class="voc-cta" href="https://vocalmia.com" target="_blank" rel="noopener">Découvrir →</a>
+        <div class="voc-body">
+          <div class="voc-text">
+            <div class="voc-tag">Publicité · Partenaire</div>
+            <div class="voc-title">Vocal<em>mia</em> — Agent IA Téléphonique</div>
+            <div class="voc-desc" id="voc-desc">Zéro appel manqué. Zéro effort. 24h/24.</div>
+          </div>
+          <a class="voc-cta" href="https://vocalmia.com" target="_blank" rel="noopener">Découvrir</a>
+        </div>
       </div>
     </div>
   </div>
@@ -2700,10 +2740,10 @@ function updateShareTexts() {
 
 // ─── VOCALMIA BANNER ROTATION ───
 const vocMsgs = [
-  "Transformez vos appels en expériences intelligentes.",
-  "Un agent vocal IA disponible 24h/24 pour vos clients.",
-  "Automatisez vos appels entrants sans perdre en qualité.",
-  "L'IA vocale au service de votre relation client."
+  "Zéro appel manqué. Zéro effort. 24h/24.",
+  "Répond, comprend, qualifie — sans décrocher.",
+  "Opérationnel le jour même. 7 jours offerts.",
+  "Votre standard téléphonique, piloté par l'IA."
 ];
 let vocIdx = 0, vocInterval;
 
