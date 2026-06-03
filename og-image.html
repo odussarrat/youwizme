@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #1A1614;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap');
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 15% 20%, rgba(201,169,110,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 85% 80%, rgba(201,123,138,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(74,85,128,0.06) 0%, transparent 70%);
+  }
+
+  /* Scanlines */
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(201,169,110,0.015) 3px,
+      rgba(201,169,110,0.015) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* Outer border */
+  .border-outer {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(201,169,110,0.20);
+  }
+
+  .border-inner {
+    position: absolute;
+    inset: 28px;
+    border: 1px solid rgba(201,169,110,0.07);
+  }
+
+  /* Corner brackets */
+  .corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  .corner-tl { top: 14px; left: 14px; border-top: 1.5px solid rgba(201,169,110,0.5); border-left: 1.5px solid rgba(201,169,110,0.5); }
+  .corner-tr { top: 14px; right: 14px; border-top: 1.5px solid rgba(201,169,110,0.5); border-right: 1.5px solid rgba(201,169,110,0.5); }
+  .corner-bl { bottom: 14px; left: 14px; border-bottom: 1.5px solid rgba(201,169,110,0.5); border-left: 1.5px solid rgba(201,169,110,0.5); }
+  .corner-br { bottom: 14px; right: 14px; border-bottom: 1.5px solid rgba(201,169,110,0.5); border-right: 1.5px solid rgba(201,169,110,0.5); }
+
+  /* SVG visual */
+  .visual {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.55;
+  }
+
+  /* Content */
+  .content {
+    position: absolute;
+    left: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 580px;
+  }
+
+  .iea-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: #C9A96E;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 22px;
+  }
+
+  .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 52px;
+    letter-spacing: 4px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .logo .you { color: #C97B8A; }
+  .logo .wiz { color: #F5EFE6; }
+  .logo .me  { color: #C9A96E; }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+    font-weight: 300;
+    color: #E8D5A3;
+    opacity: 0.75;
+    line-height: 1.4;
+    margin-bottom: 36px;
+    max-width: 460px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .divider-line { flex: 0 0 60px; height: 1px; background: rgba(201,169,110,0.3); }
+  .divider-dot  { width: 4px; height: 4px; background: #C9A96E; border-radius: 50%; opacity: 0.6; }
+
+  .features {
+    display: flex;
+    gap: 32px;
+  }
+
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .feature-num {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: #C9A96E;
+    line-height: 1;
+  }
+
+  .feature-lbl {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #F5EFE6;
+    opacity: 0.4;
+    text-transform: uppercase;
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    position: absolute;
+    bottom: 36px;
+    left: 72px;
+    right: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .url {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #C9A96E;
+    opacity: 0.5;
+  }
+
+  .langs {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #F5EFE6;
+    opacity: 0.25;
+    text-transform: uppercase;
+  }
+
+  /* Score badge */
+  .score-badge {
+    position: absolute;
+    right: 390px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+  }
+
+  .score-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 68px;
+    font-weight: 300;
+    color: #E8D5A3;
+    line-height: 1;
+  }
+
+  .score-denom {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #C9A96E;
+    opacity: 0.5;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="scanlines"></div>
+<div class="border-outer"></div>
+<div class="border-inner"></div>
+<div class="corner corner-tl"></div>
+<div class="corner corner-tr"></div>
+<div class="corner corner-bl"></div>
+<div class="corner corner-br"></div>
+
+<!-- Orbital SVG visual -->
+<div class="visual">
+  <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Left orbit rings -->
+    <ellipse cx="100" cy="150" rx="55" ry="55" stroke="rgba(201,123,138,0.18)" stroke-width="1"/>
+    <ellipse cx="100" cy="150" rx="72" ry="72" stroke="rgba(201,123,138,0.08)" stroke-width="1"/>
+    <!-- Right orbit rings -->
+    <ellipse cx="200" cy="150" rx="55" ry="55" stroke="rgba(201,169,110,0.18)" stroke-width="1"/>
+    <ellipse cx="200" cy="150" rx="72" ry="72" stroke="rgba(201,169,110,0.08)" stroke-width="1"/>
+    <!-- Connection line -->
+    <line x1="100" y1="150" x2="200" y2="150" stroke="rgba(201,169,110,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+    <!-- Core nodes -->
+    <circle cx="100" cy="150" r="10" fill="rgba(201,123,138,0.15)" stroke="rgba(201,123,138,0.5)" stroke-width="1"/>
+    <circle cx="100" cy="150" r="4" fill="#C97B8A" opacity="0.8"/>
+    <circle cx="200" cy="150" r="10" fill="rgba(201,169,110,0.15)" stroke="rgba(201,169,110,0.5)" stroke-width="1"/>
+    <circle cx="200" cy="150" r="4" fill="#C9A96E" opacity="0.8"/>
+    <!-- Orbital dots left -->
+    <circle cx="100" cy="95" r="3" fill="#C97B8A" opacity="0.6"/>
+    <circle cx="55" cy="150" r="2" fill="#C97B8A" opacity="0.35"/>
+    <!-- Orbital dots right -->
+    <circle cx="200" cy="205" r="3" fill="#C9A96E" opacity="0.6"/>
+    <circle cx="245" cy="150" r="2" fill="#C9A96E" opacity="0.35"/>
+    <!-- Central diamond -->
+    <polygon points="150,132 162,150 150,168 138,150" fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.45)" stroke-width="1"/>
+    <polygon points="150,140 156,150 150,160 144,150" fill="rgba(201,169,110,0.25)"/>
+    <!-- IEA label -->
+    <text x="150" y="154" text-anchor="middle" font-family="serif" font-size="7" fill="rgba(201,169,110,0.7)" letter-spacing="2">IEA</text>
+    <!-- Pulse rings -->
+    <circle cx="100" cy="150" r="20" stroke="rgba(201,123,138,0.08)" stroke-width="1" fill="none"/>
+    <circle cx="200" cy="150" r="20" stroke="rgba(201,169,110,0.08)" stroke-width="1" fill="none"/>
+  </svg>
+</div>
+
+<!-- Main content -->
+<div class="content">
+  <div class="iea-label">Intelligence Émotionnelle Artificielle</div>
+
+  <div class="logo">
+    <span class="you">You</span><span class="wiz">Wiz</span><span class="me">Me</span>
+  </div>
+
+  <div class="tagline">
+    Découvrez la résonance émotionnelle<br>entre deux âmes
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="features">
+    <div class="feature-item">
+      <div class="feature-num">100</div>
+      <div class="feature-lbl">Score IEA</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">5</div>
+      <div class="feature-lbl">Dimensions</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">8</div>
+      <div class="feature-lbl">Langues</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">30s</div>
+      <div class="feature-lbl">Résultat</div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom bar -->
+<div class="bottom-bar">
+  <div class="url">YOUWIZME.COM</div>
+  <div class="langs">FR · EN · ES · PT · AR · IT · DE · 中文</div>
+</div>
+
+</body>
+</html>
