@@ -1585,6 +1585,7 @@
     <div class="btn-row">
       <button class="btn-next" onclick="goToStep(2)">Continuer →</button>
     </div>
+    <div class="ad-slot" id="ad-slot-q1"></div>
   </div>
 
   <!-- PANEL 2 — Second prénom -->
@@ -1695,6 +1696,7 @@
       <button class="btn-prev" onclick="goToStep(1)">← Retour</button>
       <button class="btn-next" onclick="goToStep(3)">Continuer →</button>
     </div>
+    <div class="ad-slot" id="ad-slot-q2"></div>
   </div>
 
   <!-- PANEL 3 — Lien -->
@@ -1747,6 +1749,7 @@
       <button class="btn-prev" onclick="goToStep(2)">← Retour</button>
       <button class="btn-next" id="analyzeBtn" onclick="launchAnalysis()">✦ Analyser notre compatibilité</button>
     </div>
+    <div class="ad-slot" id="ad-slot-q3"></div>
   </div>
 
   <!-- LOADING -->
@@ -2561,6 +2564,12 @@ function goToStep(n) {
 
   document.getElementById('panel' + n).classList.add('active');
   currentStep = n;
+
+  // Inject Vocalmia ad on the panel now becoming visible
+  if (n === 1) buildVocalmia('ad-slot-q1');
+  if (n === 2) buildVocalmia('ad-slot-q2');
+  if (n === 3) buildVocalmia('ad-slot-q3');
+
   document.getElementById('questionnaire').scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -2939,6 +2948,7 @@ function decodeResultFromURL() {
 // Check for shared result on load
 window.addEventListener('DOMContentLoaded', () => {
   // Init static ad slots (always visible)
+  buildVocalmia('ad-slot-q1');
   buildVocalmia('ad-slot-4');
   buildVocalmia('ad-slot-5');
   buildVocalmia('ad-slot-1');
@@ -3741,8 +3751,8 @@ function buildVocalmia(slotId) {
 }
 
 function refreshVocalmiaAds() {
-  ['ad-slot-1','ad-slot-2','ad-slot-3','ad-slot-4','ad-slot-5'].forEach(id => {
-    if (document.getElementById(id)) buildVocalmia(id);
+  ['ad-slot-1','ad-slot-2','ad-slot-3','ad-slot-4','ad-slot-5','ad-slot-q1','ad-slot-q2','ad-slot-q3'].forEach(id => {
+    if (document.getElementById(id) && document.getElementById(id).innerHTML.trim()) buildVocalmia(id);
   });
 }
 
