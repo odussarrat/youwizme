@@ -929,6 +929,104 @@
     border-top: 1px solid var(--border);
   }
 
+  /* ─── VOCALMIA AD SLOTS ─── */
+  .ad-slot {
+    width: 100%;
+    max-width: 680px;
+    margin: 28px auto;
+    display: block;
+  }
+
+  .vocalmia-banner {
+    background: #0a0a0a;
+    border: 1px solid rgba(232,255,71,0.25);
+    border-radius: 4px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .vocalmia-banner:hover { border-color: rgba(232,255,71,0.55); background: #111; }
+
+  .voc-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .voc-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #e8ff47;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .voc-sep {
+    width: 1px;
+    height: 28px;
+    background: rgba(232,255,71,0.2);
+    flex-shrink: 0;
+  }
+
+  .voc-msg {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .voc-waveform {
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  .voc-cta {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #e8ff47;
+    border: 1px solid rgba(232,255,71,0.4);
+    padding: 5px 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .vocalmia-banner:hover .voc-cta { background: rgba(232,255,71,0.1); }
+
+  .voc-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  @media(max-width:480px) {
+    .voc-sep { display: none; }
+    .voc-msg { display: none; }
+    .voc-cta { display: none; }
+  }
+
   footer p {
     font-size: 19px;
     font-style: italic;
@@ -1660,6 +1758,7 @@
     </div>
     <div class="loading-text" id="loadingText">L'IA explore vos âmes…</div>
     <div class="loading-sub">Analyse en cours · Patience</div>
+    <div class="ad-slot" id="ad-slot-1" style="margin-top:32px;"></div>
   </div>
 </section>
 
@@ -1698,6 +1797,7 @@
   </div>
 
   <!-- Cards -->
+  <div class="ad-slot" id="ad-slot-2"></div>
   <div class="result-grid" id="result-grid">
     <!-- filled dynamically -->
   </div>
@@ -1707,6 +1807,8 @@
     <div class="summary-note">Analyse symbolique & poétique · YouWizMe · Propulsé par l'IEA</div>
   </div>
 
+  <!-- AD SLOT 3 — après la citation poétique -->
+  <div class="ad-slot" id="ad-slot-3"></div>
 
   <!-- SHARE SECTION -->
   <div class="share-section" id="share-section">
@@ -1724,6 +1826,9 @@
     </div>
     <div class="copy-confirm" id="copy-confirm">✦ Lien copié !</div>
   </div>
+
+  <!-- AD SLOT 4 — avant le bouton reset -->
+  <div class="ad-slot" id="ad-slot-4"></div>
 
   <button class="btn-reset" onclick="resetAll()">↺ Nouvelle analyse</button>
 </section>
@@ -1757,6 +1862,9 @@
   </div>
   <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); opacity:0.35; text-transform:uppercase;">IEA™ · Intelligence Émotionnelle Artificielle · YouWizMe · 2026</div>
 </section>
+
+<!-- AD SLOT 5 — avant le footer, dans la section IEA -->
+<div class="ad-slot" id="ad-slot-5" style="padding: 0 24px;"></div>
 
 <footer>
   <div class="lang-selector" style="justify-content:center; margin-bottom:20px;">
@@ -2418,6 +2526,7 @@ function setLang(lang) {
   // Save lang preference
   try { localStorage.setItem('youwizme_lang', lang); } catch(e) {}
   updateShareTexts();
+  refreshVocalmiaAds();
 }
 
 // Override loadingMsgs to use current lang
@@ -2783,6 +2892,14 @@ function displayResult(data, a) {
   // Summary
   document.getElementById('res-summary').textContent = a.summary || '';
 
+  // Inject ad slot 3 (between cards and summary) & slot 4 (before share)
+  const adSlot3 = document.getElementById('ad-slot-3');
+  if (adSlot3) buildVocalmia('ad-slot-3');
+  const adSlot2 = document.getElementById('ad-slot-2');
+  if (adSlot2) buildVocalmia('ad-slot-2');
+  const adSlot1 = document.getElementById('ad-slot-1');
+  if (adSlot1) buildVocalmia('ad-slot-1');
+
   // Show result
   document.getElementById('result-section').style.display = 'block';
   document.getElementById('questionnaire').style.display = 'none';
@@ -2821,6 +2938,11 @@ function decodeResultFromURL() {
 
 // Check for shared result on load
 window.addEventListener('DOMContentLoaded', () => {
+  // Init static ad slots (always visible)
+  buildVocalmia('ad-slot-4');
+  buildVocalmia('ad-slot-5');
+  buildVocalmia('ad-slot-1');
+
   const shared = decodeResultFromURL();
   if (shared && shared.d && shared.a) {
     lastResultData = shared.d;
@@ -3573,6 +3695,56 @@ function shareWhatsApp() { openShareModal('result'); return false; }
 function shareFacebook() { openShareModal('site'); return false; }
 function shareTwitter() { openShareModal('result'); return false; }
 
+
+// ─── VOCALMIA AD BANNERS ───
+const VOC_MSGS = {
+  fr: ["L'IA vocale qui répond à vos clients 24h/24", "Transformez vos appels en conversations intelligentes", "Votre agent téléphonique IA — sans attente", "Automatisez vos appels avec l'IA vocale"],
+  en: ["The AI voice agent that answers your calls 24/7", "Turn every call into an intelligent conversation", "Your AI phone agent — zero wait time", "Automate your calls with voice AI"],
+  es: ["El agente de voz IA que responde 24/7", "Convierte tus llamadas en conversaciones inteligentes", "Tu agente telefónico IA — sin espera", "Automatiza tus llamadas con IA de voz"],
+  pt: ["O agente de voz IA que responde 24/7", "Transforme suas chamadas em conversas inteligentes", "Seu agente telefónico IA — sem espera", "Automatize suas chamadas com IA de voz"],
+  ar: ["وكيل الصوت الذكي يرد على مكالماتك 24/7", "حوّل مكالماتك إلى محادثات ذكية", "وكيلك الهاتفي الذكي — بدون انتظار", "أتمتة مكالماتك بالذكاء الاصطناعي الصوتي"],
+  it: ["L'agente vocale IA che risponde 24/7", "Trasforma le tue chiamate in conversazioni intelligenti", "Il tuo agente telefonico IA — senza attesa", "Automatizza le tue chiamate con l'IA vocale"],
+  de: ["Der KI-Sprachagent, der rund um die Uhr antwortet", "Verwandeln Sie Anrufe in intelligente Gespräche", "Ihr KI-Telefonagent — ohne Wartezeit", "Automatisieren Sie Anrufe mit Sprach-KI"],
+  zh: ["全天候响应的AI语音助手", "将每次通话转变为智能对话", "您的AI电话助手 — 零等待", "用语音AI自动化您的通话"]
+};
+
+let _vocIdx = 0;
+function buildVocalmia(slotId) {
+  const lang = typeof currentLang !== 'undefined' ? currentLang : 'fr';
+  const msgs = VOC_MSGS[lang] || VOC_MSGS.fr;
+  const msg = msgs[_vocIdx % msgs.length];
+  _vocIdx++;
+  const ctaLabels = { fr:'Découvrir', en:'Discover', es:'Descubrir', pt:'Descobrir', ar:'اكتشف', it:'Scopri', de:'Entdecken', zh:'了解' };
+  const adLabel = { fr:'Publicité', en:'Ad', es:'Publicidad', pt:'Publicidade', ar:'إعلان', it:'Pubblicità', de:'Werbung', zh:'广告' };
+  const el = document.getElementById(slotId);
+  if (!el) return;
+  el.innerHTML = `
+    <a class="vocalmia-banner" href="https://vocalmia.com" target="_blank" rel="noopener sponsored">
+      <div class="voc-left">
+        <span class="voc-logo">VOCALMIA</span>
+        <div class="voc-sep"></div>
+        <span class="voc-msg">${msg}</span>
+      </div>
+      <svg class="voc-waveform" width="40" height="24" viewBox="0 0 40 24" fill="none">
+        <rect x="0" y="10" width="3" height="4" fill="#e8ff47" rx="1"/>
+        <rect x="5" y="7" width="3" height="10" fill="#e8ff47" rx="1"/>
+        <rect x="10" y="4" width="3" height="16" fill="#e8ff47" rx="1"/>
+        <rect x="15" y="2" width="3" height="20" fill="#e8ff47" rx="1"/>
+        <rect x="20" y="5" width="3" height="14" fill="#e8ff47" rx="1"/>
+        <rect x="25" y="8" width="3" height="8" fill="#e8ff47" rx="1"/>
+        <rect x="30" y="6" width="3" height="12" fill="#e8ff47" rx="1"/>
+        <rect x="35" y="10" width="3" height="4" fill="#e8ff47" rx="1"/>
+      </svg>
+      <span class="voc-cta">${ctaLabels[lang]||'Découvrir'}</span>
+    </a>
+    <div class="voc-label">${adLabel[lang]||'Publicité'}</div>`;
+}
+
+function refreshVocalmiaAds() {
+  ['ad-slot-1','ad-slot-2','ad-slot-3','ad-slot-4','ad-slot-5'].forEach(id => {
+    if (document.getElementById(id)) buildVocalmia(id);
+  });
+}
 
 // ─── RESET ───
 function resetAll() {
