@@ -10,19 +10,8 @@ exports.handler = async function(event, context) {
 
   try {
     const body = JSON.parse(event.body);
-    const systemPrompt = body.system || `Tu es YouWizMe, un oracle poétique...`;
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
-        max_tokens: 1000,
-        system: systemPrompt || `Tu es YouWizMe, un oracle poétique et bienveillant spécialisé dans l'analyse de compatibilité entre personnes à partir de leurs prénoms et personnalités.
+    const systemText = body.system || `Tu es YouWizMe, un oracle poétique et bienveillant spécialisé dans l'analyse de compatibilité entre personnes à partir de leurs prénoms et personnalités.
 Tu réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, sans texte avant ou après.
 Le JSON doit avoir exactement cette structure :
 {
@@ -30,11 +19,13 @@ Le JSON doit avoir exactement cette structure :
   "verdict": "<phrase courte et poétique de 6-10 mots>",
   "profil1": {
     "traits": ["<trait1>", "<trait2>", "<trait3>", "<trait4>"],
-    "description": "<2-3 phrases sur la personnalité associée à ce prénom et aux infos fournies>"
+    "ombres": ["<défaut1>", "<défaut2>"],
+    "description": "<2-3 phrases sur la personnalité>"
   },
   "profil2": {
     "traits": ["<trait1>", "<trait2>", "<trait3>", "<trait4>"],
-    "description": "<2-3 phrases sur la personnalité associée à ce prénom et aux infos fournies>"
+    "ombres": ["<défaut1>", "<défaut2>"],
+    "description": "<2-3 phrases sur la personnalité>"
   },
   "dimensions": {
     "emotionnel": <0-100>,
@@ -49,7 +40,26 @@ Le JSON doit avoir exactement cette structure :
   "apport1": ["<ce que personne 1 apporte>", "<apport 2>"],
   "apport2": ["<ce que personne 2 apporte>", "<apport 2>"],
   "summary": "<citation poétique de 2-3 phrases qui résume leur union, belle et mémorable>"
-}`,
+}`;
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-beta': 'prompt-caching-2024-07-31'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 1000,
+        system: [
+          {
+            type: 'text',
+            text: systemText,
+            cache_control: { type: 'ephemeral' }
+          }
+        ],
         messages: [{ role: 'user', content: body.prompt }]
       })
     });
