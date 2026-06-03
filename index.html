@@ -5,6 +5,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YouWizMe — Compatibilité des Prénoms</title>
+
+<!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://youwizme.com/">
+<meta property="og:title"       content="YouWizMe — Compatibilité des Prénoms">
+<meta property="og:description" content="Découvrez la résonance émotionnelle entre deux âmes grâce à l'IEA — l'Intelligence Émotionnelle Artificielle. Gratuit · 8 langues · Résultat en 30 secondes.">
+<meta property="og:image"       content="https://youwizme.com/og-image.jpg">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt"   content="YouWizMe — Analyse de compatibilité par l'Intelligence Émotionnelle Artificielle">
+<meta property="og:locale"      content="fr_FR">
+<meta property="og:site_name"   content="YouWizMe">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:url"         content="https://youwizme.com/">
+<meta name="twitter:title"       content="YouWizMe — Compatibilité des Prénoms">
+<meta name="twitter:description" content="Découvrez la résonance émotionnelle entre deux âmes grâce à l'IEA. Gratuit · 8 langues · Résultat en 30 secondes.">
+<meta name="twitter:image"       content="https://youwizme.com/og-image.jpg">
+
+<!-- SEO -->
+<meta name="description" content="YouWizMe révèle la résonance émotionnelle entre deux personnes grâce à l'Intelligence Émotionnelle Artificielle (IEA™). Analyse de compatibilité gratuite en 8 langues.">
+<meta name="keywords"    content="compatibilité prénoms, analyse compatibilité, intelligence émotionnelle, test compatibilité couple, IEA">
+<link rel="canonical"    href="https://youwizme.com/">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -929,104 +953,6 @@
     border-top: 1px solid var(--border);
   }
 
-  /* ─── VOCALMIA AD SLOTS ─── */
-  .ad-slot {
-    width: 100%;
-    max-width: 680px;
-    margin: 28px auto;
-    display: block;
-  }
-
-  .vocalmia-banner {
-    background: #0a0a0a;
-    border: 1px solid rgba(232,255,71,0.25);
-    border-radius: 4px;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .vocalmia-banner:hover { border-color: rgba(232,255,71,0.55); background: #111; }
-
-  .voc-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .voc-logo {
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: #e8ff47;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .voc-sep {
-    width: 1px;
-    height: 28px;
-    background: rgba(232,255,71,0.2);
-    flex-shrink: 0;
-  }
-
-  .voc-msg {
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.65);
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .voc-waveform {
-    flex-shrink: 0;
-    opacity: 0.5;
-  }
-
-  .voc-cta {
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #e8ff47;
-    border: 1px solid rgba(232,255,71,0.4);
-    padding: 5px 12px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    text-transform: uppercase;
-    transition: background 0.2s;
-  }
-
-  .vocalmia-banner:hover .voc-cta { background: rgba(232,255,71,0.1); }
-
-  .voc-label {
-    font-family: 'Jost', sans-serif;
-    font-size: 9px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.2);
-    text-align: center;
-    margin-top: 4px;
-    text-transform: uppercase;
-  }
-
-  @media(max-width:480px) {
-    .voc-sep { display: none; }
-    .voc-msg { display: none; }
-    .voc-cta { display: none; }
-  }
-
   footer p {
     font-size: 19px;
     font-style: italic;
@@ -1585,7 +1511,6 @@
     <div class="btn-row">
       <button class="btn-next" onclick="goToStep(2)">Continuer →</button>
     </div>
-    <div class="ad-slot" id="ad-slot-q1"></div>
   </div>
 
   <!-- PANEL 2 — Second prénom -->
@@ -1696,7 +1621,6 @@
       <button class="btn-prev" onclick="goToStep(1)">← Retour</button>
       <button class="btn-next" onclick="goToStep(3)">Continuer →</button>
     </div>
-    <div class="ad-slot" id="ad-slot-q2"></div>
   </div>
 
   <!-- PANEL 3 — Lien -->
@@ -1749,7 +1673,6 @@
       <button class="btn-prev" onclick="goToStep(2)">← Retour</button>
       <button class="btn-next" id="analyzeBtn" onclick="launchAnalysis()">✦ Analyser notre compatibilité</button>
     </div>
-    <div class="ad-slot" id="ad-slot-q3"></div>
   </div>
 
   <!-- LOADING -->
@@ -1761,7 +1684,6 @@
     </div>
     <div class="loading-text" id="loadingText">L'IA explore vos âmes…</div>
     <div class="loading-sub">Analyse en cours · Patience</div>
-    <div class="ad-slot" id="ad-slot-1" style="margin-top:32px;"></div>
   </div>
 </section>
 
@@ -1800,7 +1722,6 @@
   </div>
 
   <!-- Cards -->
-  <div class="ad-slot" id="ad-slot-2"></div>
   <div class="result-grid" id="result-grid">
     <!-- filled dynamically -->
   </div>
@@ -1810,8 +1731,6 @@
     <div class="summary-note">Analyse symbolique & poétique · YouWizMe · Propulsé par l'IEA</div>
   </div>
 
-  <!-- AD SLOT 3 — après la citation poétique -->
-  <div class="ad-slot" id="ad-slot-3"></div>
 
   <!-- SHARE SECTION -->
   <div class="share-section" id="share-section">
@@ -1829,9 +1748,6 @@
     </div>
     <div class="copy-confirm" id="copy-confirm">✦ Lien copié !</div>
   </div>
-
-  <!-- AD SLOT 4 — avant le bouton reset -->
-  <div class="ad-slot" id="ad-slot-4"></div>
 
   <button class="btn-reset" onclick="resetAll()">↺ Nouvelle analyse</button>
 </section>
@@ -1864,115 +1780,6 @@
     </div>
   </div>
   <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); opacity:0.35; text-transform:uppercase;">IEA™ · Intelligence Émotionnelle Artificielle · YouWizMe · 2026</div>
-</section>
-
-<!-- AD SLOT 5 — avant le footer, dans la section IEA -->
-<div class="ad-slot" id="ad-slot-5" style="padding: 0 24px;"></div>
-
-<!-- EDITORIAL CONTENT — AdSense compliance / SEO -->
-<section id="editorial" style="position:relative; z-index:1; max-width:860px; margin:0 auto; padding:60px 24px 80px; border-top:1px solid rgba(201,169,110,0.12);">
-
-  <!-- How it works -->
-  <div style="text-align:center; margin-bottom:56px;">
-    <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; margin-bottom:20px; opacity:0.7;" data-i18n="editorial_how_label">Comment ça fonctionne</div>
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(26px,4vw,38px); font-weight:300; color:var(--cream); margin-bottom:16px;" data-i18n="editorial_how_title">Une analyse en trois étapes, gratuite et immédiate</h2>
-    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(15px,2vw,18px); font-style:italic; color:var(--gold-light); opacity:0.7; max-width:600px; margin:0 auto; line-height:1.8;" data-i18n="editorial_how_sub">YouWizMe combine l'analyse symbolique des prénoms, les patterns de personnalité et les dynamiques relationnelles pour révéler la résonance émotionnelle entre deux personnes.</p>
-  </div>
-
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:32px; margin-bottom:64px;">
-    <div style="border-left:1px solid rgba(201,123,138,0.3); padding-left:24px;">
-      <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--rose); margin-bottom:12px; opacity:0.8;" data-i18n="editorial_step1_label">Étape 1 — Les profils</div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--cream); margin-bottom:10px;" data-i18n="editorial_step1_title">Décrivez chaque personne</h3>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--gold-light); opacity:0.65; line-height:1.75;" data-i18n="editorial_step1_body">Renseignez le prénom, la tranche d'âge, les traits de caractère dominants, les valeurs essentielles et la façon de gérer les conflits. Ces éléments constituent la signature émotionnelle de chaque profil, que l'IEA analyse en profondeur.</p>
-    </div>
-    <div style="border-left:1px solid rgba(201,169,110,0.3); padding-left:24px;">
-      <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); margin-bottom:12px; opacity:0.8;" data-i18n="editorial_step2_label">Étape 2 — Le lien</div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--cream); margin-bottom:10px;" data-i18n="editorial_step2_title">Précisez votre relation</h3>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--gold-light); opacity:0.65; line-height:1.75;" data-i18n="editorial_step2_body">Couple amoureux, amis proches, collègues ou famille — la nature et la durée du lien orientent l'analyse. Les défis partagés et ce qui vous unit enrichissent le portrait relationnel que l'IA va construire.</p>
-    </div>
-    <div style="border-left:1px solid rgba(74,85,128,0.4); padding-left:24px;">
-      <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--indigo); margin-bottom:12px; opacity:0.9;" data-i18n="editorial_step3_label">Étape 3 — L'analyse</div>
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--cream); margin-bottom:10px;" data-i18n="editorial_step3_title">Recevez votre analyse complète</h3>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--gold-light); opacity:0.65; line-height:1.75;" data-i18n="editorial_step3_body">En moins de 30 secondes, l'IEA génère un score de compatibilité sur 100, cinq dimensions clés (émotionnel, intellectuel, valeurs, communication, complicité), les forces du duo, les points de vigilance et une citation poétique unique.</p>
-    </div>
-  </div>
-
-  <!-- Divider -->
-  <div style="display:flex; align-items:center; gap:16px; margin-bottom:56px; opacity:0.2;">
-    <div style="flex:1; height:1px; background:var(--gold);"></div>
-    <div style="color:var(--gold); font-size:10px;">✦</div>
-    <div style="flex:1; height:1px; background:var(--gold);"></div>
-  </div>
-
-  <!-- Example results -->
-  <div style="text-align:center; margin-bottom:40px;">
-    <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; margin-bottom:16px; opacity:0.7;" data-i18n="editorial_ex_label">Exemples d'analyses</div>
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(24px,3.5vw,34px); font-weight:300; color:var(--cream); margin-bottom:12px;" data-i18n="editorial_ex_title">Ce que révèle YouWizMe</h2>
-  </div>
-
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; margin-bottom:64px;">
-    <div style="background:rgba(201,169,110,0.04); border:1px solid rgba(201,169,110,0.12); border-radius:4px; padding:24px;">
-      <div style="font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; color:var(--rose); margin-bottom:8px;" data-i18n="editorial_ex1_names">Sophie & Thomas</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--gold); margin-bottom:4px;">87<span style="font-size:16px; opacity:0.5;">/100</span></div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:var(--gold-light); opacity:0.6; margin-bottom:16px;" data-i18n="editorial_ex1_verdict">« Deux flammes qui s'amplifient mutuellement »</div>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:14px; color:var(--cream); opacity:0.55; line-height:1.7;" data-i18n="editorial_ex1_body">Une complémentarité rare entre un profil intuitif et un esprit analytique. Leurs différences deviennent leur plus grande force à condition de cultiver l'écoute dans les moments de tension.</p>
-    </div>
-    <div style="background:rgba(201,169,110,0.04); border:1px solid rgba(201,169,110,0.12); border-radius:4px; padding:24px;">
-      <div style="font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; color:var(--rose); margin-bottom:8px;" data-i18n="editorial_ex2_names">Marie & Lucas</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--gold); margin-bottom:4px;">64<span style="font-size:16px; opacity:0.5;">/100</span></div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:var(--gold-light); opacity:0.6; margin-bottom:16px;" data-i18n="editorial_ex2_verdict">« Une belle promesse à apprivoiser ensemble »</div>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:14px; color:var(--cream); opacity:0.55; line-height:1.7;" data-i18n="editorial_ex2_body">Un lien authentique mais des modes de communication très différents. La complicité est réelle, la communication demande du travail. L'honnêteté mutuelle sera la clé de leur évolution.</p>
-    </div>
-    <div style="background:rgba(201,169,110,0.04); border:1px solid rgba(201,169,110,0.12); border-radius:4px; padding:24px;">
-      <div style="font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; color:var(--rose); margin-bottom:8px;" data-i18n="editorial_ex3_names">Emma & Noah</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--gold); margin-bottom:4px;">93<span style="font-size:16px; opacity:0.5;">/100</span></div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; color:var(--gold-light); opacity:0.6; margin-bottom:16px;" data-i18n="editorial_ex3_verdict">« Deux âmes taillées dans le même mystère »</div>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:14px; color:var(--cream); opacity:0.55; line-height:1.7;" data-i18n="editorial_ex3_body">Une résonance émotionnelle exceptionnelle portée par des valeurs profondes communes. Ce duo transcende la compatibilité ordinaire — une union rare où chacun révèle le meilleur de l'autre.</p>
-    </div>
-  </div>
-
-  <!-- Divider -->
-  <div style="display:flex; align-items:center; gap:16px; margin-bottom:56px; opacity:0.2;">
-    <div style="flex:1; height:1px; background:var(--gold);"></div>
-    <div style="color:var(--gold); font-size:10px;">✦</div>
-    <div style="flex:1; height:1px; background:var(--gold);"></div>
-  </div>
-
-  <!-- FAQ -->
-  <div style="text-align:center; margin-bottom:40px;">
-    <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; margin-bottom:16px; opacity:0.7;" data-i18n="editorial_faq_label">Questions fréquentes</div>
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(24px,3.5vw,34px); font-weight:300; color:var(--cream);" data-i18n="editorial_faq_title">Tout ce que vous voulez savoir</h2>
-  </div>
-
-  <div style="display:flex; flex-direction:column; gap:0; max-width:720px; margin:0 auto;">
-
-    <div style="border-bottom:1px solid rgba(201,169,110,0.12); padding:24px 0;">
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; color:var(--gold-light); margin-bottom:10px;" data-i18n="faq_q1">L'analyse est-elle vraiment gratuite ?</h3>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.6; line-height:1.75;" data-i18n="faq_a1">Oui, totalement et sans limitation. YouWizMe est gratuit, sans inscription, sans abonnement et sans publicité intrusive. Chaque analyse est générée à la demande par notre Intelligence Émotionnelle Artificielle (IEA™), disponible en 8 langues.</p>
-    </div>
-
-    <div style="border-bottom:1px solid rgba(201,169,110,0.12); padding:24px 0;">
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; color:var(--gold-light); margin-bottom:10px;" data-i18n="faq_q2">Comment est calculé le score de compatibilité ?</h3>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.6; line-height:1.75;" data-i18n="faq_a2">Le score de 0 à 100 est calculé par l'IEA en croisant cinq dimensions : la résonance émotionnelle, la compatibilité intellectuelle, l'alignement des valeurs, la complémentarité dans la communication et la profondeur de la complicité possible. Chaque dimension est pondérée selon le profil et la nature de la relation.</p>
-    </div>
-
-    <div style="border-bottom:1px solid rgba(201,169,110,0.12); padding:24px 0;">
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; color:var(--gold-light); margin-bottom:10px;" data-i18n="faq_q3">Mes données personnelles sont-elles conservées ?</h3>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.6; line-height:1.75;" data-i18n="faq_a3">Non. YouWizMe ne stocke aucune donnée sur ses serveurs. Les prénoms et informations saisis sont transmis à l'API d'analyse et immédiatement supprimés après génération du résultat. Vos réponses sont sauvegardées uniquement dans votre navigateur (localStorage) pour vous éviter de les ressaisir.</p>
-    </div>
-
-    <div style="border-bottom:1px solid rgba(201,169,110,0.12); padding:24px 0;">
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; color:var(--gold-light); margin-bottom:10px;" data-i18n="faq_q4">Peut-on analyser une relation d'amitié ou professionnelle ?</h3>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.6; line-height:1.75;" data-i18n="faq_a4">Absolument. YouWizMe analyse toutes les formes de liens humains : couples amoureux, amis proches, membres d'une famille, collègues ou personnes que vous venez de rencontrer. La nature de la relation est prise en compte pour adapter l'analyse et les conseils proposés.</p>
-    </div>
-
-    <div style="padding:24px 0;">
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; color:var(--gold-light); margin-bottom:10px;" data-i18n="faq_q5">Qu'est-ce que l'Intelligence Émotionnelle Artificielle (IEA™) ?</h3>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.6; line-height:1.75;" data-i18n="faq_a5">L'IEA est un concept inédit développé par YouWizMe en 2026. Là où l'intelligence artificielle traditionnelle traite des données factuelles, l'IEA analyse les résonances émotionnelles, les patterns de personnalité et les dynamiques relationnelles invisibles. Elle va au-delà de la logique pour révéler ce que le cœur perçoit mais que les mots peinent à exprimer.</p>
-    </div>
-
-  </div>
-
 </section>
 
 <footer>
@@ -2635,7 +2442,6 @@ function setLang(lang) {
   // Save lang preference
   try { localStorage.setItem('youwizme_lang', lang); } catch(e) {}
   updateShareTexts();
-  refreshVocalmiaAds();
 }
 
 // Override loadingMsgs to use current lang
@@ -2670,12 +2476,6 @@ function goToStep(n) {
 
   document.getElementById('panel' + n).classList.add('active');
   currentStep = n;
-
-  // Inject Vocalmia ad on the panel now becoming visible
-  if (n === 1) buildVocalmia('ad-slot-q1');
-  if (n === 2) buildVocalmia('ad-slot-q2');
-  if (n === 3) buildVocalmia('ad-slot-q3');
-
   document.getElementById('questionnaire').scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -3007,14 +2807,6 @@ function displayResult(data, a) {
   // Summary
   document.getElementById('res-summary').textContent = a.summary || '';
 
-  // Inject ad slot 3 (between cards and summary) & slot 4 (before share)
-  const adSlot3 = document.getElementById('ad-slot-3');
-  if (adSlot3) buildVocalmia('ad-slot-3');
-  const adSlot2 = document.getElementById('ad-slot-2');
-  if (adSlot2) buildVocalmia('ad-slot-2');
-  const adSlot1 = document.getElementById('ad-slot-1');
-  if (adSlot1) buildVocalmia('ad-slot-1');
-
   // Show result
   document.getElementById('result-section').style.display = 'block';
   document.getElementById('questionnaire').style.display = 'none';
@@ -3053,12 +2845,6 @@ function decodeResultFromURL() {
 
 // Check for shared result on load
 window.addEventListener('DOMContentLoaded', () => {
-  // Init static ad slots (always visible)
-  buildVocalmia('ad-slot-q1');
-  buildVocalmia('ad-slot-4');
-  buildVocalmia('ad-slot-5');
-  buildVocalmia('ad-slot-1');
-
   const shared = decodeResultFromURL();
   if (shared && shared.d && shared.a) {
     lastResultData = shared.d;
@@ -3811,56 +3597,6 @@ function shareWhatsApp() { openShareModal('result'); return false; }
 function shareFacebook() { openShareModal('site'); return false; }
 function shareTwitter() { openShareModal('result'); return false; }
 
-
-// ─── VOCALMIA AD BANNERS ───
-const VOC_MSGS = {
-  fr: ["L'IA vocale qui répond à vos clients 24h/24", "Transformez vos appels en conversations intelligentes", "Votre agent téléphonique IA — sans attente", "Automatisez vos appels avec l'IA vocale"],
-  en: ["The AI voice agent that answers your calls 24/7", "Turn every call into an intelligent conversation", "Your AI phone agent — zero wait time", "Automate your calls with voice AI"],
-  es: ["El agente de voz IA que responde 24/7", "Convierte tus llamadas en conversaciones inteligentes", "Tu agente telefónico IA — sin espera", "Automatiza tus llamadas con IA de voz"],
-  pt: ["O agente de voz IA que responde 24/7", "Transforme suas chamadas em conversas inteligentes", "Seu agente telefónico IA — sem espera", "Automatize suas chamadas com IA de voz"],
-  ar: ["وكيل الصوت الذكي يرد على مكالماتك 24/7", "حوّل مكالماتك إلى محادثات ذكية", "وكيلك الهاتفي الذكي — بدون انتظار", "أتمتة مكالماتك بالذكاء الاصطناعي الصوتي"],
-  it: ["L'agente vocale IA che risponde 24/7", "Trasforma le tue chiamate in conversazioni intelligenti", "Il tuo agente telefonico IA — senza attesa", "Automatizza le tue chiamate con l'IA vocale"],
-  de: ["Der KI-Sprachagent, der rund um die Uhr antwortet", "Verwandeln Sie Anrufe in intelligente Gespräche", "Ihr KI-Telefonagent — ohne Wartezeit", "Automatisieren Sie Anrufe mit Sprach-KI"],
-  zh: ["全天候响应的AI语音助手", "将每次通话转变为智能对话", "您的AI电话助手 — 零等待", "用语音AI自动化您的通话"]
-};
-
-let _vocIdx = 0;
-function buildVocalmia(slotId) {
-  const lang = typeof currentLang !== 'undefined' ? currentLang : 'fr';
-  const msgs = VOC_MSGS[lang] || VOC_MSGS.fr;
-  const msg = msgs[_vocIdx % msgs.length];
-  _vocIdx++;
-  const ctaLabels = { fr:'Découvrir', en:'Discover', es:'Descubrir', pt:'Descobrir', ar:'اكتشف', it:'Scopri', de:'Entdecken', zh:'了解' };
-  const adLabel = { fr:'Publicité', en:'Ad', es:'Publicidad', pt:'Publicidade', ar:'إعلان', it:'Pubblicità', de:'Werbung', zh:'广告' };
-  const el = document.getElementById(slotId);
-  if (!el) return;
-  el.innerHTML = `
-    <a class="vocalmia-banner" href="https://vocalmia.com" target="_blank" rel="noopener sponsored">
-      <div class="voc-left">
-        <span class="voc-logo">VOCALMIA</span>
-        <div class="voc-sep"></div>
-        <span class="voc-msg">${msg}</span>
-      </div>
-      <svg class="voc-waveform" width="40" height="24" viewBox="0 0 40 24" fill="none">
-        <rect x="0" y="10" width="3" height="4" fill="#e8ff47" rx="1"/>
-        <rect x="5" y="7" width="3" height="10" fill="#e8ff47" rx="1"/>
-        <rect x="10" y="4" width="3" height="16" fill="#e8ff47" rx="1"/>
-        <rect x="15" y="2" width="3" height="20" fill="#e8ff47" rx="1"/>
-        <rect x="20" y="5" width="3" height="14" fill="#e8ff47" rx="1"/>
-        <rect x="25" y="8" width="3" height="8" fill="#e8ff47" rx="1"/>
-        <rect x="30" y="6" width="3" height="12" fill="#e8ff47" rx="1"/>
-        <rect x="35" y="10" width="3" height="4" fill="#e8ff47" rx="1"/>
-      </svg>
-      <span class="voc-cta">${ctaLabels[lang]||'Découvrir'}</span>
-    </a>
-    <div class="voc-label">${adLabel[lang]||'Publicité'}</div>`;
-}
-
-function refreshVocalmiaAds() {
-  ['ad-slot-1','ad-slot-2','ad-slot-3','ad-slot-4','ad-slot-5','ad-slot-q1','ad-slot-q2','ad-slot-q3'].forEach(id => {
-    if (document.getElementById(id) && document.getElementById(id).innerHTML.trim()) buildVocalmia(id);
-  });
-}
 
 // ─── RESET ───
 function resetAll() {
