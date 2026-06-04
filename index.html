@@ -6,29 +6,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YouWizMe — Compatibilité des Prénoms</title>
 
-<!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
-<meta property="og:type"        content="website">
-<meta property="og:url"         content="https://youwizme.com/">
-<meta property="og:title"       content="YouWizMe — Compatibilité des Prénoms">
-<meta property="og:description" content="Découvrez la résonance émotionnelle entre deux âmes grâce à l'IEA — l'Intelligence Émotionnelle Artificielle. Gratuit · 8 langues · Résultat en 30 secondes.">
-<meta property="og:image"       content="https://youwizme.com/og-image.jpg">
-<meta property="og:image:width"  content="1200">
+<!-- SEO -->
+<meta name="description" content="Découvrez la résonance émotionnelle entre deux âmes grâce à l'Intelligence Émotionnelle Artificielle. Analyse de compatibilité gratuite · 8 langues · Résultat en 30 secondes.">
+<meta name="keywords" content="compatibilité prénom, analyse compatibilité, intelligence émotionnelle artificielle, IEA, YouWizMe">
+<meta name="author" content="YouWizMe">
+<link rel="canonical" href="https://youwizme.com">
+<meta name="google-site-verification" content="9R1HXA7lcs-GQh2sclNJxshindZMZfjyleka3XfYmm0">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://youwizme.com">
+<meta property="og:title" content="YouWizMe — Intelligence Émotionnelle Artificielle">
+<meta property="og:description" content="Vos prénoms en disent plus long que vous ne le pensez. Découvrez votre résonance émotionnelle en 30 secondes. Gratuit · 8 langues.">
+<meta property="og:image" content="https://youwizme.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt"   content="YouWizMe — Analyse de compatibilité par l'Intelligence Émotionnelle Artificielle">
-<meta property="og:locale"      content="fr_FR">
-<meta property="og:site_name"   content="YouWizMe">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="YouWizMe">
 
 <!-- Twitter / X Card -->
-<meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:url"         content="https://youwizme.com/">
-<meta name="twitter:title"       content="YouWizMe — Compatibilité des Prénoms">
-<meta name="twitter:description" content="Découvrez la résonance émotionnelle entre deux âmes grâce à l'IEA. Gratuit · 8 langues · Résultat en 30 secondes.">
-<meta name="twitter:image"       content="https://youwizme.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://youwizme.com">
+<meta name="twitter:title" content="YouWizMe — Intelligence Émotionnelle Artificielle">
+<meta name="twitter:description" content="Vos prénoms en disent plus long que vous ne le pensez. Découvrez votre résonance émotionnelle en 30 secondes.">
+<meta name="twitter:image" content="https://youwizme.com/og-image.jpg">
 
-<!-- SEO -->
-<meta name="description" content="YouWizMe révèle la résonance émotionnelle entre deux personnes grâce à l'Intelligence Émotionnelle Artificielle (IEA™). Analyse de compatibilité gratuite en 8 langues.">
-<meta name="keywords"    content="compatibilité prénoms, analyse compatibilité, intelligence émotionnelle, test compatibilité couple, IEA">
-<link rel="canonical"    href="https://youwizme.com/">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9722521927056719" crossorigin="anonymous"></script>
+
 <!-- Google Analytics GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JD80PNF5Q"></script>
 <script>
@@ -984,6 +989,184 @@
     50% { opacity: 1; transform: rotate(45deg) scale(1.2); }
   }
 
+  /* ─── VOCALMIA BANNER ─── */
+  .vocalmia-banner {
+    display: none;
+    max-width: 560px;
+    margin: 48px auto 0;
+    background: #0a0a0a;
+    border: 1px solid rgba(232,255,71,0.18);
+    padding: 0;
+    animation: fadeUp 0.9s ease forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vocalmia-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 10% 50%, rgba(232,255,71,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .vocalmia-banner.active { display: block; }
+
+  .voc-inner {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* Left accent bar with waveform */
+  .voc-wave {
+    width: 52px;
+    flex-shrink: 0;
+    background: rgba(232,255,71,0.06);
+    border-right: 1px solid rgba(232,255,71,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .voc-wave svg { display: block; }
+
+  .voc-body {
+    flex: 1;
+    padding: 18px 22px 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .voc-text { flex: 1; min-width: 160px; }
+
+  .voc-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(232,255,71,0.4);
+    margin-bottom: 6px;
+  }
+
+  .voc-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: #f5f5f0;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .voc-title em {
+    color: #e8ff47;
+    font-style: normal;
+  }
+
+  .voc-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(245,245,240,0.5);
+    line-height: 1.5;
+    transition: opacity 0.35s ease;
+    letter-spacing: 0.2px;
+  }
+
+  .voc-cta {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    background: #e8ff47;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .voc-cta:hover {
+    background: #f5ff8a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(232,255,71,0.3);
+  }
+
+  /* ─── OMBRES / DÉFAUTS ─── */
+  .defauts-section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(201,123,138,0.18);
+  }
+
+  .defauts-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+    opacity: 0.7;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .defauts-label::before {
+    content: '⚠';
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  .check-btn.dark label {
+    border-color: rgba(201,123,138,0.25);
+    color: var(--rose-light);
+    opacity: 0.7;
+  }
+
+  .check-btn.dark input:checked + label {
+    border-color: var(--rose);
+    color: var(--rose-light);
+    background: rgba(201,123,138,0.08);
+    opacity: 1;
+  }
+
+  /* Ombres in result cards */
+  .ombres-wrap {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(201,123,138,0.15);
+  }
+
+  .ombres-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--rose);
+    opacity: 0.6;
+    margin-bottom: 7px;
+  }
+
+  .trait.ombre {
+    border-color: rgba(201,123,138,0.3);
+    color: var(--rose-light);
+    opacity: 0.75;
+    font-size: 14px;
+  }
+
   /* Error */
   .error-msg {
     color: var(--rose-light);
@@ -1090,148 +1273,171 @@
   .share-btn.copy { border-color: rgba(201,169,110,0.4); color: var(--gold); }
   .share-btn.copy:hover { background: rgba(201,169,110,0.08); box-shadow: 0 6px 20px rgba(201,169,110,0.15); }
 
-  .trait.shadow { border-color: rgba(180,80,80,0.35); color: #D9A0A0; font-style: italic; }
+  .copy-confirm {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+    height: 20px;
+  }
+
+  .copy-confirm.show { opacity: 1; }
+
 
   /* ─── SHARE MODAL ─── */
   .share-modal-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(26,22,20,0.88);
+    background: rgba(26,22,20,0.85);
     backdrop-filter: blur(8px);
     z-index: 200;
     align-items: center;
     justify-content: center;
     padding: 20px;
   }
+
   .share-modal-overlay.active { display: flex; }
 
   .share-modal {
     background: var(--dark2);
     border: 1px solid var(--border);
-    max-width: 520px;
+    padding: 36px 30px 28px;
+    max-width: 480px;
     width: 100%;
-    padding: 40px 36px;
     position: relative;
     animation: fadeUp 0.35s ease forwards;
   }
 
   .share-modal-close {
     position: absolute;
-    top: 16px; right: 20px;
+    top: 14px; right: 18px;
     font-family: 'Cinzel', serif;
-    font-size: 18px;
+    font-size: 11px;
+    letter-spacing: 2px;
     color: var(--gold-light);
     opacity: 0.4;
     background: none;
     border: none;
     cursor: pointer;
+    text-transform: uppercase;
     transition: opacity 0.2s;
   }
+
   .share-modal-close:hover { opacity: 1; }
 
   .share-modal-title {
     font-family: 'Cinzel', serif;
     font-size: 13px;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     color: var(--gold);
     text-transform: uppercase;
     margin-bottom: 6px;
   }
 
-  .share-modal-sub {
-    font-size: 16px;
+  .share-modal-subtitle {
+    font-size: 15px;
     font-style: italic;
     color: var(--gold-light);
     opacity: 0.6;
-    margin-bottom: 28px;
-    line-height: 1.5;
-  }
-
-  .share-tabs {
-    display: flex;
-    gap: 0;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .share-tab {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    opacity: 0.45;
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-bottom: -1px;
-  }
-  .share-tab.active { opacity: 1; color: var(--gold); border-bottom-color: var(--gold); }
-
-  .share-tab-content { display: none; }
-  .share-tab-content.active { display: block; }
-
-  .share-preview {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    padding: 16px 18px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-style: italic;
-    color: var(--cream);
-    opacity: 0.85;
-    line-height: 1.7;
-    white-space: pre-wrap;
-    word-break: break-all;
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
+    margin-bottom: 22px;
   }
 
   .share-modal-btns {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
   }
 
   .share-modal-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     font-family: 'Jost', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 300;
-    letter-spacing: 1.5px;
-    padding: 11px 18px;
+    letter-spacing: 1px;
+    padding: 12px 18px;
     border: 1px solid var(--border);
     background: transparent;
     color: var(--cream);
     cursor: pointer;
     text-decoration: none;
-    transition: all 0.22s;
+    transition: all 0.2s;
   }
-  .share-modal-btn:hover { transform: translateY(-1px); }
-  .share-modal-btn.wa { border-color: rgba(37,211,102,0.4); color: #25D366; }
-  .share-modal-btn.wa:hover { background: rgba(37,211,102,0.08); }
-  .share-modal-btn.fb { border-color: rgba(24,119,242,0.4); color: #1877F2; }
-  .share-modal-btn.fb:hover { background: rgba(24,119,242,0.08); }
-  .share-modal-btn.tw { border-color: rgba(29,155,240,0.4); color: #1D9BF0; }
-  .share-modal-btn.tw:hover { background: rgba(29,155,240,0.08); }
-  .share-modal-btn.cp { border-color: rgba(201,169,110,0.4); color: var(--gold); }
-  .share-modal-btn.cp:hover { background: rgba(201,169,110,0.08); }
-  .share-modal-btn.sms { border-color: rgba(245,239,230,0.2); color: var(--cream); }
-  .share-modal-btn.sms:hover { background: rgba(255,255,255,0.05); }
-  .share-modal-btn.email { border-color: rgba(245,239,230,0.2); color: var(--cream); }
-  .share-modal-btn.email:hover { background: rgba(255,255,255,0.05); }
 
-  .share-copy-confirm {
-    font-size: 13px; font-style: italic; color: var(--gold);
-    opacity: 0; transition: opacity 0.3s; height: 20px; margin-top: 10px; text-align: center;
+  .share-modal-btn:hover { transform: translateX(4px); }
+  .share-modal-btn.wa  { border-color: rgba(37,211,102,0.35); color: #25D366; }
+  .share-modal-btn.wa:hover  { background: rgba(37,211,102,0.06); }
+  .share-modal-btn.fb  { border-color: rgba(24,119,242,0.35); color: #1877F2; }
+  .share-modal-btn.fb:hover  { background: rgba(24,119,242,0.06); }
+  .share-modal-btn.tw  { border-color: rgba(29,155,240,0.35); color: #1D9BF0; }
+  .share-modal-btn.tw:hover  { background: rgba(29,155,240,0.06); }
+  .share-modal-btn.sms { border-color: rgba(201,169,110,0.35); color: var(--gold); }
+  .share-modal-btn.sms:hover { background: rgba(201,169,110,0.06); }
+  .share-modal-btn.email { border-color: rgba(245,239,230,0.2); color: var(--cream); }
+  .share-modal-btn.email:hover { background: rgba(245,239,230,0.04); }
+  .share-modal-btn.cp  { border-color: rgba(201,169,110,0.35); color: var(--gold); }
+  .share-modal-btn.cp:hover  { background: rgba(201,169,110,0.06); }
+
+  .modal-copy-confirm {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+    margin-top: 8px;
+    height: 18px;
   }
-  .share-copy-confirm.show { opacity: 1; }
+
+  .modal-copy-confirm.show { opacity: 1; }
+
+  /* Two main share trigger buttons */
+  .share-trigger-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 16px 0 0;
+  }
+
+  .share-trigger-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 13px 26px;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    border: none;
+  }
+
+  .share-trigger-btn.result {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark);
+  }
+
+  .share-trigger-btn.result:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(201,169,110,0.3);
+  }
+
+  .share-trigger-btn.site {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--gold-light);
+  }
+
+  .share-trigger-btn.site:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
 
 </style>
 </head>
@@ -1489,29 +1695,23 @@
       </div>
 
       <div class="form-field full">
-        <label>Ses défauts principaux (optionnel)</label>
-        <div class="check-group" id="p1_defauts">
-          <div class="check-btn"><input type="checkbox" id="p1d1" value="Jaloux·se"><label for="p1d1">Jaloux·se</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d2" value="Impulsif·ve"><label for="p1d2">Impulsif·ve</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d3" value="Possessif·ve"><label for="p1d3">Possessif·ve</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d4" value="Têtu·e"><label for="p1d4">Têtu·e</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d5" value="Froid·e"><label for="p1d5">Froid·e</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d6" value="Anxieux·se"><label for="p1d6">Anxieux·se</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d7" value="Manipulateur·rice"><label for="p1d7">Manipulateur·rice</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d8" value="Trop sensible"><label for="p1d8">Trop sensible</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d9" value="Égoïste"><label for="p1d9">Égoïste</label></div>
-          <div class="check-btn"><input type="checkbox" id="p1d10" value="Indécis·e"><label for="p1d10">Indécis·e</label></div>
-        </div>
-      </div>
-
-      <div class="form-field full">
-        <label>Autres défauts en quelques mots (optionnel)</label>
-        <textarea id="p1_defauts_free" placeholder="Ex : procrastine beaucoup, a du mal à s'excuser…"></textarea>
-      </div>
-
-      <div class="form-field full">
         <label>En quelques mots, décrivez cette personne (optionnel)</label>
         <textarea id="p1_free" placeholder="Une phrase libre sur sa personnalité, ses passions, ce qui la rend unique…"></textarea>
+      </div>
+
+      <div class="form-field full defauts-section">
+        <div class="defauts-label">Ses défauts / zones d'ombre</div>
+        <div class="check-group" id="p1_defauts">
+          <div class="check-btn dark"><input type="checkbox" id="p1d1" value="Jaloux·se"><label for="p1d1">Jaloux·se</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d2" value="Impulsif·ve"><label for="p1d2">Impulsif·ve</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d3" value="Possessif·ve"><label for="p1d3">Possessif·ve</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d4" value="Têtu·e"><label for="p1d4">Têtu·e</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d5" value="Anxieux·se"><label for="p1d5">Anxieux·se</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d6" value="Distant·e"><label for="p1d6">Distant·e</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d7" value="Colérique"><label for="p1d7">Colérique</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p1d8" value="Manipulateur·rice"><label for="p1d8">Manipulateur·rice</label></div>
+        </div>
+        <textarea id="p1_defauts_free" placeholder="Autres défauts, zones d'ombre… (optionnel)" style="margin-top:10px;"></textarea>
       </div>
     </div>
 
@@ -1598,29 +1798,23 @@
       </div>
 
       <div class="form-field full">
-        <label>Ses défauts principaux (optionnel)</label>
-        <div class="check-group" id="p2_defauts">
-          <div class="check-btn"><input type="checkbox" id="p2d1" value="Jaloux·se"><label for="p2d1">Jaloux·se</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d2" value="Impulsif·ve"><label for="p2d2">Impulsif·ve</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d3" value="Possessif·ve"><label for="p2d3">Possessif·ve</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d4" value="Têtu·e"><label for="p2d4">Têtu·e</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d5" value="Froid·e"><label for="p2d5">Froid·e</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d6" value="Anxieux·se"><label for="p2d6">Anxieux·se</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d7" value="Manipulateur·rice"><label for="p2d7">Manipulateur·rice</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d8" value="Trop sensible"><label for="p2d8">Trop sensible</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d9" value="Égoïste"><label for="p2d9">Égoïste</label></div>
-          <div class="check-btn"><input type="checkbox" id="p2d10" value="Indécis·e"><label for="p2d10">Indécis·e</label></div>
-        </div>
-      </div>
-
-      <div class="form-field full">
-        <label>Autres défauts en quelques mots (optionnel)</label>
-        <textarea id="p2_defauts_free" placeholder="Ex : procrastine beaucoup, a du mal à s'excuser…"></textarea>
-      </div>
-
-      <div class="form-field full">
         <label>En quelques mots, décrivez cette personne (optionnel)</label>
         <textarea id="p2_free" placeholder="Une phrase libre sur sa personnalité, ses passions, ce qui la rend unique…"></textarea>
+      </div>
+
+      <div class="form-field full defauts-section">
+        <div class="defauts-label">Ses défauts / zones d'ombre</div>
+        <div class="check-group" id="p2_defauts">
+          <div class="check-btn dark"><input type="checkbox" id="p2d1" value="Jaloux·se"><label for="p2d1">Jaloux·se</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d2" value="Impulsif·ve"><label for="p2d2">Impulsif·ve</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d3" value="Possessif·ve"><label for="p2d3">Possessif·ve</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d4" value="Têtu·e"><label for="p2d4">Têtu·e</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d5" value="Anxieux·se"><label for="p2d5">Anxieux·se</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d6" value="Distant·e"><label for="p2d6">Distant·e</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d7" value="Colérique"><label for="p2d7">Colérique</label></div>
+          <div class="check-btn dark"><input type="checkbox" id="p2d8" value="Manipulateur·rice"><label for="p2d8">Manipulateur·rice</label></div>
+        </div>
+        <textarea id="p2_defauts_free" placeholder="Autres défauts, zones d'ombre… (optionnel)" style="margin-top:10px;"></textarea>
       </div>
     </div>
 
@@ -1692,6 +1886,30 @@
     </div>
     <div class="loading-text" id="loadingText">L'IA explore vos âmes…</div>
     <div class="loading-sub">Analyse en cours · Patience</div>
+
+    <!-- VOCALMIA BANNER -->
+    <div class="vocalmia-banner active" id="vocalmia-banner">
+      <div class="voc-inner">
+        <!-- Waveform icon -->
+        <div class="voc-wave">
+          <svg width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0"  y="12" width="3" height="8"  rx="1.5" fill="#e8ff47" opacity="0.7"/>
+            <rect x="5"  y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
+            <rect x="10" y="2"  width="3" height="28" rx="1.5" fill="#e8ff47"/>
+            <rect x="15" y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
+            <rect x="20" y="11" width="3" height="10" rx="1.5" fill="#e8ff47" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="voc-body">
+          <div class="voc-text">
+            <div class="voc-tag">Publicité · Partenaire</div>
+            <div class="voc-title">Vocal<em>mia</em> — Agent IA Téléphonique</div>
+            <div class="voc-desc" id="voc-desc">Zéro appel manqué. Zéro effort. 24h/24.</div>
+          </div>
+          <a class="voc-cta" href="https://vocalmia.com" target="_blank" rel="noopener">Découvrir</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1729,6 +1947,31 @@
     <div class="score-verdict" id="res-verdict">—</div>
   </div>
 
+  <!-- ADSENSE / VOCALMIA SLOT — entre score et résultats -->
+  <div id="ad-slot" style="max-width:560px; margin:0 auto 32px;">
+    <div class="vocalmia-banner active" id="vocalmia-result-banner">
+      <div class="voc-inner">
+        <div class="voc-wave">
+          <svg width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0"  y="12" width="3" height="8"  rx="1.5" fill="#e8ff47" opacity="0.7"/>
+            <rect x="5"  y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
+            <rect x="10" y="2"  width="3" height="28" rx="1.5" fill="#e8ff47"/>
+            <rect x="15" y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
+            <rect x="20" y="11" width="3" height="10" rx="1.5" fill="#e8ff47" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="voc-body">
+          <div class="voc-text">
+            <div class="voc-tag">Publicité · Partenaire</div>
+            <div class="voc-title">Vocal<em>mia</em> — Agent IA Téléphonique</div>
+            <div class="voc-desc" id="voc-desc-result">Zéro appel manqué. Zéro effort. 24h/24.</div>
+          </div>
+          <a class="voc-cta" href="https://vocalmia.com" target="_blank" rel="noopener">Découvrir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Cards -->
   <div class="result-grid" id="result-grid">
     <!-- filled dynamically -->
@@ -1742,19 +1985,27 @@
 
   <!-- SHARE SECTION -->
   <div class="share-section" id="share-section">
-    <div class="share-title" id="share-title">Partager</div>
-    <div class="share-desc" id="share-desc">Deux façons de partager YouWizMe</div>
-    <div class="share-btns">
-      <button class="share-btn copy" onclick="openShareModal('result')" style="border-color:rgba(201,169,110,0.5);color:var(--gold);">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-        <span id="share-result-label">Partager ce résultat</span>
+    <div class="share-title" id="share-title">Partagez votre résultat</div>
+    <div class="share-desc" id="share-desc">Défiez vos amis — découvrez leur compatibilité ✦</div>
+    <div class="share-trigger-row">
+      <button class="share-trigger-btn result" onclick="openShareModal('result')" id="btn-share-result">
+        ✦ <span id="lbl-share-result">Partager ce résultat</span>
       </button>
-      <button class="share-btn" onclick="openShareModal('site')" style="border-color:rgba(201,169,110,0.25);color:var(--cream);">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-        <span id="share-site-label">Partager le site</span>
+      <button class="share-trigger-btn site" onclick="openShareModal('site')" id="btn-share-site">
+        <span id="lbl-share-site">Partager le site</span>
       </button>
     </div>
-    <div class="copy-confirm" id="copy-confirm">✦ Lien copié !</div>
+  </div>
+
+  <!-- SHARE MODAL -->
+  <div class="share-modal-overlay" id="share-modal-overlay" onclick="closeShareModal(event)">
+    <div class="share-modal" id="share-modal">
+      <button class="share-modal-close" onclick="closeShareModal(null)">✕ Fermer</button>
+      <div class="share-modal-title" id="modal-title">Partager</div>
+      <div class="share-modal-subtitle" id="modal-subtitle">Choisissez votre canal</div>
+      <div class="share-modal-btns" id="modal-btns"></div>
+      <div class="modal-copy-confirm" id="modal-copy-confirm">✦ Lien copié !</div>
+    </div>
   </div>
 
   <button class="btn-reset" onclick="resetAll()">↺ Nouvelle analyse</button>
@@ -1763,31 +2014,76 @@
 <!-- FOOTER -->
 
 <!-- IEA CONCEPT SECTION -->
-<section id="iea-concept" style="position:relative; z-index:1; max-width:860px; margin:0 auto; padding:60px 24px 80px; text-align:center; border-top:1px solid rgba(201,169,110,0.15);">
-  <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; margin-bottom:30px; opacity:0.7;">Un concept inédit</div>
-  <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(28px,5vw,44px); font-weight:300; color:var(--cream); margin-bottom:20px;">
-    L'<span style="color:var(--rose); font-style:italic;">Intelligence</span> <span style="color:var(--gold);">Émotionnelle Artificielle</span>
-  </h2>
-  <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(16px,2.5vw,20px); font-style:italic; color:var(--gold-light); opacity:0.75; max-width:620px; margin:0 auto 40px; line-height:1.8;">
-    Au-delà de l'intelligence artificielle traditionnelle, l'IEA analyse les résonances émotionnelles, les patterns de personnalité et les dynamiques relationnelles pour révéler ce que la logique seule ne peut pas voir.
-  </p>
-  <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-bottom:40px;">
-    <div style="max-width:180px;">
-      <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--gold); opacity:0.7; margin-bottom:10px;">PERCEVOIR</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.7; line-height:1.6;">Décrypte les signaux émotionnels invisibles dans chaque profil</div>
-    </div>
-    <div style="width:1px; background:rgba(201,169,110,0.2); align-self:stretch;"></div>
-    <div style="max-width:180px;">
-      <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--gold); opacity:0.7; margin-bottom:10px;">RELIER</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.7; line-height:1.6;">Mesure la résonance profonde entre deux intelligences émotionnelles</div>
-    </div>
-    <div style="width:1px; background:rgba(201,169,110,0.2); align-self:stretch;"></div>
-    <div style="max-width:180px;">
-      <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--gold); opacity:0.7; margin-bottom:10px;">RÉVÉLER</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.7; line-height:1.6;">Cartographie unique de compatibilité émotionnelle et relationnelle</div>
+<section id="iea-concept" style="position:relative; z-index:1; max-width:860px; margin:0 auto; padding:60px 24px 80px; border-top:1px solid rgba(201,169,110,0.15);">
+
+  <!-- Titre centré -->
+  <div style="text-align:center; margin-bottom:50px;">
+    <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; margin-bottom:30px; opacity:0.7;">Un concept inédit</div>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(28px,5vw,44px); font-weight:300; color:var(--cream); margin-bottom:20px;">
+      L'<span style="color:var(--rose); font-style:italic;">Intelligence</span> <span style="color:var(--gold);">Émotionnelle Artificielle</span>
+    </h2>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(16px,2.5vw,20px); font-style:italic; color:var(--gold-light); opacity:0.75; max-width:620px; margin:0 auto 40px; line-height:1.8;">
+      Au-delà de l'intelligence artificielle traditionnelle, l'IEA analyse les résonances émotionnelles, les patterns de personnalité et les dynamiques relationnelles pour révéler ce que la logique seule ne peut pas voir.
+    </p>
+    <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-bottom:40px;">
+      <div style="max-width:180px;">
+        <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--gold); opacity:0.7; margin-bottom:10px;">PERCEVOIR</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.7; line-height:1.6;">Décrypte les signaux émotionnels invisibles dans chaque profil</div>
+      </div>
+      <div style="width:1px; background:rgba(201,169,110,0.2); align-self:stretch;"></div>
+      <div style="max-width:180px;">
+        <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--gold); opacity:0.7; margin-bottom:10px;">RELIER</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.7; line-height:1.6;">Mesure la résonance profonde entre deux intelligences émotionnelles</div>
+      </div>
+      <div style="width:1px; background:rgba(201,169,110,0.2); align-self:stretch;"></div>
+      <div style="max-width:180px;">
+        <div style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--gold); opacity:0.7; margin-bottom:10px;">RÉVÉLER</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--cream); opacity:0.7; line-height:1.6;">Cartographie unique de compatibilité émotionnelle et relationnelle</div>
+      </div>
     </div>
   </div>
-  <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); opacity:0.35; text-transform:uppercase;">IEA™ · Intelligence Émotionnelle Artificielle · YouWizMe · 2026</div>
+
+  <!-- Articles éditoriaux — contenu substantiel pour AdSense -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:40px;">
+
+    <article style="border:1px solid rgba(201,169,110,0.15); padding:30px 26px; background:rgba(255,255,255,0.02);">
+      <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); opacity:0.6; text-transform:uppercase; margin-bottom:14px;">Compatibilité & Prénoms</div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; color:var(--cream); margin-bottom:14px; line-height:1.3;">Votre prénom révèle-t-il votre personnalité ?</h3>
+      <p style="font-size:15px; line-height:1.85; color:var(--cream); opacity:0.7;">
+        Depuis l'Antiquité, les noms propres sont porteurs de sens et d'énergie symbolique. Les études en onomastique — la science des noms — montrent que le prénom influence non seulement la perception sociale d'une personne, mais aussi sa construction identitaire. Un prénom d'origine latine ne porte pas les mêmes résonances qu'un prénom arabe ou anglais. YouWizMe intègre cette dimension culturelle pour enrichir chaque analyse de compatibilité.
+      </p>
+    </article>
+
+    <article style="border:1px solid rgba(201,169,110,0.15); padding:30px 26px; background:rgba(255,255,255,0.02);">
+      <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); opacity:0.6; text-transform:uppercase; margin-bottom:14px;">Intelligence Émotionnelle</div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; color:var(--cream); margin-bottom:14px; line-height:1.3;">La compatibilité émotionnelle, au-delà des signes astrologiques</h3>
+      <p style="font-size:15px; line-height:1.85; color:var(--cream); opacity:0.7;">
+        Contrairement à l'astrologie ou aux tests MBTI standardisés, l'IEA analyse la dynamique réelle entre deux profils spécifiques. Elle évalue cinq dimensions clés : la résonance émotionnelle, la compatibilité intellectuelle, l'alignement des valeurs, les styles de communication et la complicité naturelle. Le résultat est une cartographie unique, impossible à généraliser à d'autres paires.
+      </p>
+    </article>
+
+    <article style="border:1px solid rgba(201,169,110,0.15); padding:30px 26px; background:rgba(255,255,255,0.02);">
+      <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); opacity:0.6; text-transform:uppercase; margin-bottom:14px;">Zones d'Ombre</div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; color:var(--cream); margin-bottom:14px; line-height:1.3;">Pourquoi intégrer les défauts dans une analyse de couple ?</h3>
+      <p style="font-size:15px; line-height:1.85; color:var(--cream); opacity:0.7;">
+        Une analyse honnête ne peut pas ignorer les zones d'ombre. La jalousie, l'impulsivité ou la tendance à se refermer sur soi sont des dynamiques qui influencent profondément la relation. YouWizMe est l'un des rares outils à intégrer ces dimensions dans son analyse, pour offrir non pas une vision idéalisée, mais une lecture lucide et bienveillante de la compatibilité réelle.
+      </p>
+    </article>
+
+    <article style="border:1px solid rgba(201,169,110,0.15); padding:30px 26px; background:rgba(255,255,255,0.02);">
+      <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); opacity:0.6; text-transform:uppercase; margin-bottom:14px;">IA & Relations Humaines</div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; color:var(--cream); margin-bottom:14px; line-height:1.3;">L'intelligence artificielle peut-elle comprendre les relations humaines ?</h3>
+      <p style="font-size:15px; line-height:1.85; color:var(--cream); opacity:0.7;">
+        Les grands modèles de langage ont été entraînés sur l'intégralité de la littérature, de la psychologie et des sciences humaines produites par l'humanité. Ils portent en eux une compréhension des patterns relationnels que peu d'outils possèdent. YouWizMe exploite cette capacité de manière poétique et symbolique — non pas pour prédire l'avenir, mais pour révéler des dimensions que l'intuition seule ne perçoit pas toujours.
+      </p>
+    </article>
+
+  </div>
+
+  <div style="text-align:center;">
+    <div style="font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); opacity:0.35; text-transform:uppercase;">IEA™ · Intelligence Émotionnelle Artificielle · YouWizMe · 2026</div>
+  </div>
+
 </section>
 
 <footer>
@@ -1802,39 +2098,10 @@
     <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
   </div>
   <p>YouWizMe · Intelligence Émotionnelle Artificielle · Usage poétique & ludique</p>
+  <p style="margin-top:12px;">
+    <a id="footer-legal-link" href="legal.html" style="font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold-light); opacity:0.4; text-decoration:none; border-bottom:1px solid rgba(201,169,110,0.2); padding-bottom:2px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.4'">Mentions légales & Confidentialité</a>
+  </p>
 </footer>
-
-<!-- SHARE MODAL -->
-<div class="share-modal-overlay" id="shareModal" onclick="closeShareModalOutside(event)">
-  <div class="share-modal">
-    <button class="share-modal-close" onclick="closeShareModal()">✕</button>
-    <div class="share-modal-title" id="modal-title">Partager</div>
-    <div class="share-modal-sub" id="modal-sub">—</div>
-
-    <!-- Tabs -->
-    <div class="share-tabs" id="modal-tabs" style="display:none;">
-      <button class="share-tab active" onclick="switchTab('result')" id="tab-result">Ce résultat</button>
-      <button class="share-tab" onclick="switchTab('site')" id="tab-site">Le site</button>
-    </div>
-
-    <!-- Result tab -->
-    <div class="share-tab-content active" id="tc-result">
-      <div id="share-canvas-wrap" style="text-align:center;margin-bottom:20px;">
-        <canvas id="share-canvas" style="max-width:100%;border:1px solid rgba(201,169,110,0.2);display:block;margin:0 auto;"></canvas>
-        <div id="share-canvas-loading" style="padding:40px;font-style:italic;color:var(--gold-light);opacity:0.6;font-size:14px;">Génération de l'image…</div>
-      </div>
-      <div class="share-modal-btns" id="modal-btns-result"></div>
-    </div>
-
-    <!-- Site tab -->
-    <div class="share-tab-content" id="tc-site">
-      <div class="share-preview" id="modal-preview-site">—</div>
-      <div class="share-modal-btns" id="modal-btns-site"></div>
-    </div>
-
-    <div class="share-copy-confirm" id="modal-copy-confirm">✦ Copié !</div>
-  </div>
-</div>
 
 <script>
 
@@ -1862,12 +2129,6 @@ const LANGS = {
     label_conflict1: "Comment gère-t-elle les conflits ?", label_conflict2: "Comment gère-t-il/elle les conflits ?",
     label_free1: "En quelques mots, décrivez cette personne (optionnel)",
     label_free2: "En quelques mots, décrivez cette personne (optionnel)",
-    label_defauts1: "Ses défauts principaux (optionnel)",
-    label_defauts2: "Ses défauts principaux (optionnel)",
-    label_defauts_free1: "Autres défauts en quelques mots (optionnel)",
-    label_defauts_free2: "Autres défauts en quelques mots (optionnel)",
-    defauts: ["Jaloux·se","Impulsif·ve","Possessif·ve","Têtu·e","Froid·e","Anxieux·se","Manipulateur·rice","Trop sensible","Égoïste","Indécis·e"],
-    ph_defauts_free: "Ex : procrastine beaucoup, a du mal à s'excuser…",
     label_relation: "Quelle est la nature de votre relation ?",
     label_duration: "Depuis combien de temps vous connaissez-vous ?",
     label_challenges: "Quel est votre principal défi commun ?",
@@ -1891,7 +2152,14 @@ const LANGS = {
     result_label: "Votre analyse · YouWizMe · IEA",
     summary_note: "Analyse symbolique & poétique · YouWizMe · Propulsé par l'IEA",
     btn_reset: "↺ Nouvelle analyse",
-    footer: "YouWizMe · Intelligence Émotionnelle Artificielle · Usage poétique & ludique",
+    defauts_label: "Ses défauts / zones d'ombre",
+    defauts: ["Jaloux·se", "Impulsif·ve", "Possessif·ve", "Têtu·e", "Anxieux·se", "Distant·e", "Colérique", "Manipulateur·rice"],
+    ph_defauts_free: "Autres défauts, zones d'ombre… (optionnel)",
+    voc_tag: "Publicité · Partenaire",
+    voc_title: "Agent IA Téléphonique",
+    voc_cta: "Découvrir",
+    legal_link: "Mentions légales & Confidentialité",
+        footer: "YouWizMe · Intelligence Émotionnelle Artificielle · Usage poétique & ludique",
     system_prompt: `Tu es YouWizMe, un oracle poétique et lucide spécialisé dans l'analyse de compatibilité entre personnes à partir de leurs prénoms et personnalités. Tu es bienveillant MAIS honnête : tu identifies aussi les zones d'ombre et les défauts de chaque profil. Tu réponds UNIQUEMENT en JSON valide, sans markdown, sans backticks, sans texte avant ou après. Le JSON doit avoir exactement cette structure : {"score":<0-100>,"verdict":"<6-10 mots poétiques>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["défaut1","défaut2"],"description":"<2-3 phrases>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["défaut1","défaut2"],"description":"<2-3 phrases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 phrases>","vigilances":"<1-2 phrases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 phrases poétiques>"}`
   },
   en: {
@@ -1916,12 +2184,6 @@ const LANGS = {
     label_conflict1: "How do they handle conflict?", label_conflict2: "How do they handle conflict?",
     label_free1: "Describe this person in a few words (optional)",
     label_free2: "Describe this person in a few words (optional)",
-    label_defauts1: "Their main flaws (optional)",
-    label_defauts2: "Their main flaws (optional)",
-    label_defauts_free1: "Other flaws in a few words (optional)",
-    label_defauts_free2: "Other flaws in a few words (optional)",
-    defauts: ["Jealous","Impulsive","Possessive","Stubborn","Cold","Anxious","Manipulative","Oversensitive","Selfish","Indecisive"],
-    ph_defauts_free: "E.g. procrastinates a lot, struggles to apologise…",
     label_relation: "What is the nature of your relationship?",
     label_duration: "How long have you known each other?",
     label_challenges: "What is your main shared challenge?",
@@ -1945,7 +2207,14 @@ const LANGS = {
     result_label: "Your analysis · YouWizMe · AEI",
     summary_note: "Symbolic & poetic analysis · YouWizMe · Powered by Artificial Emotional Intelligence",
     btn_reset: "↺ New analysis",
-    footer: "YouWizMe · Artificial Emotional Intelligence · AEI™ · Poetic & playful use",
+    defauts_label: "Their flaws / shadow sides",
+    defauts: ["Jealous", "Impulsive", "Possessive", "Stubborn", "Anxious", "Distant", "Hot-headed", "Manipulative"],
+    ph_defauts_free: "Other flaws, shadow sides… (optional)",
+    voc_tag: "Advertisement · Partner",
+    voc_title: "AI Phone Agent",
+    voc_cta: "Discover",
+    legal_link: "Legal Notice & Privacy Policy",
+        footer: "YouWizMe · Artificial Emotional Intelligence · AEI™ · Poetic & playful use",
     system_prompt: `You are YouWizMe, a poetic and lucid oracle specializing in compatibility analysis between people based on their first names and personalities. You are benevolent BUT honest: you also identify each profile's shadow sides and flaws. Reply ONLY in valid JSON, no markdown, no backticks, no text before or after. The JSON must have exactly this structure: {"score":<0-100>,"verdict":"<6-10 poetic words>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["flaw1","flaw2"],"description":"<2-3 sentences>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["flaw1","flaw2"],"description":"<2-3 sentences>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 sentences>","vigilances":"<1-2 sentences>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetic sentences>"}`
   },
   es: {
@@ -1970,12 +2239,6 @@ const LANGS = {
     label_conflict1: "¿Cómo gestiona los conflictos?", label_conflict2: "¿Cómo gestiona los conflictos?",
     label_free1: "Describe a esta persona en pocas palabras (opcional)",
     label_free2: "Describe a esta persona en pocas palabras (opcional)",
-    label_defauts1: "Sus defectos principales (opcional)",
-    label_defauts2: "Sus defectos principales (opcional)",
-    label_defauts_free1: "Otros defectos en pocas palabras (opcional)",
-    label_defauts_free2: "Otros defectos en pocas palabras (opcional)",
-    defauts: ["Celoso/a","Impulsivo/a","Posesivo/a","Terco/a","Frío/a","Ansioso/a","Manipulador/a","Demasiado sensible","Egoísta","Indeciso/a"],
-    ph_defauts_free: "Ej: procrastina mucho, le cuesta pedir perdón…",
     label_relation: "¿Cuál es la naturaleza de vuestra relación?",
     label_duration: "¿Desde cuándo os conocéis?",
     label_challenges: "¿Cuál es vuestro principal desafío común?",
@@ -1999,7 +2262,14 @@ const LANGS = {
     result_label: "Vuestro análisis · YouWizMe IA",
     summary_note: "Análisis simbólico & poético · YouWizMe · Impulsado por IEA",
     btn_reset: "↺ Nuevo análisis",
-    footer: "YouWizMe · Inteligencia Emocional Artificial · IEA™ · Uso poético & lúdico",
+    defauts_label: "Sus defectos / zonas de sombra",
+    defauts: ["Celoso/a", "Impulsivo/a", "Posesivo/a", "Terco/a", "Ansioso/a", "Distante", "Colérico/a", "Manipulador/a"],
+    ph_defauts_free: "Otros defectos, zonas de sombra… (opcional)",
+    voc_tag: "Publicidad · Socio",
+    voc_title: "Agente IA Telefónico",
+    voc_cta: "Descubrir",
+    legal_link: "Avisos Legales & Privacidad",
+        footer: "YouWizMe · Inteligencia Emocional Artificial · IEA™ · Uso poético & lúdico",
     system_prompt: `Eres YouWizMe, un oráculo poético y lúcido especializado en análisis de compatibilidad entre personas basándose en sus nombres y personalidades. Eres benevolente PERO honesto: también identificas los lados oscuros y defectos de cada perfil. Responde ÚNICAMENTE en JSON válido, sin markdown, sin backticks, sin texto antes ni después. El JSON debe tener exactamente esta estructura: {"score":<0-100>,"verdict":"<6-10 palabras poéticas>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["defecto1","defecto2"],"description":"<2-3 frases>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["defecto1","defecto2"],"description":"<2-3 frases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frases>","vigilances":"<1-2 frases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frases poéticas>"}`
   },
   pt: {
@@ -2024,12 +2294,6 @@ const LANGS = {
     label_conflict1: "Como gere os conflitos?", label_conflict2: "Como gere os conflitos?",
     label_free1: "Descreva esta pessoa em poucas palavras (opcional)",
     label_free2: "Descreva esta pessoa em poucas palavras (opcional)",
-    label_defauts1: "Os seus principais defeitos (opcional)",
-    label_defauts2: "Os seus principais defeitos (opcional)",
-    label_defauts_free1: "Outros defeitos em poucas palavras (opcional)",
-    label_defauts_free2: "Outros defeitos em poucas palavras (opcional)",
-    defauts: ["Ciumento/a","Impulsivo/a","Possessivo/a","Teimoso/a","Frio/a","Ansioso/a","Manipulador/a","Demasiado sensível","Egoísta","Indeciso/a"],
-    ph_defauts_free: "Ex: procrastina muito, tem dificuldade em pedir desculpa…",
     label_relation: "Qual é a natureza da vossa relação?",
     label_duration: "Há quanto tempo se conhecem?",
     label_challenges: "Qual é o vosso principal desafio comum?",
@@ -2053,7 +2317,14 @@ const LANGS = {
     result_label: "A vossa análise · YouWizMe IA",
     summary_note: "Análise simbólica & poética · YouWizMe · Impulsionado pela IEA",
     btn_reset: "↺ Nova análise",
-    footer: "YouWizMe · Inteligência Emocional Artificial · IEA™ · Uso poético & lúdico",
+    defauts_label: "Os seus defeitos / zonas de sombra",
+    defauts: ["Ciumento/a", "Impulsivo/a", "Possessivo/a", "Teimoso/a", "Ansioso/a", "Distante", "Colérico/a", "Manipulador/a"],
+    ph_defauts_free: "Outros defeitos, zonas de sombra… (opcional)",
+    voc_tag: "Publicidade · Parceiro",
+    voc_title: "Agente IA Telefónico",
+    voc_cta: "Descobrir",
+    legal_link: "Avisos Legais & Privacidade",
+        footer: "YouWizMe · Inteligência Emocional Artificial · IEA™ · Uso poético & lúdico",
     system_prompt: `És YouWizMe, um oráculo poético e lúcido especializado em análise de compatibilidade entre pessoas com base nos seus nomes e personalidades. És benevolente MAS honesto: identificas também os lados sombrios e defeitos de cada perfil. Responde APENAS em JSON válido, sem markdown, sem backticks, sem texto antes ou depois. O JSON deve ter exatamente esta estrutura: {"score":<0-100>,"verdict":"<6-10 palavras poéticas>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["defeito1","defeito2"],"description":"<2-3 frases>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["defeito1","defeito2"],"description":"<2-3 frases>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frases>","vigilances":"<1-2 frases>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frases poéticas>"}`
   },
   ar: {
@@ -2078,12 +2349,6 @@ const LANGS = {
     label_conflict1: "كيف يتعامل مع النزاعات؟", label_conflict2: "كيف يتعامل مع النزاعات؟",
     label_free1: "صف هذا الشخص بكلمات قليلة (اختياري)",
     label_free2: "صف هذا الشخص بكلمات قليلة (اختياري)",
-    label_defauts1: "عيوبه/عيوبها الرئيسية (اختياري)",
-    label_defauts2: "عيوبه/عيوبها الرئيسية (اختياري)",
-    label_defauts_free1: "عيوب أخرى بكلمات قليلة (اختياري)",
-    label_defauts_free2: "عيوب أخرى بكلمات قليلة (اختياري)",
-    defauts: ["غيور","متهور","متملك","عنيد","بارد","قلق","متلاعب","حساس جداً","أناني","متردد"],
-    ph_defauts_free: "مثل: يؤجل كثيراً، يصعب عليه الاعتذار…",
     label_relation: "ما طبيعة علاقتكما؟",
     label_duration: "منذ متى تعرفان بعضكما؟",
     label_challenges: "ما هو تحديكما المشترك الرئيسي؟",
@@ -2107,8 +2372,15 @@ const LANGS = {
     result_label: "تحليلكما · YouWizMe AI",
     summary_note: "تحليل رمزي وشعري · YouWizMe · مدعوم بالذكاء العاطفي الاصطناعي",
     btn_reset: "↺ تحليل جديد",
-    footer: "YouWizMe · الذكاء العاطفي الاصطناعي · IEA™",
-    system_prompt: `أنت YouWizMe، أوراكل شعري وواضح متخصص في تحليل التوافق بين الأشخاص بناءً على أسمائهم وشخصياتهم. أنت لطيف لكن صادق: تحدد أيضاً الجوانب المظلمة وعيوب كل شخصية. أجب فقط بـ JSON صالح، بدون markdown، بدون backticks، بدون نص قبل أو بعد. يجب أن يكون لـ JSON هذا الهيكل بالضبط: {"score":<0-100>,"verdict":"<6-10 كلمات شعرية>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["عيب1","عيب2"],"description":"<2-3 جمل>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["عيب1","عيب2"],"description":"<2-3 جمل>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 جمل>","vigilances":"<1-2 جمل>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 جمل شعرية>"}`
+    defauts_label: "عيوبه / جوانبه المظلمة",
+    defauts: ["غيور", "متهور", "متملك", "عنيد", "قلق", "بعيد", "سريع الغضب", "متلاعب"],
+    ph_defauts_free: "عيوب أخرى، جوانب مظلمة… (اختياري)",
+    voc_tag: "إعلان · شريك",
+    voc_title: "وكيل ذكاء اصطناعي هاتفي",
+    voc_cta: "اكتشف",
+    legal_link: "الشروط القانونية والخصوصية",
+        footer: "YouWizMe · الذكاء العاطفي الاصطناعي · IEA™",
+    system_prompt: `أنت YouWizMe، أوراكل شعري ومحب متخصص في تحليل التوافق بين الأشخاص بناءً على أسمائهم وشخصياتهم. أجب فقط بـ JSON صالح، بدون markdown، بدون backticks، بدون نص قبل أو بعد. يجب أن يكون لـ JSON هذا الهيكل بالضبط: {"score":<0-100>,"verdict":"<6-10 كلمات شعرية>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3 جمل>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3 جمل>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 جمل>","vigilances":"<1-2 جمل>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 جمل شعرية>"}`
   },
   it: {
     dir: 'ltr',
@@ -2132,12 +2404,6 @@ const LANGS = {
     label_conflict1: "Come gestisce i conflitti?", label_conflict2: "Come gestisce i conflitti?",
     label_free1: "Descrivi questa persona in poche parole (facoltativo)",
     label_free2: "Descrivi questa persona in poche parole (facoltativo)",
-    label_defauts1: "I suoi difetti principali (facoltativo)",
-    label_defauts2: "I suoi difetti principali (facoltativo)",
-    label_defauts_free1: "Altri difetti in poche parole (facoltativo)",
-    label_defauts_free2: "Altri difetti in poche parole (facoltativo)",
-    defauts: ["Geloso/a","Impulsivo/a","Possessivo/a","Testardo/a","Freddo/a","Ansioso/a","Manipolatore/rice","Troppo sensibile","Egoista","Indeciso/a"],
-    ph_defauts_free: "Es: procrastina molto, fa fatica a scusarsi…",
     label_relation: "Qual è la natura della vostra relazione?",
     label_duration: "Da quanto tempo vi conoscete?",
     label_challenges: "Qual è la vostra principale sfida comune?",
@@ -2161,8 +2427,15 @@ const LANGS = {
     result_label: "La vostra analisi · YouWizMe IA",
     summary_note: "Analisi simbolica & poetica · YouWizMe · Alimentato dall'IEA",
     btn_reset: "↺ Nuova analisi",
-    footer: "YouWizMe · Intelligenza Emotiva Artificiale · IEA™ · Uso poetico & ludico",
-    system_prompt: `Sei YouWizMe, un oracolo poetico e lucido specializzato nell'analisi della compatibilità tra persone in base ai loro nomi e personalità. Sei benevolo MA onesto: identifichi anche i lati oscuri e i difetti di ciascun profilo. Rispondi SOLO in JSON valido, senza markdown, senza backtick, senza testo prima o dopo. Il JSON deve avere esattamente questa struttura: {"score":<0-100>,"verdict":"<6-10 parole poetiche>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["difetto1","difetto2"],"description":"<2-3 frasi>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["difetto1","difetto2"],"description":"<2-3 frasi>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frasi>","vigilances":"<1-2 frasi>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frasi poetiche>"}`
+    defauts_label: "I suoi difetti / zone d'ombra",
+    defauts: ["Geloso/a", "Impulsivo/a", "Possessivo/a", "Testardo/a", "Ansioso/a", "Distante", "Irascibile", "Manipolatore/rice"],
+    ph_defauts_free: "Altri difetti, zone d'ombra… (facoltativo)",
+    voc_tag: "Pubblicità · Partner",
+    voc_title: "Agente IA Telefonico",
+    voc_cta: "Scopri",
+    legal_link: "Note Legali & Privacy",
+        footer: "YouWizMe · Intelligenza Emotiva Artificiale · IEA™ · Uso poetico & ludico",
+    system_prompt: `Sei YouWizMe, un oracolo poetico e lucido specializzato nell'analisi della compatibilità tra persone in base ai loro nomi e personalità. Sei benevolo MA onesto: identifichi anche i lati oscuri e i difetti di ogni profilo. Rispondi SOLO in JSON valido, senza markdown, senza backtick, senza testo prima o dopo. Il JSON deve avere esattamente questa struttura: {"score":<0-100>,"verdict":"<6-10 parole poetiche>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["difetto1","difetto2"],"description":"<2-3 frasi>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["difetto1","difetto2"],"description":"<2-3 frasi>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 frasi>","vigilances":"<1-2 frasi>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 frasi poetiche>"}`
   },
   de: {
     dir: 'ltr',
@@ -2186,12 +2459,6 @@ const LANGS = {
     label_conflict1: "Wie geht diese Person mit Konflikten um?", label_conflict2: "Wie geht diese Person mit Konflikten um?",
     label_free1: "Beschreibe diese Person in wenigen Worten (optional)",
     label_free2: "Beschreibe diese Person in wenigen Worten (optional)",
-    label_defauts1: "Ihre Hauptschwächen (optional)",
-    label_defauts2: "Ihre Hauptschwächen (optional)",
-    label_defauts_free1: "Weitere Schwächen in wenigen Worten (optional)",
-    label_defauts_free2: "Weitere Schwächen in wenigen Worten (optional)",
-    defauts: ["Eifersüchtig","Impulsiv","Besitzergreifend","Stur","Kalt","Ängstlich","Manipulativ","Überempfindlich","Egoistisch","Unentschlossen"],
-    ph_defauts_free: "z.B. zögert viel, fällt es schwer sich zu entschuldigen…",
     label_relation: "Was ist die Art eurer Beziehung?",
     label_duration: "Wie lange kennt ihr euch schon?",
     label_challenges: "Was ist eure wichtigste gemeinsame Herausforderung?",
@@ -2215,8 +2482,15 @@ const LANGS = {
     result_label: "Eure Analyse · YouWizMe KI",
     summary_note: "Symbolische & poetische Analyse · YouWizMe · IEA-gestützt",
     btn_reset: "↺ Neue Analyse",
-    footer: "YouWizMe · Künstliche Emotionale Intelligenz · IEA™ · Poetische & spielerische Nutzung",
-    system_prompt: `Du bist YouWizMe, ein poetisches und lucides Orakel, das auf Kompatibilitätsanalysen zwischen Personen basierend auf ihren Vornamen und Persönlichkeiten spezialisiert ist. Du bist wohlwollend ABER ehrlich: Du identifizierst auch die Schattenseiten und Schwächen jedes Profils. Antworte NUR mit gültigem JSON, ohne Markdown, ohne Backticks, ohne Text davor oder danach. Das JSON muss genau diese Struktur haben: {"score":<0-100>,"verdict":"<6-10 poetische Wörter>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["Schwäche1","Schwäche2"],"description":"<2-3 Sätze>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["Schwäche1","Schwäche2"],"description":"<2-3 Sätze>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 Sätze>","vigilances":"<1-2 Sätze>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetische Sätze>"}`
+    defauts_label: "Seine/Ihre Schwächen / Schattenseiten",
+    defauts: ["Eifersüchtig", "Impulsiv", "Besitzergreifend", "Stur", "Ängstlich", "Distanziert", "Jähzornig", "Manipulativ"],
+    ph_defauts_free: "Weitere Schwächen, Schattenseiten… (optional)",
+    voc_tag: "Werbung · Partner",
+    voc_title: "KI-Telefonagent",
+    voc_cta: "Entdecken",
+    legal_link: "Rechtliches & Datenschutz",
+        footer: "YouWizMe · Künstliche Emotionale Intelligenz · IEA™ · Poetische & spielerische Nutzung",
+    system_prompt: `Du bist YouWizMe, ein poetisches und klarsichtiges Orakel, das auf Kompatibilitätsanalysen zwischen Personen basierend auf ihren Vornamen und Persönlichkeiten spezialisiert ist. Du bist wohlwollend ABER ehrlich: Du identifizierst auch die Schattenseiten und Schwächen jedes Profils. Antworte NUR mit gültigem JSON, ohne Markdown, ohne Backticks, ohne Text davor oder danach. Das JSON muss genau diese Struktur haben: {"score":<0-100>,"verdict":"<6-10 poetische Wörter>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["Schwäche1","Schwäche2"],"description":"<2-3 Sätze>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["Schwäche1","Schwäche2"],"description":"<2-3 Sätze>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3 Sätze>","vigilances":"<1-2 Sätze>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3 poetische Sätze>"}`
   },
   zh: {
     dir: 'ltr',
@@ -2240,12 +2514,6 @@ const LANGS = {
     label_conflict1: "他/她如何处理冲突？", label_conflict2: "他/她如何处理冲突？",
     label_free1: "用几句话描述这个人（可选）",
     label_free2: "用几句话描述这个人（可选）",
-    label_defauts1: "他/她的主要缺点（可选）",
-    label_defauts2: "他/她的主要缺点（可选）",
-    label_defauts_free1: "其他缺点，用几句话（可选）",
-    label_defauts_free2: "其他缺点，用几句话（可选）",
-    defauts: ["嫉妒","冲动","占有欲强","固执","冷漠","焦虑","操控性","过于敏感","自私","优柔寡断"],
-    ph_defauts_free: "例如：经常拖延，难以道歉…",
     label_relation: "你们关系的性质是什么？",
     label_duration: "你们认识多久了？",
     label_challenges: "你们共同的主要挑战是什么？",
@@ -2269,8 +2537,15 @@ const LANGS = {
     result_label: "你们的分析 · YouWizMe AI",
     summary_note: "象征性与诗意分析 · YouWizMe · IEA驱动",
     btn_reset: "↺ 新的分析",
-    footer: "YouWizMe · 人工情感智能 · IEA™ · 诗意与娱乐用途",
-    system_prompt: `你是YouWizMe，一个诗意而清醒的神谕，专门根据人们的名字和个性分析相容性。你善意但诚实：你也会指出每个人的阴暗面和缺点。只用有效的JSON回答，没有markdown，没有反引号，没有前后文本。JSON必须有这个确切的结构: {"score":<0-100>,"verdict":"<6-10个诗意词语>","profil1":{"traits":["t1","t2","t3","t4"],"ombres":["缺点1","缺点2"],"description":"<2-3句话>"},"profil2":{"traits":["t1","t2","t3","t4"],"ombres":["缺点1","缺点2"],"description":"<2-3句话>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3句话>","vigilances":"<1-2句话>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3句诗意的话>"}`
+    defauts_label: "他/她的缺点 / 阴暗面",
+    defauts: ["嫉妒", "冲动", "占有欲强", "固执", "焦虑", "疏远", "易怒", "操控性"],
+    ph_defauts_free: "其他缺点、阴暗面…（可选）",
+    voc_tag: "广告 · 合作伙伴",
+    voc_title: "AI电话助手",
+    voc_cta: "了解更多",
+    legal_link: "法律声明与隐私政策",
+        footer: "YouWizMe · 人工情感智能 · IEA™ · 诗意与娱乐用途",
+    system_prompt: `你是YouWizMe，一个专门根据人们的名字和个性分析相容性的诗意神谕。只用有效的JSON回答，没有markdown，没有反引号，没有前后文本。JSON必须有这个确切的结构: {"score":<0-100>,"verdict":"<6-10个诗意词语>","profil1":{"traits":["t1","t2","t3","t4"],"description":"<2-3句话>"},"profil2":{"traits":["t1","t2","t3","t4"],"description":"<2-3句话>"},"dimensions":{"emotionnel":<0-100>,"intellectuel":<0-100>,"valeurs":<0-100>,"communication":<0-100>,"complicite":<0-100>},"forces":"<2-3句话>","vigilances":"<1-2句话>","partagés":["v1","v2","v3"],"apport1":["a1","a2"],"apport2":["a1","a2"],"summary":"<2-3句诗意的话>"}`
   }
 };
 
@@ -2350,30 +2625,6 @@ function setLang(lang) {
     sel.innerHTML = t.age_options.map((o,i) => `<option value="${i===0?'':o}">${o}</option>`).join('');
   });
   
-  // Checkboxes - defauts
-  ['p1','p2'].forEach(p => {
-    const group = document.getElementById(p+'_defauts');
-    if (!group) return;
-    group.querySelectorAll('.check-btn label').forEach((lbl, i) => {
-      if (t.defauts && t.defauts[i]) {
-        lbl.textContent = t.defauts[i];
-        group.querySelectorAll('input')[i].value = t.defauts[i];
-      }
-    });
-  });
-
-  // Defauts free placeholders
-  const p1df = document.getElementById('p1_defauts_free');
-  const p2df = document.getElementById('p2_defauts_free');
-  if (p1df && t.ph_defauts_free) p1df.placeholder = t.ph_defauts_free;
-  if (p2df && t.ph_defauts_free) p2df.placeholder = t.ph_defauts_free;
-
-  // Defauts labels (find by proximity to textarea id)
-  document.querySelectorAll('label').forEach(lbl => {
-    const forEl = lbl.getAttribute('for');
-    // Update defauts section labels via panel structure
-  });
-
   // Checkboxes - traits
   ['p1','p2'].forEach(p => {
     const group = document.getElementById(p+'_traits');
@@ -2446,6 +2697,55 @@ function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
+
+  // ─── Défauts / ombres labels ───
+  document.querySelectorAll('.defauts-label').forEach(el => {
+    if (t.defauts_label) el.innerHTML = '⚠ ' + t.defauts_label;
+  });
+
+  // Défauts checkboxes p1 & p2
+  ['p1','p2'].forEach(p => {
+    const group = document.getElementById(p+'_defauts');
+    if (!group) return;
+    group.querySelectorAll('.check-btn label').forEach((lbl, i) => {
+      if (t.defauts && t.defauts[i]) {
+        lbl.textContent = t.defauts[i];
+        group.querySelectorAll('input')[i].value = t.defauts[i];
+      }
+    });
+  });
+
+  // Défauts free placeholders
+  ['p1_defauts_free','p2_defauts_free'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && t.ph_defauts_free) el.placeholder = t.ph_defauts_free;
+  });
+
+  // ─── Vocalmia banner ───
+  document.querySelectorAll('.voc-tag').forEach(el => {
+    if (t.voc_tag) el.textContent = t.voc_tag;
+  });
+  document.querySelectorAll('.voc-title').forEach(el => {
+    if (t.voc_title) el.innerHTML = 'Vocal<em>mia</em> — ' + t.voc_title;
+  });
+  document.querySelectorAll('.voc-cta').forEach(el => {
+    if (t.voc_cta) el.textContent = t.voc_cta;
+  });
+
+  // ─── Legal link ───
+  const legalLink = document.getElementById('footer-legal-link');
+  if (legalLink && t.legal_link) legalLink.textContent = t.legal_link;
+
+  // ─── Vocalmia rotating messages ───
+  if (VOC_MSGS[lang]) {
+    vocMsgs = VOC_MSGS[lang];
+    vocIdx = 0;
+    const descEls = [
+      document.getElementById('voc-desc'),
+      document.getElementById('voc-desc-result')
+    ];
+    descEls.forEach(el => { if (el) el.textContent = vocMsgs[0]; });
+  }
   
   // Save lang preference
   try { localStorage.setItem('youwizme_lang', lang); } catch(e) {}
@@ -2498,22 +2798,22 @@ function collectData() {
       origin: document.getElementById('p1_origin').value,
       age: document.getElementById('p1_age').value,
       traits: getCheckboxGroup(['p1t1','p1t2','p1t3','p1t4','p1t5','p1t6','p1t7','p1t8']),
-      defauts: getCheckboxGroup(['p1d1','p1d2','p1d3','p1d4','p1d5','p1d6','p1d7','p1d8','p1d9','p1d10']),
-      defauts_free: document.getElementById('p1_defauts_free').value.trim(),
+      defauts: getCheckboxGroup(['p1d1','p1d2','p1d3','p1d4','p1d5','p1d6','p1d7','p1d8']),
       value: getChecked('p1v'),
       conflict: getChecked('p1c'),
-      free: document.getElementById('p1_free').value.trim()
+      free: document.getElementById('p1_free').value.trim(),
+      defauts_free: document.getElementById('p1_defauts_free').value.trim()
     },
     p2: {
       name: document.getElementById('p2_name').value.trim(),
       origin: document.getElementById('p2_origin').value,
       age: document.getElementById('p2_age').value,
       traits: getCheckboxGroup(['p2t1','p2t2','p2t3','p2t4','p2t5','p2t6','p2t7','p2t8']),
-      defauts: getCheckboxGroup(['p2d1','p2d2','p2d3','p2d4','p2d5','p2d6','p2d7','p2d8','p2d9','p2d10']),
-      defauts_free: document.getElementById('p2_defauts_free').value.trim(),
+      defauts: getCheckboxGroup(['p2d1','p2d2','p2d3','p2d4','p2d5','p2d6','p2d7','p2d8']),
       value: getChecked('p2v'),
       conflict: getChecked('p2c'),
-      free: document.getElementById('p2_free').value.trim()
+      free: document.getElementById('p2_free').value.trim(),
+      defauts_free: document.getElementById('p2_defauts_free').value.trim()
     },
     relation: getChecked('rel'),
     duration: getChecked('dur'),
@@ -2533,6 +2833,7 @@ const loadingMsgs = [
 
 let loadingInterval;
 function startLoading() {
+  startVocalmia();
   let i = 0;
   const msgs = getLoadingMsgs();
   const el = document.getElementById('loadingText');
@@ -2543,7 +2844,7 @@ function startLoading() {
   }, 2200);
 }
 
-function stopLoading() { clearInterval(loadingInterval); }
+function stopLoading() { clearInterval(loadingInterval); stopVocalmia(); }
 
 
 // ─── LOCALSTORAGE SAVE / RESTORE ───
@@ -2555,17 +2856,13 @@ function saveForm() {
     p1_origin: document.getElementById('p1_origin').value,
     p1_age: document.getElementById('p1_age').value,
     p1_free: document.getElementById('p1_free').value,
-    p1_defauts_free: document.getElementById('p1_defauts_free').value,
     p2_name: document.getElementById('p2_name').value,
     p2_origin: document.getElementById('p2_origin').value,
     p2_age: document.getElementById('p2_age').value,
     p2_free: document.getElementById('p2_free').value,
-    p2_defauts_free: document.getElementById('p2_defauts_free').value,
     bond_free: document.getElementById('bond_free').value,
     p1_traits: [...document.querySelectorAll('#p1_traits input:checked')].map(i=>i.value),
-    p1_defauts: [...document.querySelectorAll('#p1_defauts input:checked')].map(i=>i.value),
     p2_traits: [...document.querySelectorAll('#p2_traits input:checked')].map(i=>i.value),
-    p2_defauts: [...document.querySelectorAll('#p2_defauts input:checked')].map(i=>i.value),
     p1_value: document.querySelector('input[name="p1v"]:checked')?.value || '',
     p1_conflict: document.querySelector('input[name="p1c"]:checked')?.value || '',
     p2_value: document.querySelector('input[name="p2v"]:checked')?.value || '',
@@ -2591,14 +2888,10 @@ function loadForm() {
   setVal('p2_origin', saved.p2_origin);
   setVal('p2_age', saved.p2_age);
   setVal('p2_free', saved.p2_free);
-  setVal('p1_defauts_free', saved.p1_defauts_free);
-  setVal('p2_defauts_free', saved.p2_defauts_free);
   setVal('bond_free', saved.bond_free);
 
   (saved.p1_traits||[]).forEach(v => { const el = [...document.querySelectorAll('#p1_traits input')].find(i=>i.value===v); if(el) el.checked=true; });
-  (saved.p1_defauts||[]).forEach(v => { const el = [...document.querySelectorAll('#p1_defauts input')].find(i=>i.value===v); if(el) el.checked=true; });
   (saved.p2_traits||[]).forEach(v => { const el = [...document.querySelectorAll('#p2_traits input')].find(i=>i.value===v); if(el) el.checked=true; });
-  (saved.p2_defauts||[]).forEach(v => { const el = [...document.querySelectorAll('#p2_defauts input')].find(i=>i.value===v); if(el) el.checked=true; });
   (saved.challenges||[]).forEach(v => { const el = [...document.querySelectorAll('#questionnaire input[id^="ch"]')].find(i=>i.value===v); if(el) el.checked=true; });
 
   const setRadio = (name, val) => { const el = document.querySelector(`input[name="${name}"][value="${val}"]`); if(el) el.checked=true; };
@@ -2628,7 +2921,19 @@ function clearSaved() {
 document.addEventListener('change', saveForm);
 document.addEventListener('input', saveForm);
 
-// DOMContentLoaded is handled above with the URL decoder
+// Load on page ready
+window.addEventListener('DOMContentLoaded', () => {
+  loadForm();
+  const savedLang = (() => { try { return localStorage.getItem('youwizme_lang'); } catch(e) { return null; } })();
+  if (savedLang) {
+    setLang(savedLang);
+  } else {
+    // Auto-detect browser language
+    const browserLang = (navigator.language || navigator.userLanguage || 'fr').substring(0, 2).toLowerCase();
+    const supported = ['fr', 'en', 'es', 'pt', 'ar', 'it', 'de', 'zh'];
+    setLang(supported.includes(browserLang) ? browserLang : 'fr');
+  }
+});
 
 // ─── LAUNCH ANALYSIS ───
 async function launchAnalysis() {
@@ -2681,21 +2986,21 @@ function buildPrompt(d) {
   if (p1.origin) prompt += `Origine du prénom : ${p1.origin}\n`;
   if (p1.age) prompt += `Tranche d'âge : ${p1.age}\n`;
   if (p1.traits) prompt += `Traits de caractère : ${p1.traits}\n`;
-  if (p1.defauts) prompt += `Défauts connus : ${p1.defauts}\n`;
-  if (p1.defauts_free) prompt += `Autres défauts : ${p1.defauts_free}\n`;
   if (p1.value) prompt += `Valeur principale : ${p1.value}\n`;
   if (p1.conflict) prompt += `Gestion des conflits : ${p1.conflict}\n`;
   if (p1.free) prompt += `Description libre : ${p1.free}\n`;
+  if (p1.defauts) prompt += `Défauts / zones d'ombre (cochés) : ${p1.defauts}\n`;
+  if (p1.defauts_free) prompt += `Autres défauts (libre) : ${p1.defauts_free}\n`;
 
   prompt += `\nPERSONNE 2 — Prénom : ${p2.name}\n`;
   if (p2.origin) prompt += `Origine du prénom : ${p2.origin}\n`;
   if (p2.age) prompt += `Tranche d'âge : ${p2.age}\n`;
   if (p2.traits) prompt += `Traits de caractère : ${p2.traits}\n`;
-  if (p2.defauts) prompt += `Défauts connus : ${p2.defauts}\n`;
-  if (p2.defauts_free) prompt += `Autres défauts : ${p2.defauts_free}\n`;
   if (p2.value) prompt += `Valeur principale : ${p2.value}\n`;
   if (p2.conflict) prompt += `Gestion des conflits : ${p2.conflict}\n`;
   if (p2.free) prompt += `Description libre : ${p2.free}\n`;
+  if (p2.defauts) prompt += `Défauts / zones d'ombre (cochés) : ${p2.defauts}\n`;
+  if (p2.defauts_free) prompt += `Autres défauts (libre) : ${p2.defauts_free}\n`;
 
   prompt += `\nRELATION\n`;
   if (d.relation) prompt += `Nature : ${d.relation}\n`;
@@ -2703,17 +3008,11 @@ function buildPrompt(d) {
   if (d.challenges) prompt += `Défis communs : ${d.challenges}\n`;
   if (d.bond) prompt += `Ce qui les unit : ${d.bond}\n`;
 
-  prompt += `\nIMPORTANT : Utilise les défauts fournis pour alimenter les champs "ombres" de chaque profil dans ta réponse JSON. Sois honnête et précis, pas complaisant.`;
-
   return prompt;
 }
 
 // ─── DISPLAY RESULT ───
 function displayResult(data, a) {
-  // Save for sharing
-  lastResultData = data;
-  lastAnalysis = a;
-
   // Names
   document.getElementById('res-name1').textContent = data.p1.name;
   document.getElementById('res-name2').textContent = data.p2.name;
@@ -2733,25 +3032,35 @@ function displayResult(data, a) {
   grid.innerHTML = '';
 
   // Card 1 — Profil 1
-  const ombres1 = (a.profil1.ombres||[]).map(t=>`<span class="trait shadow">⚠ ${t}</span>`).join('');
+  const ombres1HTML = (a.profil1.ombres && a.profil1.ombres.length) ? `
+    <div class="ombres-wrap">
+      <div class="ombres-label">⚠ Zones d'ombre</div>
+      <div class="traits">${a.profil1.ombres.map(o=>`<span class="trait ombre">${o}</span>`).join('')}</div>
+    </div>` : '';
+
   grid.innerHTML += `
     <div class="rcard">
       <div class="rcard-icon">🌹</div>
       <div class="rcard-title">${data.p1.name} — Profil</div>
       <div class="traits">${(a.profil1.traits||[]).map(t=>`<span class="trait f">${t}</span>`).join('')}</div>
-      ${ombres1 ? `<div class="traits" style="margin-top:8px;">${ombres1}</div>` : ''}
       <br><div class="rcard-body">${a.profil1.description||''}</div>
+      ${ombres1HTML}
     </div>`;
 
   // Card 2 — Profil 2
-  const ombres2 = (a.profil2.ombres||[]).map(t=>`<span class="trait shadow">⚠ ${t}</span>`).join('');
+  const ombres2HTML = (a.profil2.ombres && a.profil2.ombres.length) ? `
+    <div class="ombres-wrap">
+      <div class="ombres-label">⚠ Zones d'ombre</div>
+      <div class="traits">${a.profil2.ombres.map(o=>`<span class="trait ombre">${o}</span>`).join('')}</div>
+    </div>` : '';
+
   grid.innerHTML += `
     <div class="rcard">
       <div class="rcard-icon">🌿</div>
       <div class="rcard-title">${data.p2.name} — Profil</div>
       <div class="traits">${(a.profil2.traits||[]).map(t=>`<span class="trait o">${t}</span>`).join('')}</div>
-      ${ombres2 ? `<div class="traits" style="margin-top:8px;">${ombres2}</div>` : ''}
       <br><div class="rcard-body">${a.profil2.description||''}</div>
+      ${ombres2HTML}
     </div>`;
 
   // Card 3 — Dimensions
@@ -2815,7 +3124,10 @@ function displayResult(data, a) {
   // Summary
   document.getElementById('res-summary').textContent = a.summary || '';
 
+  // Store for URL sharing
+  _lastAnalysis = { names: [data.p1.name, data.p2.name], ...a };
   // Show result
+  startVocalmia();
   document.getElementById('result-section').style.display = 'block';
   document.getElementById('questionnaire').style.display = 'none';
   document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
@@ -2829,799 +3141,204 @@ function displayResult(data, a) {
 }
 
 
-// ─── URL RESULT ENCODING ───
-let lastResultData = null;
-let lastAnalysis = null;
+// ─── SHARE FUNCTIONS ───
 
-function encodeResultToURL(data, analysis) {
+let _lastAnalysis = null; // store last result for URL encoding
+
+function getShareMessage(name1, name2, score, type) {
+  const msgs = {
+    result: {
+      fr: `✦ ${name1} & ${name2} — ${score}% de compatibilité sur YouWizMe !\nDécouvre la tienne 👉 `,
+      en: `✦ ${name1} & ${name2} — ${score}% compatibility on YouWizMe!\nDiscover yours 👉 `,
+      es: `✦ ${name1} & ${name2} — ${score}% de compatibilidad en YouWizMe!\nDescubre la tuya 👉 `,
+      pt: `✦ ${name1} & ${name2} — ${score}% de compatibilidade no YouWizMe!\nDescobre a tua 👉 `,
+      ar: `✦ ${name1} & ${name2} — ${score}% توافق على YouWizMe!\nاكتشف توافقك 👉 `,
+      it: `✦ ${name1} & ${name2} — ${score}% di compatibilità su YouWizMe!\nScopri la tua 👉 `,
+      de: `✦ ${name1} & ${name2} — ${score}% Kompatibilität auf YouWizMe!\nEntdecke deine 👉 `,
+      zh: `✦ ${name1} & ${name2} — YouWizMe上${score}%相容性！\n发现你的 👉 `
+    },
+    site: {
+      fr: `✦ Découvre YouWizMe — analyse de compatibilité par l'IA 👉 `,
+      en: `✦ Discover YouWizMe — AI compatibility analysis 👉 `,
+      es: `✦ Descubre YouWizMe — análisis de compatibilidad por IA 👉 `,
+      pt: `✦ Descobre YouWizMe — análise de compatibilidade por IA 👉 `,
+      ar: `✦ اكتشف YouWizMe — تحليل التوافق بالذكاء الاصطناعي 👉 `,
+      it: `✦ Scopri YouWizMe — analisi di compatibilità con IA 👉 `,
+      de: `✦ Entdecke YouWizMe — KI-Kompatibilitätsanalyse 👉 `,
+      zh: `✦ 发现YouWizMe — AI相容性分析 👉 `
+    }
+  };
+  return (msgs[type][currentLang] || msgs[type].fr);
+}
+
+function getResultUrl() {
+  if (!_lastAnalysis) return 'https://youwizme.com';
   try {
-    const payload = JSON.stringify({ d: data, a: analysis });
+    const payload = JSON.stringify(_lastAnalysis);
     const encoded = btoa(unescape(encodeURIComponent(payload)));
-    return window.location.origin + window.location.pathname + '#r=' + encoded;
+    return 'https://youwizme.com/#data=' + encoded;
   } catch(e) { return 'https://youwizme.com'; }
 }
 
-function decodeResultFromURL() {
-  try {
-    const hash = window.location.hash;
-    if (!hash.startsWith('#r=')) return null;
-    const encoded = hash.slice(3);
-    const json = decodeURIComponent(escape(atob(encoded)));
-    return JSON.parse(json);
-  } catch(e) { return null; }
-}
+function openShareModal(type) {
+  const score = document.getElementById('res-score').textContent;
+  const name1 = document.getElementById('res-name1').textContent;
+  const name2 = document.getElementById('res-name2').textContent;
 
-// Check for shared result on load
-window.addEventListener('DOMContentLoaded', () => {
-  const shared = decodeResultFromURL();
-  if (shared && shared.d && shared.a) {
-    lastResultData = shared.d;
-    lastAnalysis = shared.a;
-    document.getElementById('questionnaire').style.display = 'none';
-    displayResult(shared.d, shared.a);
-    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
-    return;
-  }
-  loadForm();
-  const savedLang = (() => { try { return localStorage.getItem('youwizme_lang'); } catch(e) { return null; } })();
-  if (savedLang) {
-    setLang(savedLang);
-  } else {
-    const browserLang = (navigator.language || navigator.userLanguage || 'fr').substring(0, 2).toLowerCase();
-    const supported = ['fr', 'en', 'es', 'pt', 'ar', 'it', 'de', 'zh'];
-    setLang(supported.includes(browserLang) ? browserLang : 'fr');
-  }
-});
+  const url = type === 'result' ? getResultUrl() : 'https://youwizme.com';
+  const msgBase = getShareMessage(name1, name2, score, type);
+  const text = msgBase + url;
 
-// ─── SHARE MODAL ───
-let shareMode = 'result'; // 'result' or 'site'
-
-const SHARE_I18N = {
-  fr: {
-    modal_title_result: "Partager ce résultat",
-    modal_sub_result: "Envoyez votre analyse à la personne concernée ou montrez-la à vos proches.",
-    modal_title_site: "Partager YouWizMe",
-    modal_sub_site: "Invitez vos amis à découvrir leur propre compatibilité.",
-    preview_site: "✦ Découvrez YouWizMe — l'analyse de compatibilité par Intelligence Émotionnelle Artificielle\nhttps://youwizme.com",
-    btn_result_label: "Partager ce résultat",
-    btn_site_label: "Partager le site",
-    copy_confirm: "✦ Copié !",
-  },
-  en: {
-    modal_title_result: "Share this result",
-    modal_sub_result: "Send your analysis to the person or show it to your friends.",
-    modal_title_site: "Share YouWizMe",
-    modal_sub_site: "Invite your friends to discover their own compatibility.",
-    preview_site: "✦ Discover YouWizMe — compatibility analysis powered by Artificial Emotional Intelligence\nhttps://youwizme.com",
-    btn_result_label: "Share this result",
-    btn_site_label: "Share the site",
-    copy_confirm: "✦ Copied!",
-  },
-  es: {
-    modal_title_result: "Compartir este resultado",
-    modal_sub_result: "Envía tu análisis a la persona o muéstralo a tus amigos.",
-    modal_title_site: "Compartir YouWizMe",
-    modal_sub_site: "Invita a tus amigos a descubrir su propia compatibilidad.",
-    preview_site: "✦ Descubre YouWizMe — análisis de compatibilidad por Inteligencia Emocional Artificial\nhttps://youwizme.com",
-    btn_result_label: "Compartir este resultado",
-    btn_site_label: "Compartir el sitio",
-    copy_confirm: "✦ ¡Copiado!",
-  },
-  pt: {
-    modal_title_result: "Partilhar este resultado",
-    modal_sub_result: "Envia a tua análise à pessoa ou mostra aos teus amigos.",
-    modal_title_site: "Partilhar YouWizMe",
-    modal_sub_site: "Convida os teus amigos a descobrir a sua própria compatibilidade.",
-    preview_site: "✦ Descobre YouWizMe — análise de compatibilidade por Inteligência Emocional Artificial\nhttps://youwizme.com",
-    btn_result_label: "Partilhar este resultado",
-    btn_site_label: "Partilhar o site",
-    copy_confirm: "✦ Copiado!",
-  },
-  ar: {
-    modal_title_result: "مشاركة هذه النتيجة",
-    modal_sub_result: "أرسل تحليلك إلى الشخص أو أظهره لأصدقائك.",
-    modal_title_site: "مشاركة YouWizMe",
-    modal_sub_site: "ادعُ أصدقاءك لاكتشاف توافقهم الخاص.",
-    preview_site: "✦ اكتشف YouWizMe — تحليل التوافق بالذكاء العاطفي الاصطناعي\nhttps://youwizme.com",
-    btn_result_label: "مشاركة هذه النتيجة",
-    btn_site_label: "مشاركة الموقع",
-    copy_confirm: "✦ تم النسخ!",
-  },
-  it: {
-    modal_title_result: "Condividi questo risultato",
-    modal_sub_result: "Invia la tua analisi alla persona o mostrala ai tuoi amici.",
-    modal_title_site: "Condividi YouWizMe",
-    modal_sub_site: "Invita i tuoi amici a scoprire la loro compatibilità.",
-    preview_site: "✦ Scopri YouWizMe — analisi di compatibilità con Intelligenza Emotiva Artificiale\nhttps://youwizme.com",
-    btn_result_label: "Condividi questo risultato",
-    btn_site_label: "Condividi il sito",
-    copy_confirm: "✦ Copiato!",
-  },
-  de: {
-    modal_title_result: "Dieses Ergebnis teilen",
-    modal_sub_result: "Sende deine Analyse an die Person oder zeige sie deinen Freunden.",
-    modal_title_site: "YouWizMe teilen",
-    modal_sub_site: "Lade deine Freunde ein, ihre eigene Kompatibilität zu entdecken.",
-    preview_site: "✦ Entdecke YouWizMe — Kompatibilitätsanalyse mit Künstlicher Emotionaler Intelligenz\nhttps://youwizme.com",
-    btn_result_label: "Dieses Ergebnis teilen",
-    btn_site_label: "Website teilen",
-    copy_confirm: "✦ Kopiert!",
-  },
-  zh: {
-    modal_title_result: "分享此结果",
-    modal_sub_result: "将你的分析发给对方或展示给朋友。",
-    modal_title_site: "分享YouWizMe",
-    modal_sub_site: "邀请你的朋友发现他们自己的相容性。",
-    preview_site: "✦ 发现YouWizMe — 人工情感智能相容性分析\nhttps://youwizme.com",
-    btn_result_label: "分享此结果",
-    btn_site_label: "分享网站",
-    copy_confirm: "✦ 已复制！",
-  }
-};
-
-function getShareI18n() { return SHARE_I18N[currentLang] || SHARE_I18N.fr; }
-
-// ─── CANVAS IMAGE GENERATION ───
-function generateShareImage(data, a) {
-  return new Promise((resolve) => {
-    const W = 1080, H = 1080;
-    const canvas = document.getElementById('share-canvas');
-    canvas.width = W;
-    canvas.height = H;
-    const ctx = canvas.getContext('2d');
-
-    // Background gradient
-    const bg = ctx.createLinearGradient(0, 0, W, H);
-    bg.addColorStop(0, '#1A1614');
-    bg.addColorStop(0.5, '#221C19');
-    bg.addColorStop(1, '#1A1614');
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, W, H);
-
-    // Subtle radial glow center
-    const glow = ctx.createRadialGradient(W/2, H/2, 50, W/2, H/2, 480);
-    glow.addColorStop(0, 'rgba(201,169,110,0.07)');
-    glow.addColorStop(1, 'rgba(201,169,110,0)');
-    ctx.fillStyle = glow;
-    ctx.fillRect(0, 0, W, H);
-
-    // Decorative horizontal lines
-    ctx.strokeStyle = 'rgba(201,169,110,0.12)';
-    ctx.lineWidth = 1;
-    [200, H-200].forEach(y => {
-      ctx.beginPath(); ctx.moveTo(80, y); ctx.lineTo(W-80, y); ctx.stroke();
-    });
-
-    // Corner ornaments
-    const drawCorner = (x, y, sx, sy) => {
-      ctx.strokeStyle = 'rgba(201,169,110,0.35)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + sx*40, y); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + sy*40); ctx.stroke();
-    };
-    drawCorner(60, 60, 1, 1);
-    drawCorner(W-60, 60, -1, 1);
-    drawCorner(60, H-60, 1, -1);
-    drawCorner(W-60, H-60, -1, -1);
-
-    // Logo / brand top
-    ctx.fillStyle = '#C9A96E';
-    ctx.font = '500 28px "Cinzel", Georgia, serif';
-    ctx.textAlign = 'center';
-    ctx.letterSpacing = '6px';
-    ctx.fillText('YOUWIZME', W/2, 120);
-
-    ctx.fillStyle = 'rgba(232,213,163,0.45)';
-    ctx.font = '300 13px "Jost", Arial, sans-serif';
-    ctx.fillText('INTELLIGENCE ÉMOTIONNELLE ARTIFICIELLE', W/2, 152);
-
-    // Names
-    const name1 = (data && data.p1 && data.p1.name) ? data.p1.name : '—';
-    const name2 = (data && data.p2 && data.p2.name) ? data.p2.name : '—';
-
-    ctx.font = 'italic 300 72px "Cormorant Garamond", Georgia, serif';
-    ctx.fillStyle = '#C97B8A';
-    ctx.textAlign = 'right';
-    ctx.fillText(name1, W/2 - 28, 310);
-
-    ctx.fillStyle = 'rgba(232,213,163,0.3)';
-    ctx.font = 'italic 300 48px "Cormorant Garamond", Georgia, serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('&', W/2, 310);
-
-    ctx.font = '300 72px "Cormorant Garamond", Georgia, serif';
-    ctx.fillStyle = '#C9A96E';
-    ctx.textAlign = 'left';
-    ctx.fillText(name2, W/2 + 28, 310);
-
-    // Score circle
-    const cx = W/2, cy = 490, r = 100;
-    ctx.strokeStyle = 'rgba(201,169,110,0.12)';
-    ctx.lineWidth = 8;
-    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.stroke();
-
-    const score = (a && a.score) ? a.score : 75;
-    const scoreGrad = ctx.createLinearGradient(cx-r, cy, cx+r, cy);
-    scoreGrad.addColorStop(0, '#C9A96E');
-    scoreGrad.addColorStop(1, '#E8D5A3');
-    ctx.strokeStyle = scoreGrad;
-    ctx.lineWidth = 8;
-    ctx.lineCap = 'round';
-    ctx.beginPath();
-    ctx.arc(cx, cy, r, -Math.PI/2, -Math.PI/2 + (score/100)*Math.PI*2);
-    ctx.stroke();
-
-    // Score number
-    ctx.fillStyle = '#C9A96E';
-    ctx.font = '600 64px "Cinzel", Georgia, serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(score, cx, cy - 8);
-
-    ctx.fillStyle = 'rgba(232,213,163,0.4)';
-    ctx.font = '300 20px "Jost", Arial, sans-serif';
-    ctx.fillText('/100', cx, cy + 36);
-    ctx.textBaseline = 'alphabetic';
-
-    // Verdict
-    const verdict = (a && a.verdict) ? a.verdict : '';
-    ctx.fillStyle = 'rgba(245,239,230,0.75)';
-    ctx.font = 'italic 300 26px "Cormorant Garamond", Georgia, serif';
-    ctx.textAlign = 'center';
-
-    // Word-wrap verdict
-    const wrapText = (text, maxW) => {
-      const words = text.split(' ');
-      const lines = [];
-      let line = '';
-      words.forEach(w => {
-        const test = line ? line + ' ' + w : w;
-        if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = w; }
-        else line = test;
-      });
-      if (line) lines.push(line);
-      return lines;
-    };
-    ctx.font = 'italic 300 26px "Cormorant Garamond", Georgia, serif';
-    const verdictLines = wrapText('« ' + verdict + ' »', 800);
-    verdictLines.forEach((line, i) => {
-      ctx.fillText(line, W/2, 640 + i * 36);
-    });
-
-    // Dimensions bars
-    const dims = (a && a.dimensions) ? a.dimensions : {};
-    const dimKeys = ['emotionnel','intellectuel','valeurs','communication','complicite'];
-    const dimLabels = { fr: ['Émotionnel','Intellectuel','Valeurs','Communication','Complicité'] };
-    const labels = dimLabels.fr;
-    const barStartY = 730;
-    const barH = 4;
-    const barW = 320;
-    const barX = (W - barW) / 2;
-
-    dimKeys.forEach((k, i) => {
-      const y = barStartY + i * 28;
-      const val = (dims[k] || 70) / 100;
-
-      // Track
-      ctx.fillStyle = 'rgba(201,169,110,0.1)';
-      ctx.fillRect(barX, y, barW, barH);
-
-      // Fill
-      const barGrad = ctx.createLinearGradient(barX, y, barX + barW, y);
-      barGrad.addColorStop(0, '#C97B8A');
-      barGrad.addColorStop(1, '#C9A96E');
-      ctx.fillStyle = barGrad;
-      ctx.fillRect(barX, y, barW * val, barH);
-
-      // Label left
-      ctx.fillStyle = 'rgba(232,213,163,0.55)';
-      ctx.font = '300 12px "Jost", Arial, sans-serif';
-      ctx.textAlign = 'right';
-      ctx.fillText(labels[i], barX - 10, y + 4);
-
-      // Value right
-      ctx.textAlign = 'left';
-      ctx.fillText((dims[k] || 70), barX + barW + 10, y + 4);
-    });
-
-    // Bottom separator
-    ctx.strokeStyle = 'rgba(201,169,110,0.2)';
-    ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(80, H-160); ctx.lineTo(W-80, H-160); ctx.stroke();
-
-    // URL bottom
-    ctx.fillStyle = '#C9A96E';
-    ctx.font = '500 22px "Cinzel", Georgia, serif';
-    ctx.textAlign = 'center';
-    ctx.letterSpacing = '4px';
-    ctx.fillText('YOUWIZME.COM', W/2, H-110);
-
-    ctx.fillStyle = 'rgba(232,213,163,0.4)';
-    ctx.font = 'italic 300 16px "Cormorant Garamond", Georgia, serif';
-    ctx.letterSpacing = '1px';
-    ctx.fillText('Analysez votre compatibilité — Gratuit · 8 langues', W/2, H-78);
-
-    // ✦ ornament
-    ctx.fillStyle = 'rgba(201,169,110,0.5)';
-    ctx.font = '18px serif';
-    ctx.fillText('✦', W/2, H-44);
-
-    resolve(canvas.toDataURL('image/png'));
-  });
-}
-
-async function initShareImageResult() {
-  const loading = document.getElementById('share-canvas-loading');
-  const canvas = document.getElementById('share-canvas');
-  if (!lastResultData || !lastAnalysis) {
-    if (loading) loading.textContent = 'Aucun résultat à partager.';
-    return null;
-  }
-  canvas.style.display = 'none';
-  if (loading) loading.style.display = 'block';
-
-  // Wait for fonts
-  await document.fonts.ready;
-  const dataUrl = await generateShareImage(lastResultData, lastAnalysis);
-
-  if (loading) loading.style.display = 'none';
-  canvas.style.display = 'block';
-
-  return dataUrl;
-}
-
-function renderResultShareBtns(dataUrl) {
-  const c = document.getElementById('modal-btns-result');
-  const resultUrl = encodeResultToURL(lastResultData, lastAnalysis);
-  const name1 = lastResultData.p1.name, name2 = lastResultData.p2.name;
-  const score = lastAnalysis.score || '?';
-  const texts = {
-    fr: `✦ ${name1} & ${name2} — ${score}/100 sur YouWizMe\nDécouvre ta compatibilité 👉 ${resultUrl}`,
-    en: `✦ ${name1} & ${name2} — ${score}/100 on YouWizMe\nDiscover your compatibility 👉 ${resultUrl}`,
-    es: `✦ ${name1} & ${name2} — ${score}/100 en YouWizMe\nDescubre tu compatibilidad 👉 ${resultUrl}`,
-    pt: `✦ ${name1} & ${name2} — ${score}/100 no YouWizMe\nDescobre a tua compatibilidade 👉 ${resultUrl}`,
-    ar: `✦ ${name1} & ${name2} — ${score}/100 على YouWizMe\nاكتشف توافقك 👉 ${resultUrl}`,
-    it: `✦ ${name1} & ${name2} — ${score}/100 su YouWizMe\nScopri la tua compatibilità 👉 ${resultUrl}`,
-    de: `✦ ${name1} & ${name2} — ${score}/100 auf YouWizMe\nEntdecke deine Kompatibilität 👉 ${resultUrl}`,
-    zh: `✦ ${name1} & ${name2} — YouWizMe上${score}/100\n发现你的相容性 👉 ${resultUrl}`
+  const titles = {
+    result: { fr:'Partager ce résultat', en:'Share this result', es:'Compartir resultado', pt:'Partilhar resultado', ar:'مشاركة النتيجة', it:'Condividi risultato', de:'Ergebnis teilen', zh:'分享结果' },
+    site:   { fr:'Partager le site', en:'Share the site', es:'Compartir el sitio', pt:'Partilhar o site', ar:'مشاركة الموقع', it:'Condividi il sito', de:'Seite teilen', zh:'分享网站' }
   };
-  const shareText = texts[currentLang] || texts.fr;
+  const subtitles = {
+    fr:'Choisissez votre canal', en:'Choose your channel', es:'Elige tu canal',
+    pt:'Escolhe o teu canal', ar:'اختر قناتك', it:'Scegli il tuo canale',
+    de:'Wähle deinen Kanal', zh:'选择您的渠道'
+  };
 
-  const dlLabels = { fr:'Télécharger l\'image', en:'Download image', es:'Descargar imagen', pt:'Baixar imagem', ar:'تحميل الصورة', it:'Scarica immagine', de:'Bild herunterladen', zh:'下载图片' };
-  const cpLabels = { fr:'Copier le lien', en:'Copy link', es:'Copiar enlace', pt:'Copiar link', ar:'نسخ الرابط', it:'Copia link', de:'Link kopieren', zh:'复制链接' };
-  const waLabels = { fr:'WhatsApp', en:'WhatsApp', es:'WhatsApp', pt:'WhatsApp', ar:'واتساب', it:'WhatsApp', de:'WhatsApp', zh:'WhatsApp' };
+  document.getElementById('modal-title').textContent = titles[type][currentLang] || titles[type].fr;
+  document.getElementById('modal-subtitle').textContent = subtitles[currentLang] || subtitles.fr;
+  document.getElementById('modal-copy-confirm').classList.remove('show');
 
-  const waUrl = 'https://wa.me/?text=' + encodeURIComponent(shareText);
-  const twUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText);
-  const fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(resultUrl);
-  const smsUrl = 'sms:?body=' + encodeURIComponent(shareText);
-  const mailUrl = 'mailto:?subject=YouWizMe&body=' + encodeURIComponent(shareText);
-
-  const safeDataUrl = dataUrl ? encodeURIComponent(dataUrl) : '';
-
-  c.innerHTML = `
-    ${dataUrl ? `<button class="share-modal-btn cp" style="background:rgba(201,169,110,0.12);border-color:var(--gold);color:var(--gold);font-weight:400;" onclick="trackShare('download_image','result');downloadShareImage()">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      ${dlLabels[currentLang]||dlLabels.fr}
-    </button>` : ''}
-    <a class="share-modal-btn wa" href="${waUrl}" target="_blank" onclick="trackShare('whatsapp','result')">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      ${waLabels[currentLang]}
-    </a>
-    <a class="share-modal-btn tw" href="${twUrl}" target="_blank" onclick="trackShare('twitter','result')">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      X/Twitter
-    </a>
-    <a class="share-modal-btn fb" href="${fbUrl}" target="_blank" onclick="trackShare('facebook','result')">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Facebook
-    </a>
-    <a class="share-modal-btn sms" href="${smsUrl}" onclick="trackShare('sms','result')">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      SMS
-    </a>
-    <a class="share-modal-btn email" href="${mailUrl}" onclick="trackShare('email','result')">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      Email
-    </a>
-    <button class="share-modal-btn cp" onclick="trackShare('copy_link','result');modalCopyLink('${encodeURIComponent(resultUrl)}')">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-      ${cpLabels[currentLang]||cpLabels.fr}
-    </button>
-  `;
-}
-
-let _shareImageDataUrl = null;
-
-function downloadShareImage() {
-  if (!_shareImageDataUrl) return;
-  const a = document.createElement('a');
-  const name1 = lastResultData?.p1?.name || 'result';
-  const name2 = lastResultData?.p2?.name || 'result';
-  a.download = `youwizme-${name1}-${name2}.png`;
-  a.href = _shareImageDataUrl;
-  a.click();
-}
-
-// ─── SHARE TRACKING ───
-function trackShare(method, contentType) {
-  if (typeof gtag === 'function') {
-    gtag('event', 'share', {
-      method: method,           // 'whatsapp' | 'facebook' | 'twitter' | 'sms' | 'email' | 'copy_link' | 'download_image'
-      content_type: contentType // 'result' | 'site'
-    });
-  }
-}
-
-function openShareModal(mode) {
-  shareMode = mode;
-  const t = getShareI18n();
-  const modal = document.getElementById('shareModal');
-  const tabs = document.getElementById('modal-tabs');
-
-  // Always show both tabs in the modal
-  tabs.style.display = 'flex';
-  switchTab(mode);
-  
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-async function switchTab(tab) {
-  shareMode = tab;
-  const t = getShareI18n();
-  document.getElementById('tab-result').classList.toggle('active', tab === 'result');
-  document.getElementById('tab-site').classList.toggle('active', tab === 'site');
-  document.getElementById('tc-result').classList.toggle('active', tab === 'result');
-  document.getElementById('tc-site').classList.toggle('active', tab === 'site');
-
-  if (tab === 'result') {
-    document.getElementById('modal-title').textContent = t.modal_title_result;
-    document.getElementById('modal-sub').textContent = t.modal_sub_result;
-    // Generate image
-    _shareImageDataUrl = await initShareImageResult();
-    renderResultShareBtns(_shareImageDataUrl);
-  } else {
-    document.getElementById('modal-title').textContent = t.modal_title_site;
-    document.getElementById('modal-sub').textContent = t.modal_sub_site;
-    const preview = t.preview_site;
-    document.getElementById('modal-preview-site').textContent = preview;
-    renderModalBtns('modal-btns-site', preview, 'https://youwizme.com', 'site');
-  }
-}
-
-function renderModalBtns(containerId, text, url, type) {
-  const c = document.getElementById(containerId);
   const waIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
   const fbIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`;
   const twIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`;
-  const copyIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
   const smsIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>`;
   const mailIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`;
-  const imgIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`;
+  const cpIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
 
-  const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-  const fbUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
-  const twUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+  const copyLabels = { fr:'Copier le lien', en:'Copy link', es:'Copiar enlace', pt:'Copiar link', ar:'نسخ الرابط', it:'Copia link', de:'Link kopieren', zh:'复制链接' };
+  const copyLbl = copyLabels[currentLang] || copyLabels.fr;
+
+  const waUrl  = 'https://wa.me/?text=' + encodeURIComponent(text);
+  const fbUrl  = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+  const twUrl  = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
   const smsUrl = 'sms:?body=' + encodeURIComponent(text);
-  const mailUrl = 'mailto:?subject=YouWizMe&body=' + encodeURIComponent(text);
+  const mailUrl= 'mailto:?subject=YouWizMe&body=' + encodeURIComponent(text);
 
-  const imgLabels = { fr:'Télécharger l\'image', en:'Download image', es:'Descargar imagen', pt:'Baixar imagem', ar:'تحميل الصورة', it:'Scarica immagine', de:'Bild herunterladen', zh:'下载图片' };
-  const imgLbl = imgLabels[currentLang] || imgLabels.fr;
-
-  const imageBtn = type === 'result'
-    ? `<button class="share-modal-btn cp" style="border-color:rgba(201,169,110,0.5)" onclick="generateShareImage()">${imgIcon} ${imgLbl}</button>`
-    : '';
-
-  c.innerHTML = `
-    <a class="share-modal-btn wa" href="${waUrl}" target="_blank" onclick="trackShare('whatsapp','${type}')">${waIcon} WhatsApp</a>
-    <a class="share-modal-btn fb" href="${fbUrl}" target="_blank" onclick="trackShare('facebook','${type}')">${fbIcon} Facebook</a>
-    <a class="share-modal-btn tw" href="${twUrl}" target="_blank" onclick="trackShare('twitter','${type}')">${twIcon} X/Twitter</a>
-    <a class="share-modal-btn sms" href="${smsUrl}" onclick="trackShare('sms','${type}')">${smsIcon} SMS</a>
-    <a class="share-modal-btn email" href="${mailUrl}" onclick="trackShare('email','${type}')">${mailIcon} Email</a>
-    <button class="share-modal-btn cp" onclick="trackShare('copy_link','${type}');modalCopyLink('${encodeURIComponent(type === 'result' ? encodeResultToURL(lastResultData, lastAnalysis) : 'https://youwizme.com')}')">${copyIcon} Copier le lien</button>
-    ${imageBtn}
+  document.getElementById('modal-btns').innerHTML = `
+    <a class="share-modal-btn wa"    href="${waUrl}"  target="_blank">${waIcon} WhatsApp</a>
+    <a class="share-modal-btn fb"    href="${fbUrl}"  target="_blank">${fbIcon} Facebook</a>
+    <a class="share-modal-btn tw"    href="${twUrl}"  target="_blank">${twIcon} X / Twitter</a>
+    <a class="share-modal-btn sms"   href="${smsUrl}">${smsIcon} SMS</a>
+    <a class="share-modal-btn email" href="${mailUrl}">${mailIcon} Email</a>
+    <button class="share-modal-btn cp" onclick="modalCopyLink('${encodeURIComponent(url)}')">${cpIcon} ${copyLbl}</button>
   `;
+
+  document.getElementById('share-modal-overlay').classList.add('active');
 }
 
-// ─── GENERATE SHARE IMAGE ───
-function generateShareImage() {
-  if (!lastAnalysis || !lastResultData) return;
-
-  const a = lastAnalysis;
-  const name1 = lastResultData.p1.name;
-  const name2 = lastResultData.p2.name;
-  const score = a.score || 0;
-  const verdict = a.verdict || '';
-  const traits1 = (a.profil1.traits || []).slice(0, 3);
-  const traits2 = (a.profil2.traits || []).slice(0, 3);
-  const ombres1 = (a.profil1.ombres || []).slice(0, 2);
-  const ombres2 = (a.profil2.ombres || []).slice(0, 2);
-
-  const W = 1080, H = 1080;
-  const canvas = document.createElement('canvas');
-  canvas.width = W; canvas.height = H;
-  const ctx = canvas.getContext('2d');
-
-  // ── Background gradient
-  const bg = ctx.createRadialGradient(200, 200, 0, W/2, H/2, W*0.85);
-  bg.addColorStop(0, '#261E1A');
-  bg.addColorStop(0.5, '#1A1614');
-  bg.addColorStop(1, '#110E0D');
-  ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, W, H);
-
-  // ── Subtle corner glows
-  const glow1 = ctx.createRadialGradient(0, 0, 0, 0, 0, 500);
-  glow1.addColorStop(0, 'rgba(201,169,110,0.12)');
-  glow1.addColorStop(1, 'transparent');
-  ctx.fillStyle = glow1;
-  ctx.fillRect(0, 0, W, H);
-
-  const glow2 = ctx.createRadialGradient(W, H, 0, W, H, 500);
-  glow2.addColorStop(0, 'rgba(201,123,138,0.10)');
-  glow2.addColorStop(1, 'transparent');
-  ctx.fillStyle = glow2;
-  ctx.fillRect(0, 0, W, H);
-
-  // ── Outer border
-  ctx.strokeStyle = 'rgba(201,169,110,0.25)';
-  ctx.lineWidth = 1.5;
-  ctx.strokeRect(28, 28, W - 56, H - 56);
-
-  // ── Inner border (thin)
-  ctx.strokeStyle = 'rgba(201,169,110,0.10)';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(36, 36, W - 72, H - 72);
-
-  // Helper: centered text
-  const cText = (text, y, font, color, maxW) => {
-    ctx.font = font;
-    ctx.fillStyle = color;
-    ctx.textAlign = 'center';
-    if (maxW) {
-      // word-wrap
-      const words = text.split(' ');
-      let line = '', lines = [];
-      for (const w of words) {
-        const test = line + w + ' ';
-        if (ctx.measureText(test).width > maxW && line) { lines.push(line.trim()); line = w + ' '; }
-        else line = test;
-      }
-      lines.push(line.trim());
-      lines.forEach((l, i) => { ctx.fillText(l, W/2, y + i * 38); });
-      return lines.length;
-    } else {
-      ctx.fillText(text, W/2, y);
-      return 1;
-    }
-  };
-
-  // ── YOUWIZME logo (top)
-  ctx.font = '500 28px serif';
-  ctx.fillStyle = '#C9A96E';
-  ctx.textAlign = 'center';
-  ctx.letterSpacing = '6px';
-  ctx.fillText('YOUWIZME', W/2, 100);
-  ctx.letterSpacing = '0px';
-
-  ctx.font = '200 13px sans-serif';
-  ctx.fillStyle = 'rgba(232,213,163,0.5)';
-  ctx.fillText('INTELLIGENCE ÉMOTIONNELLE ARTIFICIELLE', W/2, 126);
-
-  // ── Divider line top
-  ctx.strokeStyle = 'rgba(201,169,110,0.3)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(120, 150); ctx.lineTo(W - 120, 150); ctx.stroke();
-
-  // ── Score circle
-  const cx = W / 2, cy = 300, r = 100;
-  // Circle background
-  ctx.beginPath();
-  ctx.arc(cx, cy, r, 0, Math.PI * 2);
-  ctx.strokeStyle = 'rgba(201,169,110,0.15)';
-  ctx.lineWidth = 8;
-  ctx.stroke();
-  // Score arc
-  const startAngle = -Math.PI / 2;
-  const endAngle = startAngle + (score / 100) * Math.PI * 2;
-  const arcGrad = ctx.createLinearGradient(cx - r, cy, cx + r, cy);
-  arcGrad.addColorStop(0, '#C9A96E');
-  arcGrad.addColorStop(1, '#C97B8A');
-  ctx.beginPath();
-  ctx.arc(cx, cy, r, startAngle, endAngle);
-  ctx.strokeStyle = arcGrad;
-  ctx.lineWidth = 8;
-  ctx.lineCap = 'round';
-  ctx.stroke();
-  // Score number
-  ctx.font = 'bold 64px serif';
-  ctx.fillStyle = '#E8D5A3';
-  ctx.textAlign = 'center';
-  ctx.fillText(score, cx, cy + 18);
-  ctx.font = '300 16px sans-serif';
-  ctx.fillStyle = 'rgba(232,213,163,0.55)';
-  ctx.fillText('/ 100', cx, cy + 44);
-
-  // ── Names
-  ctx.font = '300 38px serif';
-  ctx.fillStyle = '#F5EFE6';
-  ctx.textAlign = 'center';
-  ctx.fillText(`${name1}  ✦  ${name2}`, W/2, 455);
-
-  // ── Verdict (italic, wrapped)
-  ctx.font = 'italic 300 22px serif';
-  ctx.fillStyle = 'rgba(232,213,163,0.75)';
-  cText(`« ${verdict} »`, 496, 'italic 300 22px serif', 'rgba(232,213,163,0.75)', 780);
-
-  // ── Divider
-  ctx.strokeStyle = 'rgba(201,169,110,0.2)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(120, 565); ctx.lineTo(W - 120, 565); ctx.stroke();
-
-  // ── Two-column profiles
-  const colW = 360, col1X = 150, col2X = W - col1X;
-
-  // Profile 1 label
-  ctx.font = '400 11px sans-serif';
-  ctx.fillStyle = '#C97B8A';
-  ctx.textAlign = 'left';
-  ctx.fillText(name1.toUpperCase(), col1X, 598);
-
-  // Traits 1
-  traits1.forEach((t, i) => {
-    ctx.fillStyle = 'rgba(201,123,138,0.18)';
-    const tw = ctx.measureText(t).width + 20;
-    ctx.fillRect(col1X, 608 + i * 34, tw, 24);
-    ctx.font = '300 13px sans-serif';
-    ctx.fillStyle = '#E8A0B0';
-    ctx.textAlign = 'left';
-    ctx.fillText(t, col1X + 10, 625 + i * 34);
-  });
-
-  // Ombres 1
-  ombres1.forEach((t, i) => {
-    ctx.font = '300 12px sans-serif';
-    ctx.fillStyle = 'rgba(180,90,90,0.75)';
-    ctx.textAlign = 'left';
-    ctx.fillText('⚠ ' + t, col1X, 720 + i * 26);
-  });
-
-  // Profile 2 label
-  ctx.font = '400 11px sans-serif';
-  ctx.fillStyle = '#C9A96E';
-  ctx.textAlign = 'right';
-  ctx.fillText(name2.toUpperCase(), col2X, 598);
-
-  // Traits 2
-  traits2.forEach((t, i) => {
-    ctx.font = '300 13px sans-serif';
-    const tw = ctx.measureText(t).width + 20;
-    ctx.fillStyle = 'rgba(201,169,110,0.18)';
-    ctx.fillRect(col2X - tw, 608 + i * 34, tw, 24);
-    ctx.fillStyle = '#E8D5A3';
-    ctx.textAlign = 'right';
-    ctx.fillText(t, col2X - 10, 625 + i * 34);
-  });
-
-  // Ombres 2
-  ombres2.forEach((t, i) => {
-    ctx.font = '300 12px sans-serif';
-    ctx.fillStyle = 'rgba(180,90,90,0.75)';
-    ctx.textAlign = 'right';
-    ctx.fillText(t + ' ⚠', col2X, 720 + i * 26);
-  });
-
-  // ── Divider bottom
-  ctx.strokeStyle = 'rgba(201,169,110,0.2)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(120, 790); ctx.lineTo(W - 120, 790); ctx.stroke();
-
-  // ── Dimensions bar mini
-  const dims = a.dimensions || {};
-  const dimKeys = ['emotionnel','intellectuel','valeurs','communication','complicite'];
-  const dimLabels = ['Émotionnel','Intellectuel','Valeurs','Communication','Complicité'];
-  const barY0 = 820, barH = 6, barSpacing = 28, barX = 150, barW = W - 300;
-
-  dimKeys.forEach((k, i) => {
-    const val = dims[k] || 0;
-    const y = barY0 + i * barSpacing;
-    // Track
-    ctx.fillStyle = 'rgba(255,255,255,0.06)';
-    ctx.fillRect(barX, y, barW, barH);
-    // Fill gradient
-    const g = ctx.createLinearGradient(barX, 0, barX + barW, 0);
-    g.addColorStop(0, '#C9A96E');
-    g.addColorStop(1, '#C97B8A');
-    ctx.fillStyle = g;
-    ctx.fillRect(barX, y, barW * (val / 100), barH);
-    // Label
-    ctx.font = '300 11px sans-serif';
-    ctx.fillStyle = 'rgba(232,213,163,0.5)';
-    ctx.textAlign = 'left';
-    ctx.fillText(dimLabels[i], barX, y - 2);
-    // Value
-    ctx.textAlign = 'right';
-    ctx.fillText(val, barX + barW, y - 2);
-  });
-
-  // ── Footer: site URL
-  ctx.strokeStyle = 'rgba(201,169,110,0.2)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(120, H - 90); ctx.lineTo(W - 120, H - 90); ctx.stroke();
-
-  ctx.font = '300 18px sans-serif';
-  ctx.fillStyle = 'rgba(201,169,110,0.7)';
-  ctx.textAlign = 'center';
-  ctx.fillText('youwizme.com', W/2, H - 52);
-
-  ctx.font = '200 12px sans-serif';
-  ctx.fillStyle = 'rgba(232,213,163,0.3)';
-  ctx.fillText('Analyse symbolique & poétique · Intelligence Émotionnelle Artificielle', W/2, H - 28);
-
-  // ── Download
-  const link = document.createElement('a');
-  link.download = `youwizme-${name1}-${name2}.png`;
-  link.href = canvas.toDataURL('image/png');
-  link.click();
-
-  // Confirm
-  const el = document.getElementById('modal-copy-confirm');
-  const dlLabels = { fr:'✦ Image téléchargée !', en:'✦ Image downloaded!', es:'✦ ¡Imagen descargada!', pt:'✦ Imagem baixada!', ar:'✦ تم تحميل الصورة!', it:'✦ Immagine scaricata!', de:'✦ Bild heruntergeladen!', zh:'✦ 图片已下载！' };
-  el.textContent = dlLabels[currentLang] || dlLabels.fr;
-  el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 3000);
+function closeShareModal(e) {
+  if (e && e.target !== document.getElementById('share-modal-overlay')) return;
+  document.getElementById('share-modal-overlay').classList.remove('active');
 }
 
 function modalCopyLink(encodedUrl) {
   const url = decodeURIComponent(encodedUrl);
   navigator.clipboard.writeText(url).then(() => {
     const el = document.getElementById('modal-copy-confirm');
-    const t = getShareI18n();
-    el.textContent = t.copy_confirm;
     el.classList.add('show');
     setTimeout(() => el.classList.remove('show'), 2500);
   });
 }
 
-function closeShareModal() {
-  document.getElementById('shareModal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-function closeShareModalOutside(e) {
-  if (e.target === document.getElementById('shareModal')) closeShareModal();
-}
-
-// Keep old copyLink for backward compat
-function copyLink() { openShareModal('result'); }
+// Load result from URL hash if present
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#data=')) {
+    try {
+      const encoded = hash.slice(6);
+      const json = decodeURIComponent(escape(atob(encoded)));
+      const analysis = JSON.parse(json);
+      if (analysis && analysis.score !== undefined) {
+        // Hide questionnaire, show result directly
+        document.getElementById('questionnaire').style.display = 'none';
+        // We need names from URL — use generic if not stored
+        const fakeData = { p1: { name: '—' }, p2: { name: '—' } };
+        displayResult(fakeData, analysis);
+      }
+    } catch(e) { /* invalid hash, ignore */ }
+  }
+});
 
 function updateShareTexts() {
-  const t = getShareI18n();
+  const shareTitles = {
+    fr: "Partagez votre résultat", en: "Share your result", es: "Comparte tu resultado",
+    pt: "Partilha o teu resultado", ar: "شارك نتيجتك", it: "Condividi il tuo risultato",
+    de: "Teile dein Ergebnis", zh: "分享你的结果"
+  };
+  const shareDescs = {
+    fr: "Défiez vos amis — découvrez leur compatibilité ✦",
+    en: "Challenge your friends — discover their compatibility ✦",
+    es: "Desafía a tus amigos — descubre su compatibilidad ✦",
+    pt: "Desafia os teus amigos — descobre a compatibilidade deles ✦",
+    ar: "تحدَّ أصدقاءك — اكتشف توافقهم ✦",
+    it: "Sfida i tuoi amici — scopri la loro compatibilità ✦",
+    de: "Fordere deine Freunde heraus — entdecke ihre Kompatibilität ✦",
+    zh: "挑战你的朋友 — 发现他们的相容性 ✦"
+  };
+  const btnResult = {
+    fr:"Partager ce résultat", en:"Share this result", es:"Compartir resultado",
+    pt:"Partilhar resultado", ar:"مشاركة النتيجة", it:"Condividi risultato",
+    de:"Ergebnis teilen", zh:"分享结果"
+  };
+  const btnSite = {
+    fr:"Partager le site", en:"Share the site", es:"Compartir el sitio",
+    pt:"Partilhar o site", ar:"مشاركة الموقع", it:"Condividi il sito",
+    de:"Seite teilen", zh:"分享网站"
+  };
   const el = document.getElementById('share-title');
-  if (el) el.textContent = 'Partager';
-  const rl = document.getElementById('share-result-label');
-  if (rl) rl.textContent = t.btn_result_label;
-  const sl = document.getElementById('share-site-label');
-  if (sl) sl.textContent = t.btn_site_label;
-  // Re-render modal if open
-  if (document.getElementById('shareModal').classList.contains('active')) {
-    switchTab(shareMode);
-  }
+  if (el) el.textContent = shareTitles[currentLang] || shareTitles.fr;
+  const desc = document.getElementById('share-desc');
+  if (desc) desc.textContent = shareDescs[currentLang] || shareDescs.fr;
+  const lblR = document.getElementById('lbl-share-result');
+  if (lblR) lblR.textContent = btnResult[currentLang] || btnResult.fr;
+  const lblS = document.getElementById('lbl-share-site');
+  if (lblS) lblS.textContent = btnSite[currentLang] || btnSite.fr;
 }
 
-// Legacy share functions (kept for any inline calls)
-function shareWhatsApp() { openShareModal('result'); return false; }
-function shareFacebook() { openShareModal('site'); return false; }
-function shareTwitter() { openShareModal('result'); return false; }
+// ─── VOCALMIA BANNER ROTATION ───
+const VOC_MSGS = {
+  fr: ["Zéro appel manqué. Zéro effort. 24h/24.", "Répond, comprend, qualifie — sans décrocher.", "Opérationnel le jour même. 7 jours offerts.", "Votre standard téléphonique, piloté par l'IA."],
+  en: ["Zero missed calls. Zero effort. 24/7.", "Answers, understands, qualifies — automatically.", "Up and running the same day. 7 days free.", "Your phone line, powered by AI."],
+  es: ["Cero llamadas perdidas. Cero esfuerzo. 24/7.", "Responde, entiende, califica — automáticamente.", "Operativo el mismo día. 7 días gratis.", "Tu centralita telefónica, impulsada por IA."],
+  pt: ["Zero chamadas perdidas. Zero esforço. 24/7.", "Responde, compreende, qualifica — automaticamente.", "Operacional no mesmo dia. 7 dias grátis.", "A sua linha telefónica, gerida por IA."],
+  ar: ["صفر مكالمات فائتة. صفر جهد. 24/7.", "يرد، يفهم، يؤهل — تلقائياً.", "جاهز في نفس اليوم. 7 أيام مجاناً.", "خطك الهاتفي، مدعوم بالذكاء الاصطناعي."],
+  it: ["Zero chiamate perse. Zero sforzo. 24/7.", "Risponde, capisce, qualifica — automaticamente.", "Operativo lo stesso giorno. 7 giorni gratis.", "Il tuo centralino telefonico, gestito dall'IA."],
+  de: ["Null verpasste Anrufe. Null Aufwand. 24/7.", "Antwortet, versteht, qualifiziert — automatisch.", "Noch am selben Tag einsatzbereit. 7 Tage gratis.", "Ihre Telefonzentrale, KI-gesteuert."],
+  zh: ["零未接来电。零努力。24/7。", "接听、理解、筛选 — 自动完成。", "当天即可运营。免费7天。", "您的电话系统，由AI驱动。"]
+};
+let vocMsgs = VOC_MSGS['fr'];
+let vocIdx = 0, vocInterval;
 
+function startVocalmia() {
+  // Rotate both banners (loading + results)
+  const els = [
+    document.getElementById('voc-desc'),
+    document.getElementById('voc-desc-result')
+  ].filter(Boolean);
+  if (!els.length) return;
+  els.forEach(el => el.style.opacity = '1');
+  vocInterval = setInterval(() => {
+    els.forEach(el => el.style.opacity = '0');
+    setTimeout(() => {
+      vocIdx = (vocIdx + 1) % vocMsgs.length;
+      els.forEach(el => {
+        el.textContent = vocMsgs[vocIdx];
+        el.style.opacity = '1';
+      });
+    }, 400);
+  }, 3500);
+}
+
+function stopVocalmia() { clearInterval(vocInterval); }
 
 // ─── RESET ───
 function resetAll() {
   try { localStorage.removeItem(LS_KEY); } catch(e) {}
-  lastResultData = null;
-  lastAnalysis = null;
-  history.replaceState(null, '', window.location.pathname);
   document.getElementById('restore-banner').style.display = 'none';
   document.getElementById('result-section').style.display = 'none';
   document.getElementById('questionnaire').style.display = 'block';
@@ -3629,6 +3346,8 @@ function resetAll() {
 
   // Reset form
   document.querySelectorAll('input[type="text"], textarea').forEach(i => i.value = '');
+  document.getElementById('p1_defauts_free').value = '';
+  document.getElementById('p2_defauts_free').value = '';
   document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
   document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(i => i.checked = false);
 
