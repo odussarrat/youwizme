@@ -989,6 +989,118 @@
     50% { opacity: 1; transform: rotate(45deg) scale(1.2); }
   }
 
+  /* ─── ZERENDI BANNER ─── */
+  .zerendi-banner {
+    display: none;
+    max-width: 560px;
+    margin: 48px auto 0;
+    background: #0a1628;
+    border: 1px solid rgba(0,134,197,0.28);
+    padding: 0;
+    animation: fadeUp 0.9s ease forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .zerendi-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 10% 50%, rgba(0,134,197,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .zerendi-banner.active { display: block; }
+
+  .zer-inner {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .zer-wave {
+    width: 52px;
+    flex-shrink: 0;
+    background: rgba(0,134,197,0.08);
+    border-right: 1px solid rgba(0,134,197,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .zer-body {
+    flex: 1;
+    padding: 18px 22px 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .zer-text { flex: 1; min-width: 160px; }
+
+  .zer-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(0,134,197,0.5);
+    margin-bottom: 6px;
+  }
+
+  .zer-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: #f0f6ff;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .zer-title em {
+    color: #0086C5;
+    font-style: normal;
+  }
+
+  .zer-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(240,246,255,0.5);
+    line-height: 1.5;
+    transition: opacity 0.35s ease;
+    letter-spacing: 0.2px;
+  }
+
+  .zer-cta {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #0086C5;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .zer-cta:hover {
+    background: #00a0e8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,134,197,0.35);
+  }
+
   /* ─── VOCALMIA BANNER ─── */
   .vocalmia-banner {
     display: none;
@@ -1851,24 +1963,24 @@
 
   <!-- AD SLOT — ad-slot-q2 -->
   <div class="ad-slot-wrap" id="ad-slot-q2" style="display:none; max-width:560px; margin:16px auto;">
-    <div class="vocalmia-banner active">
-      <div class="voc-inner">
-        <div class="voc-wave">
+    <div class="zerendi-banner active" id="zer-banner-q2">
+      <div class="zer-inner">
+        <div class="zer-wave">
           <svg width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0"  y="12" width="3" height="8"  rx="1.5" fill="#e8ff47" opacity="0.7"/>
-            <rect x="5"  y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
-            <rect x="10" y="2"  width="3" height="28" rx="1.5" fill="#e8ff47"/>
-            <rect x="15" y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
-            <rect x="20" y="11" width="3" height="10" rx="1.5" fill="#e8ff47" opacity="0.7"/>
+            <rect x="0"  y="10" width="3" height="12" rx="1.5" fill="#0086C5" opacity="0.6"/>
+            <rect x="5"  y="5"  width="3" height="22" rx="1.5" fill="#0086C5" opacity="0.8"/>
+            <rect x="10" y="0"  width="3" height="32" rx="1.5" fill="#0086C5"/>
+            <rect x="15" y="5"  width="3" height="22" rx="1.5" fill="#0086C5" opacity="0.8"/>
+            <rect x="20" y="10" width="3" height="12" rx="1.5" fill="#0086C5" opacity="0.6"/>
           </svg>
         </div>
-        <div class="voc-body">
-          <div class="voc-text">
-            <div class="voc-tag">Publicité · Partenaire</div>
-            <div class="voc-title">Vocal<em>mia</em> — Agent IA Téléphonique</div>
-            <div class="voc-desc" id="voc-desc-q2">Zéro appel manqué. Zéro effort. 24h/24.</div>
+        <div class="zer-body">
+          <div class="zer-text">
+            <div class="zer-tag">Publicité · Partenaire</div>
+            <div class="zer-title"><em>Zerendi</em> — Votre site web en quelques clics</div>
+            <div class="zer-desc" id="zer-desc-q2">Site vitrine généré par IA · 299 € HT tout compris.</div>
           </div>
-          <a class="voc-cta" href="https://vocalmia.com" target="_blank" rel="noopener">Découvrir</a>
+          <a class="zer-cta" href="https://zerendi.cloud" target="_blank" rel="noopener">Découvrir</a>
         </div>
       </div>
     </div>
@@ -2059,24 +2171,24 @@
 
   <!-- AD SLOT — ad-slot-3 -->
   <div class="ad-slot-wrap" id="ad-slot-3" style="display:none; max-width:560px; margin:16px auto;">
-    <div class="vocalmia-banner active">
-      <div class="voc-inner">
-        <div class="voc-wave">
+    <div class="zerendi-banner active" id="zer-banner-3">
+      <div class="zer-inner">
+        <div class="zer-wave">
           <svg width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0"  y="12" width="3" height="8"  rx="1.5" fill="#e8ff47" opacity="0.7"/>
-            <rect x="5"  y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
-            <rect x="10" y="2"  width="3" height="28" rx="1.5" fill="#e8ff47"/>
-            <rect x="15" y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
-            <rect x="20" y="11" width="3" height="10" rx="1.5" fill="#e8ff47" opacity="0.7"/>
+            <rect x="0"  y="10" width="3" height="12" rx="1.5" fill="#0086C5" opacity="0.6"/>
+            <rect x="5"  y="5"  width="3" height="22" rx="1.5" fill="#0086C5" opacity="0.8"/>
+            <rect x="10" y="0"  width="3" height="32" rx="1.5" fill="#0086C5"/>
+            <rect x="15" y="5"  width="3" height="22" rx="1.5" fill="#0086C5" opacity="0.8"/>
+            <rect x="20" y="10" width="3" height="12" rx="1.5" fill="#0086C5" opacity="0.6"/>
           </svg>
         </div>
-        <div class="voc-body">
-          <div class="voc-text">
-            <div class="voc-tag">Publicité · Partenaire</div>
-            <div class="voc-title">Vocal<em>mia</em> — Agent IA Téléphonique</div>
-            <div class="voc-desc" id="voc-desc-3">Zéro appel manqué. Zéro effort. 24h/24.</div>
+        <div class="zer-body">
+          <div class="zer-text">
+            <div class="zer-tag">Publicité · Partenaire</div>
+            <div class="zer-title"><em>Zerendi</em> — Votre site web en quelques clics</div>
+            <div class="zer-desc" id="zer-desc-3">Site vitrine généré par IA · 299 € HT tout compris.</div>
           </div>
-          <a class="voc-cta" href="https://vocalmia.com" target="_blank" rel="noopener">Découvrir</a>
+          <a class="zer-cta" href="https://zerendi.cloud" target="_blank" rel="noopener">Découvrir</a>
         </div>
       </div>
     </div>
@@ -2140,24 +2252,24 @@
 
   <!-- AD SLOT — ad-slot-5 -->
   <div class="ad-slot-wrap" id="ad-slot-5" style="display:block; max-width:560px; margin:16px auto;">
-    <div class="vocalmia-banner active">
-      <div class="voc-inner">
-        <div class="voc-wave">
+    <div class="zerendi-banner active" id="zer-banner-5">
+      <div class="zer-inner">
+        <div class="zer-wave">
           <svg width="22" height="32" viewBox="0 0 22 32" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0"  y="12" width="3" height="8"  rx="1.5" fill="#e8ff47" opacity="0.7"/>
-            <rect x="5"  y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
-            <rect x="10" y="2"  width="3" height="28" rx="1.5" fill="#e8ff47"/>
-            <rect x="15" y="7"  width="3" height="18" rx="1.5" fill="#e8ff47" opacity="0.85"/>
-            <rect x="20" y="11" width="3" height="10" rx="1.5" fill="#e8ff47" opacity="0.7"/>
+            <rect x="0"  y="10" width="3" height="12" rx="1.5" fill="#0086C5" opacity="0.6"/>
+            <rect x="5"  y="5"  width="3" height="22" rx="1.5" fill="#0086C5" opacity="0.8"/>
+            <rect x="10" y="0"  width="3" height="32" rx="1.5" fill="#0086C5"/>
+            <rect x="15" y="5"  width="3" height="22" rx="1.5" fill="#0086C5" opacity="0.8"/>
+            <rect x="20" y="10" width="3" height="12" rx="1.5" fill="#0086C5" opacity="0.6"/>
           </svg>
         </div>
-        <div class="voc-body">
-          <div class="voc-text">
-            <div class="voc-tag">Publicité · Partenaire</div>
-            <div class="voc-title">Vocal<em>mia</em> — Agent IA Téléphonique</div>
-            <div class="voc-desc" id="voc-desc-5">Zéro appel manqué. Zéro effort. 24h/24.</div>
+        <div class="zer-body">
+          <div class="zer-text">
+            <div class="zer-tag">Publicité · Partenaire</div>
+            <div class="zer-title"><em>Zerendi</em> — Votre site web en quelques clics</div>
+            <div class="zer-desc" id="zer-desc-5">Site vitrine généré par IA · 299 € HT tout compris.</div>
           </div>
-          <a class="voc-cta" href="https://vocalmia.com" target="_blank" rel="noopener">Découvrir</a>
+          <a class="zer-cta" href="https://zerendi.cloud" target="_blank" rel="noopener">Découvrir</a>
         </div>
       </div>
     </div>
@@ -2887,6 +2999,15 @@ function setLang(lang) {
   const legalLink = document.getElementById('footer-legal-link');
   if (legalLink && t.legal_link) legalLink.textContent = t.legal_link;
 
+  // ─── Zerendi rotating messages ───
+  if (ZER_MSGS[lang]) {
+    const zerMsgs = ZER_MSGS[lang];
+    ['zer-desc-q2','zer-desc-3','zer-desc-5'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = zerMsgs[0];
+    });
+  }
+
   // ─── Vocalmia rotating messages ───
   if (VOC_MSGS[lang]) {
     vocMsgs = VOC_MSGS[lang];
@@ -3094,6 +3215,7 @@ document.addEventListener('input', saveForm);
 // Load on page ready
 window.addEventListener('DOMContentLoaded', () => {
   loadForm();
+  startZerendi();
   const savedLang = (() => { try { return localStorage.getItem('youwizme_lang'); } catch(e) { return null; } })();
   if (savedLang) {
     setLang(savedLang);
@@ -3480,6 +3602,17 @@ function updateShareTexts() {
 }
 
 // ─── VOCALMIA BANNER ROTATION ───
+const ZER_MSGS = {
+  fr: ["Site vitrine généré par IA · 299 € HT tout compris.", "Domaine, hébergement, e-mail inclus.", "2 propositions · Vous payez après validation.", "Votre site en ligne sans agence ni rendez-vous."],
+  en: ["AI-generated website · €299 excl. VAT all-in.", "Domain, hosting, email included.", "2 proposals · Pay only after approval.", "Your site online without an agency."],
+  es: ["Sitio web generado por IA · 299 € sin IVA.", "Dominio, hosting, email incluidos.", "2 propuestas · Pagas solo tras validación.", "Tu web online sin agencia ni citas."],
+  pt: ["Site gerado por IA · 299 € sem IVA.", "Domínio, alojamento, email incluídos.", "2 propostas · Paga apenas após validação.", "O teu site online sem agência."],
+  ar: ["موقع مُنشأ بالذكاء الاصطناعي · 299 يورو شامل.", "نطاق واستضافة وبريد إلكتروني مشمولة.", "مقترحان · الدفع بعد التحقق فقط.", "موقعك على الإنترنت بدون وكالة."],
+  it: ["Sito vitrina generato da IA · 299 € IVA esclusa.", "Dominio, hosting, email inclusi.", "2 proposte · Paghi solo dopo la validazione.", "Il tuo sito online senza agenzia."],
+  de: ["KI-generierte Website · 299 € zzgl. MwSt.", "Domain, Hosting, E-Mail inklusive.", "2 Vorschläge · Zahlung erst nach Freigabe.", "Ihre Website ohne Agentur online."],
+  zh: ["AI生成的网站 · 299欧元含税全包.", "含域名、托管和电子邮件.", "2个方案 · 确认后再付款.", "无需代理即可上线您的网站."]
+};
+
 const VOC_MSGS = {
   fr: ["Zéro appel manqué. Zéro effort. 24h/24.", "Répond, comprend, qualifie — sans décrocher.", "Opérationnel le jour même. 7 jours offerts.", "Votre standard téléphonique, piloté par l'IA."],
   en: ["Zero missed calls. Zero effort. 24/7.", "Answers, understands, qualifies — automatically.", "Up and running the same day. 7 days free.", "Your phone line, powered by AI."],
@@ -3492,6 +3625,28 @@ const VOC_MSGS = {
 };
 let vocMsgs = VOC_MSGS['fr'];
 let vocIdx = 0, vocInterval;
+
+function startZerendi() {
+  const zerEls = [
+    document.getElementById('zer-desc-q2'),
+    document.getElementById('zer-desc-3'),
+    document.getElementById('zer-desc-5')
+  ].filter(Boolean);
+  if (!zerEls.length) return;
+  let zerMsgs = ZER_MSGS[currentLang] || ZER_MSGS['fr'];
+  let zerIdx = 0;
+  zerEls.forEach(el => el.textContent = zerMsgs[0]);
+  setInterval(() => {
+    zerEls.forEach(el => el.style.opacity = '0');
+    setTimeout(() => {
+      zerIdx = (zerIdx + 1) % zerMsgs.length;
+      zerEls.forEach(el => {
+        el.textContent = zerMsgs[zerIdx];
+        el.style.opacity = '1';
+      });
+    }, 400);
+  }, 3500);
+}
 
 function startVocalmia() {
   // Rotate both banners (loading + results)
