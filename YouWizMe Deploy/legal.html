@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions Légales & Politique de Confidentialité — YouWizMe</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5A3;
+    --rose: #C97B8A;
+    --rose-light: #E8A0B0;
+    --indigo: #4A5580;
+    --cream: #F5EFE6;
+    --dark: #1A1614;
+    --dark2: #221E1B;
+    --mid: #3D3530;
+    --border: rgba(201,169,110,0.22);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--dark);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 10% 20%, rgba(201,169,110,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 90% 80%, rgba(201,123,138,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: rgba(26,22,20,0.90);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--rose); }
+
+  .nav-back {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0.6;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .nav-back:hover { opacity: 1; color: var(--gold); }
+
+  /* ─── HERO ─── */
+  .page-hero {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 140px 30px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-hero-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 20px;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .page-hero-title {
+    font-size: clamp(30px, 6vw, 52px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 16px;
+    animation: fadeUp 0.7s ease forwards 0.15s;
+    opacity: 0;
+  }
+
+  .page-hero-title em { color: var(--gold); font-style: italic; }
+
+  .page-hero-date {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--gold-light);
+    opacity: 0.45;
+    animation: fadeUp 0.7s ease forwards 0.3s;
+    opacity: 0;
+  }
+
+  /* ─── TOC ─── */
+  .toc-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 50px auto 0;
+    padding: 0 24px;
+  }
+
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+
+  .toc a {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0.6;
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .toc a:hover { opacity: 1; border-color: var(--gold); color: var(--gold); }
+
+  /* ─── CONTENT ─── */
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+
+  /* ─── SECTION ─── */
+  .legal-section {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .legal-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-anchor {
+    display: block;
+    height: 80px;
+    margin-top: -80px;
+    pointer-events: none;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ─── TEXT ELEMENTS ─── */
+  .legal-section p {
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.9;
+    color: var(--cream);
+    opacity: 0.82;
+    margin-bottom: 16px;
+  }
+
+  .legal-section p:last-child { margin-bottom: 0; }
+
+  .legal-section strong {
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  .legal-section em {
+    color: var(--rose-light);
+    font-style: italic;
+  }
+
+  .legal-section a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,169,110,0.3);
+    transition: border-color 0.2s;
+  }
+
+  .legal-section a:hover { border-color: var(--gold); }
+
+  /* ─── INFO BOX ─── */
+  .info-box {
+    background: rgba(201,169,110,0.05);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: clamp(14px, 1.8vw, 16px);
+    line-height: 1.8;
+    color: var(--gold-light);
+    opacity: 0.85;
+  }
+
+  /* ─── DATA TABLE ─── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: clamp(13px, 1.7vw, 15px);
+  }
+
+  .data-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(201,169,110,0.3);
+    background: rgba(201,169,110,0.04);
+  }
+
+  .data-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(201,169,110,0.1);
+    color: var(--cream);
+    opacity: 0.8;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+
+  /* ─── COOKIE LIST ─── */
+  .cookie-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(201,169,110,0.1);
+    align-items: flex-start;
+  }
+
+  .cookie-item:last-child { border-bottom: none; }
+
+  .cookie-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 5px 10px;
+    border: 1px solid;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cookie-badge.essential { border-color: rgba(201,169,110,0.5); color: var(--gold); }
+  .cookie-badge.analytics { border-color: rgba(74,85,128,0.6); color: #8A9BD0; }
+  .cookie-badge.ads { border-color: rgba(201,123,138,0.5); color: var(--rose-light); }
+
+  .cookie-info { flex: 1; }
+
+  .cookie-name {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--gold-light);
+    margin-bottom: 4px;
+  }
+
+  .cookie-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--cream);
+    opacity: 0.65;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 50px 0;
+  }
+
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.3; }
+  .divider-diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; opacity: 0.6; }
+
+  /* ─── CONTACT BOX ─── */
+  .contact-box {
+    background: rgba(201,169,110,0.03);
+    border: 1px solid var(--border);
+    padding: 32px 30px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .contact-box .label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .contact-box .email {
+    font-size: 20px;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .contact-box .note {
+    font-size: 14px;
+    color: var(--cream);
+    opacity: 0.5;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+  }
+
+  footer p {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--gold-light);
+    opacity: 0.35;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media(max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .page-hero { padding: 110px 20px 50px; }
+    .data-table th, .data-table td { padding: 10px 10px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html"><span>YouWiz</span>Me</a>
+  <a class="nav-back" href="index.html">← Retour au site</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-label">Transparence & Confiance</div>
+  <h1 class="page-hero-title"><em>Mentions Légales</em> &<br>Politique de Confidentialité</h1>
+  <div class="page-hero-date">Dernière mise à jour : 30 mai 2026</div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc-wrap">
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#editeur">I. Éditeur</a>
+    <a href="#hebergement">II. Hébergement</a>
+    <a href="#propriete">III. Propriété intellectuelle</a>
+    <a href="#donnees">IV. Données personnelles</a>
+    <a href="#cookies">V. Cookies</a>
+    <a href="#publicite">VI. Publicité</a>
+    <a href="#droits">VII. Vos droits</a>
+    <a href="#contact">VIII. Contact</a>
+  </nav>
+</div>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- I. ÉDITEUR -->
+  <div class="legal-section" id="editeur-section">
+    <span class="section-anchor" id="editeur"></span>
+    <div class="section-header">
+      <span class="section-num">I</span>
+      <h2 class="section-title">Éditeur du site</h2>
+    </div>
+    <div class="info-box">
+      <strong>YouWizMe</strong> est édité par :<br><br>
+      Olivier Dussarrat<br>
+      7 Avenue Mozart, 75016 Paris, France<br>
+      Email : <a href="mailto:contact@youwizme.com">contact@youwizme.com</a><br>
+      Site web : <a href="https://youwizme.com">youwizme.com</a>
+    </div>
+    <p>Le site YouWizMe est une application web proposant une analyse symbolique et poétique de compatibilité entre personnes à titre <em>ludique et divertissant uniquement</em>. Les résultats fournis ne constituent en aucun cas des conseils psychologiques, relationnels ou professionnels.</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- II. HÉBERGEMENT -->
+  <div class="legal-section" id="hebergement-section">
+    <span class="section-anchor" id="hebergement"></span>
+    <div class="section-header">
+      <span class="section-num">II</span>
+      <h2 class="section-title">Hébergement</h2>
+    </div>
+    <p>Le site est hébergé par :</p>
+    <div class="info-box">
+      <strong>Netlify, Inc.</strong><br>
+      44 Montgomery Street, Suite 300<br>
+      San Francisco, CA 94104, États-Unis<br>
+      <a href="https://www.netlify.com" target="_blank" rel="noopener">netlify.com</a>
+    </div>
+    <p>Le traitement des requêtes est effectué via des fonctions serverless (Netlify Functions) qui servent d'intermédiaire sécurisé avec l'API d'intelligence artificielle Anthropic. Aucune donnée saisie dans le formulaire n'est conservée sur les serveurs de Netlify au-delà de la durée nécessaire au traitement de la requête.</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- III. PROPRIÉTÉ INTELLECTUELLE -->
+  <div class="legal-section" id="propriete-section">
+    <span class="section-anchor" id="propriete"></span>
+    <div class="section-header">
+      <span class="section-num">III</span>
+      <h2 class="section-title">Propriété intellectuelle</h2>
+    </div>
+    <p>L'ensemble des éléments constituant le site YouWizMe — nom, logo, design, textes, charte graphique, concept d'<strong>Intelligence Émotionnelle Artificielle (IEA™)</strong> — est la propriété exclusive d'Olivier Dussarrat, sauf mention contraire.</p>
+    <p>Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable.</p>
+    <p>Le concept <strong>IEA™ — Intelligence Émotionnelle Artificielle</strong> est une marque en cours de dépôt auprès de l'INPI (Institut National de la Propriété Industrielle), dans les classes Nice 35, 41 et 42.</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- IV. DONNÉES PERSONNELLES -->
+  <div class="legal-section" id="donnees-section">
+    <span class="section-anchor" id="donnees"></span>
+    <div class="section-header">
+      <span class="section-num">IV</span>
+      <h2 class="section-title">Données personnelles</h2>
+    </div>
+    <p>YouWizMe est conçu dans le respect de la vie privée. Voici les données traitées :</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Donnée</th>
+          <th>Usage</th>
+          <th>Conservation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Prénoms saisis</strong></td>
+          <td>Transmis à l'API Anthropic pour générer l'analyse de compatibilité</td>
+          <td>Non stockés après la réponse</td>
+        </tr>
+        <tr>
+          <td><strong>Informations de profil</strong> (tranche d'âge, traits, valeurs…)</td>
+          <td>Enrichissement de l'analyse IA</td>
+          <td>Non stockés côté serveur</td>
+        </tr>
+        <tr>
+          <td><strong>Données de session locale</strong></td>
+          <td>Mémorisation des réponses dans le navigateur (localStorage) pour restauration</td>
+          <td>Localement, jusqu'à suppression manuelle ou réinitialisation</td>
+        </tr>
+        <tr>
+          <td><strong>Données de navigation</strong></td>
+          <td>Analyse d'audience via Google Analytics (prévu)</td>
+          <td>Anonymisées, selon politique Google</td>
+        </tr>
+        <tr>
+          <td><strong>Adresse IP</strong></td>
+          <td>Logs serveur Netlify (sécurité et performance)</td>
+          <td>Selon politique Netlify</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Les données transmises à l'API Anthropic sont soumises à la <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">politique de confidentialité d'Anthropic</a>. Aucune donnée permettant d'identifier une personne n'est stockée par YouWizMe sur ses propres serveurs.</p>
+    <p>Conformément au <strong>Règlement Général sur la Protection des Données (RGPD)</strong> et à la loi Informatique et Libertés, vous disposez de droits sur vos données personnelles. Voir la section <a href="#droits">VII — Vos droits</a>.</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- V. COOKIES -->
+  <div class="legal-section" id="cookies-section">
+    <span class="section-anchor" id="cookies"></span>
+    <div class="section-header">
+      <span class="section-num">V</span>
+      <h2 class="section-title">Cookies & stockage local</h2>
+    </div>
+    <p>YouWizMe utilise les technologies de stockage suivantes :</p>
+
+    <div class="cookie-item">
+      <span class="cookie-badge essential">Essentiel</span>
+      <div class="cookie-info">
+        <div class="cookie-name">localStorage — youwizme_last</div>
+        <div class="cookie-desc">Mémorise vos dernières réponses au questionnaire pour vous éviter de les ressaisir. Stocké localement dans votre navigateur. Supprimable via le bouton "Effacer" du site ou les paramètres du navigateur.</div>
+      </div>
+    </div>
+
+    <div class="cookie-item">
+      <span class="cookie-badge essential">Essentiel</span>
+      <div class="cookie-info">
+        <div class="cookie-name">localStorage — youwizme_lang</div>
+        <div class="cookie-desc">Mémorise votre préférence de langue. Stocké localement dans votre navigateur.</div>
+      </div>
+    </div>
+
+    <div class="cookie-item">
+      <span class="cookie-badge analytics">Analytique</span>
+      <div class="cookie-info">
+        <div class="cookie-name">Google Analytics 4 (à venir)</div>
+        <div class="cookie-desc">Cookies d'analyse d'audience anonymisés permettant de comprendre l'utilisation du site (pages vues, durée de session, provenance géographique). Données agrégées, sans identification personnelle. Soumis au consentement.</div>
+      </div>
+    </div>
+
+    <div class="cookie-item">
+      <span class="cookie-badge ads">Publicité</span>
+      <div class="cookie-info">
+        <div class="cookie-name">Google AdSense (à venir)</div>
+        <div class="cookie-desc">Cookies publicitaires utilisés par Google pour afficher des annonces personnalisées. Google peut utiliser ces cookies pour personnaliser les publicités en fonction de vos visites sur ce site et d'autres sites. Soumis à votre consentement. Vous pouvez désactiver la personnalisation via <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">google.com/settings/ads</a>.</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 20px;">La mise en place d'un bandeau de consentement aux cookies (RGPD) est prévue préalablement à l'activation des services Google Analytics et Google AdSense.</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- VI. PUBLICITÉ -->
+  <div class="legal-section" id="publicite-section">
+    <span class="section-anchor" id="publicite"></span>
+    <div class="section-header">
+      <span class="section-num">VI</span>
+      <h2 class="section-title">Publicité — Google AdSense</h2>
+    </div>
+    <p>YouWizMe est susceptible d'afficher des publicités fournies par <strong>Google AdSense</strong>, service de régie publicitaire de Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, États-Unis).</p>
+    <p>Google AdSense utilise des cookies pour diffuser des annonces pertinentes basées sur vos visites sur ce site et d'autres sites internet. Ces cookies permettent à Google et ses partenaires de vous présenter des publicités en lien avec vos centres d'intérêt.</p>
+    <p>YouWizMe n'a pas accès à ces données publicitaires et ne les contrôle pas. Pour en savoir plus sur les pratiques de Google en matière de données publicitaires :</p>
+    <div class="info-box">
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique de confidentialité Google</a><br>
+      <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Gérer les préférences publicitaires Google</a><br>
+      <a href="https://www.networkadvertising.org/choices/" target="_blank" rel="noopener">Opt-out NAI (Network Advertising Initiative)</a>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- VII. VOS DROITS -->
+  <div class="legal-section" id="droits-section">
+    <span class="section-anchor" id="droits"></span>
+    <div class="section-header">
+      <span class="section-num">VII</span>
+      <h2 class="section-title">Vos droits (RGPD)</h2>
+    </div>
+    <p>Conformément au Règlement Européen 2016/679 (RGPD) et à la loi n°78-17 du 6 janvier 1978 modifiée, vous disposez des droits suivants concernant vos données personnelles :</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Droit</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Accès</strong></td>
+          <td>Obtenir la confirmation que des données vous concernant sont traitées et en recevoir une copie</td>
+        </tr>
+        <tr>
+          <td><strong>Rectification</strong></td>
+          <td>Faire corriger des données inexactes vous concernant</td>
+        </tr>
+        <tr>
+          <td><strong>Effacement</strong></td>
+          <td>Demander la suppression de vos données personnelles</td>
+        </tr>
+        <tr>
+          <td><strong>Opposition</strong></td>
+          <td>Vous opposer à certains traitements, notamment à des fins de prospection</td>
+        </tr>
+        <tr>
+          <td><strong>Limitation</strong></td>
+          <td>Demander la suspension temporaire d'un traitement</td>
+        </tr>
+        <tr>
+          <td><strong>Portabilité</strong></td>
+          <td>Recevoir vos données dans un format structuré et lisible</td>
+        </tr>
+        <tr>
+          <td><strong>Retrait du consentement</strong></td>
+          <td>Retirer votre consentement à tout moment pour les traitements basés sur celui-ci (cookies analytiques et publicitaires)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Pour exercer ces droits, contactez-nous à <a href="mailto:contact@youwizme.com">contact@youwizme.com</a>. Nous nous engageons à répondre dans un délai d'un mois.</p>
+    <p>Vous pouvez également introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>.</p>
+    <p><strong>Note importante :</strong> les données saisies dans le formulaire (prénoms, traits de personnalité, etc.) ne sont pas stockées sur nos serveurs. Elles transitent uniquement en temps réel pour générer votre analyse et ne peuvent pas faire l'objet d'une demande d'accès ou de suppression a posteriori.</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- VIII. CONTACT -->
+  <div class="legal-section" id="contact-section">
+    <span class="section-anchor" id="contact"></span>
+    <div class="section-header">
+      <span class="section-num">VIII</span>
+      <h2 class="section-title">Contact & Responsable des données</h2>
+    </div>
+    <p>Pour toute question relative à cette politique de confidentialité, à l'exercice de vos droits, ou pour tout autre renseignement :</p>
+
+    <div class="contact-box">
+      <div class="label">Responsable du traitement des données</div>
+      <div class="email">contact@youwizme.com</div>
+      <div class="note">Olivier Dussarrat · 7 Avenue Mozart, 75016 Paris</div>
+    </div>
+
+    <p style="margin-top: 24px; font-size: 15px; opacity: 0.6; font-style: italic;">Cette politique de confidentialité est susceptible d'être modifiée. La date de dernière mise à jour est indiquée en haut de cette page. En continuant à utiliser YouWizMe après toute modification, vous en acceptez les nouvelles dispositions.</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>YouWizMe · Intelligence Émotionnelle Artificielle · IEA™ · 2026</p>
+</footer>
+
+<script>
+// Intersection Observer for fade-in sections
+const sections = document.querySelectorAll('.legal-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+// Smooth active state in TOC
+const tocLinks = document.querySelectorAll('.toc a');
+const sectionTargets = document.querySelectorAll('.section-anchor');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sectionTargets.forEach(anchor => {
+    const top = anchor.getBoundingClientRect().top;
+    if (top < 120) current = anchor.id;
+  });
+  tocLinks.forEach(link => {
+    link.style.opacity = link.getAttribute('href') === '#' + current ? '1' : '';
+    link.style.color = link.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    link.style.borderColor = link.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+  });
+});
+</script>
+
+</body>
+</html>

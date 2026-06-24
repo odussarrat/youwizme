@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A96E"></stop>
+      <stop offset="100%" stop-color="#C97B8A"></stop>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1614"></stop>
+      <stop offset="100%" stop-color="#221E1B"></stop>
+    </linearGradient>
+  </defs><rect width="32" height="32" rx="6" fill="url(#g2)"></rect><polygon points="2,16 10,13 16,16 10,19" fill="url(#g1)" opacity="0.9"></polygon><polygon points="30,16 22,13 16,16 22,19" fill="url(#g1)" opacity="0.9"></polygon><polygon points="16,2 13,10 16,16 19,10" fill="url(#g1)" opacity="0.9"></polygon><polygon points="16,30 13,22 16,16 19,22" fill="url(#g1)" opacity="0.9"></polygon><circle cx="16" cy="16" r="2.5" fill="#E8D5A3" opacity="0.95"></circle><polygon points="16,16 14.5,12 16,10.5 17.5,12" fill="#E8D5A3" opacity="0.35"></polygon><polygon points="16,16 14.5,20 16,21.5 17.5,20" fill="#E8D5A3" opacity="0.35"></polygon><polygon points="16,16 12,14.5 10.5,16 12,17.5" fill="#E8D5A3" opacity="0.35"></polygon><polygon points="16,16 20,14.5 21.5,16 20,17.5" fill="#E8D5A3" opacity="0.35"></polygon></svg>

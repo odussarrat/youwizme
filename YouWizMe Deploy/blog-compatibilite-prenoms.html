@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compatibilité des prénoms : ce que la science et l'IA révèlent — YouWizMe</title>
+<meta name="description" content="Votre prénom influence-t-il vraiment votre personnalité et vos relations ? Découvrez ce que l'onomastique, la psychologie et l'Intelligence Émotionnelle Artificielle révèlent sur la compatibilité entre prénoms.">
+<meta name="keywords" content="compatibilité prénoms, analyse compatibilité couple, intelligence émotionnelle artificielle, IEA, onomastique, psychologie relationnelle">
+<meta name="author" content="YouWizMe">
+<link rel="canonical" href="https://youwizme.com/blog-compatibilite-prenoms.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://youwizme.com/blog-compatibilite-prenoms.html">
+<meta property="og:title" content="Compatibilité des prénoms : ce que la science et l'IA révèlent">
+<meta property="og:description" content="Votre prénom influence-t-il vraiment votre personnalité ? Découvrez ce que l'onomastique et l'IA révèlent sur la compatibilité entre prénoms.">
+<meta property="og:image" content="https://youwizme.com/og-image.jpg">
+<meta property="og:site_name" content="YouWizMe">
+<meta property="article:published_time" content="2026-06-01">
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9722521927056719" crossorigin="anonymous"></script>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2JD80PNF5Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2JD80PNF5Q');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5A3;
+    --rose: #C97B8A;
+    --rose-light: #E8A0B0;
+    --cream: #F5EFE6;
+    --dark: #1A1614;
+    --dark2: #221E1B;
+    --border: rgba(201,169,110,0.22);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--dark);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.8;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 10% 20%, rgba(201,169,110,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 90% 80%, rgba(201,123,138,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: rgba(26,22,20,0.90);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--rose); }
+
+  .nav-cta {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dark);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201,169,110,0.3);
+  }
+
+  /* HERO ARTICLE */
+  .article-hero {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 130px 30px 60px;
+    text-align: center;
+  }
+
+  .article-category {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.65;
+    margin-bottom: 24px;
+    display: block;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .article-title {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.15s;
+  }
+
+  .article-title em { color: var(--gold); font-style: italic; }
+  .article-title strong { color: var(--rose); font-weight: 300; font-style: italic; }
+
+  .article-meta {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: var(--gold-light);
+    opacity: 0.45;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.3s;
+  }
+
+  .article-intro {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-light);
+    opacity: 0.8;
+    line-height: 1.75;
+    max-width: 680px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.45s;
+  }
+
+  /* ARTICLE BODY */
+  .article-body {
+    position: relative;
+    z-index: 1;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 20px 30px 80px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 50px 0;
+  }
+
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.3; }
+  .divider-diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; opacity: 0.6; }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  h2 em { color: var(--gold); font-style: italic; }
+  h2 strong { color: var(--rose); font-weight: 300; }
+
+  h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 14px;
+    margin-top: 36px;
+  }
+
+  p {
+    font-size: clamp(16px, 2vw, 19px);
+    line-height: 1.9;
+    color: var(--cream);
+    opacity: 0.82;
+    margin-bottom: 20px;
+  }
+
+  p strong { color: var(--gold-light); font-weight: 400; }
+  p em { color: var(--rose-light); font-style: italic; }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 20px 28px;
+    margin: 36px 0;
+    background: rgba(201,169,110,0.04);
+  }
+
+  .pull-quote p {
+    font-size: clamp(18px, 2.5vw, 23px);
+    font-style: italic;
+    color: var(--gold-light);
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* INFO BOX */
+  .info-box {
+    border: 1px solid var(--border);
+    padding: 26px 28px;
+    margin: 36px 0;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .info-box-title {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .info-box p { margin-bottom: 10px; font-size: 16px; }
+  .info-box p:last-child { margin-bottom: 0; }
+
+  /* DIMENSIONS TABLE */
+  .dim-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  @media(max-width:560px){ .dim-grid { grid-template-columns: 1fr; } }
+
+  .dim-card {
+    border: 1px solid var(--border);
+    padding: 20px 18px;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .dim-title {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .dim-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--cream);
+    opacity: 0.7;
+  }
+
+  /* CTA BLOCK */
+  .cta-block {
+    text-align: center;
+    padding: 50px 30px;
+    border: 1px solid var(--border);
+    background: rgba(201,169,110,0.04);
+    margin: 50px 0;
+  }
+
+  .cta-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 16px;
+  }
+
+  .cta-title {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .cta-title em { color: var(--gold); font-style: italic; }
+
+  .cta-sub {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--gold-light);
+    opacity: 0.6;
+    margin-bottom: 28px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dark);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    padding: 16px 40px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(201,169,110,0.3);
+  }
+
+  /* AD SLOT */
+  .ad-slot {
+    margin: 40px auto;
+    max-width: 560px;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+  }
+
+  footer p {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--gold-light);
+    opacity: 0.35;
+    margin-bottom: 8px;
+  }
+
+  footer a {
+    color: var(--gold-light);
+    opacity: 0.4;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media(max-width:600px){
+    nav { padding: 14px 20px; }
+    .article-hero { padding: 100px 20px 50px; }
+    .article-body { padding: 20px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html"><span>YouWiz</span>Me</a>
+  <a class="nav-cta" href="index.html">Tester maintenant →</a>
+</nav>
+
+<!-- HERO -->
+<header class="article-hero">
+  <span class="article-category">Psychologie · Compatibilité · IA</span>
+  <h1 class="article-title">
+    <em>Compatibilité des prénoms</em> :<br>
+    ce que la science et l'IA <strong>révèlent vraiment</strong>
+  </h1>
+  <div class="article-meta">Par YouWizMe · 1er juin 2026 · 7 minutes de lecture</div>
+  <p class="article-intro">
+    Votre prénom est-il vraiment lié à votre personnalité ? Et deux prénoms peuvent-ils être "compatibles" ? De l'onomastique ancienne à l'intelligence artificielle moderne, la réponse est plus nuancée — et plus fascinante — qu'on ne le croit.
+  </p>
+</header>
+
+<!-- AD SLOT 1 — haut d'article -->
+<div class="ad-slot">
+  <ins class="adsbygoogle"
+       style="display:block; width:100%; min-height:90px;"
+       data-ad-client="ca-pub-9722521927056719"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- ARTICLE BODY -->
+<main class="article-body" itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="author" content="YouWizMe">
+  <meta itemprop="datePublished" content="2026-06-01">
+
+  <h2>Le prénom : une empreinte culturelle et émotionnelle</h2>
+
+  <p>
+    L'onomastique — la science qui étudie les noms propres — existe depuis l'Antiquité. Dans de nombreuses cultures, le prénom n'est pas choisi au hasard : il porte une histoire familiale, une aspiration parentale, une appartenance culturelle. Un prénom d'origine arabe comme <strong>Yasmine</strong> ne résonne pas de la même façon qu'un prénom scandinave comme <strong>Erik</strong>, ni dans l'imaginaire collectif, ni dans la trajectoire identitaire de celui qui le porte.
+  </p>
+
+  <p>
+    Des études en psychologie sociale ont montré que les prénoms influencent les perceptions dès le premier contact. Le phénomène dit de <em>"name-letter effect"</em>, décrit par le psychologue belge Jozef Nuttin en 1985, démontre que les individus ont tendance à préférer les lettres de leur propre prénom et à s'identifier plus spontanément aux personnes portant des prénoms phonétiquement proches. Ce n'est pas de la magie — c'est de la psychologie cognitive.
+  </p>
+
+  <div class="pull-quote">
+    <p>"Le prénom est la première étiquette sociale que nous portons. Il façonne subtilement notre rapport aux autres et la façon dont les autres se rapportent à nous."</p>
+  </div>
+
+  <p>
+    Plus encore, la <strong>consonance phonétique</strong> d'un prénom — doux ou dur, ouvert ou fermé — crée des associations émotionnelles mesurables. Les prénoms à sonorités douces (voyelles ouvertes, consonnes nasales) sont associés à des traits de chaleur et d'empathie, tandis que les prénoms aux consonnes occlusives évoquent davantage la force et l'assurance. Ces associations sont inconscientes, mais elles participent à la dynamique d'une première rencontre.
+  </p>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- AD SLOT 2 — milieu d'article -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; min-height:90px;"
+         data-ad-client="ca-pub-9722521927056719"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>La compatibilité émotionnelle : <em>au-delà des signes astrologiques</em></h2>
+
+  <p>
+    Pendant des siècles, l'astrologie a fourni le cadre dominant pour analyser la compatibilité entre personnes. Poissons et Scorpion se complètent, Bélier et Cancer s'opposent — ces archétypes ont une valeur culturelle et narrative indéniable. Mais ils souffrent d'un défaut fondamental : ils sont <em>génériques</em>. Deux Vierges nées le même jour n'ont pas nécessairement la même personnalité, les mêmes valeurs, ni la même façon de gérer les conflits.
+  </p>
+
+  <p>
+    La psychologie moderne a développé des outils plus fins : le MBTI, les Big Five, l'Ennéagramme. Ces modèles capturent mieux la complexité individuelle, mais ils restent des cadres statiques. Ils décrivent une personne isolément, sans analyser la <strong>dynamique spécifique</strong> qui émerge de la rencontre entre deux personnalités particulières.
+  </p>
+
+  <p>
+    C'est précisément là qu'intervient l'<strong>Intelligence Émotionnelle Artificielle</strong> (IEA™) développée par YouWizMe. Plutôt que de classer les individus dans des catégories prédéfinies, l'IEA analyse la résonance entre deux profils complets — leurs traits, leurs valeurs, leur façon de gérer les conflits, leurs zones d'ombre — pour générer une cartographie relationnelle unique, impossible à reproduire avec des outils classiques.
+  </p>
+
+  <h3>Les 5 dimensions de la compatibilité selon l'IEA</h3>
+
+  <div class="dim-grid">
+    <div class="dim-card">
+      <div class="dim-title">Résonance émotionnelle</div>
+      <div class="dim-desc">La capacité de deux personnes à se sentir comprises et soutenues émotionnellement, au-delà des mots.</div>
+    </div>
+    <div class="dim-card">
+      <div class="dim-title">Compatibilité intellectuelle</div>
+      <div class="dim-desc">L'alignement des modes de pensée, de curiosité et d'engagement avec les idées et les idéaux.</div>
+    </div>
+    <div class="dim-card">
+      <div class="dim-title">Alignement des valeurs</div>
+      <div class="dim-desc">Le socle commun sur ce qui compte vraiment : famille, liberté, réussite, amour, sécurité ou aventure.</div>
+    </div>
+    <div class="dim-card">
+      <div class="dim-title">Style de communication</div>
+      <div class="dim-desc">La façon dont chacun exprime ses besoins, gère les désaccords et construit le dialogue au quotidien.</div>
+    </div>
+    <div class="dim-card" style="grid-column: 1 / -1;">
+      <div class="dim-title">Complicité naturelle</div>
+      <div class="dim-desc">Ce sentiment inexplicable de fluidité et d'évidence qui se crée entre certaines personnes — et que l'IEA tente de mesurer et de nommer.</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <h2>Pourquoi <strong>intégrer les défauts</strong> dans une analyse de compatibilité ?</h2>
+
+  <p>
+    La plupart des tests de compatibilité sont construits sur une vision idéalisée des relations : on mesure les forces communes, les valeurs partagées, les affinités. YouWizMe prend le parti inverse — ou plutôt, le parti de la <em>complétude</em>. Une analyse honnête doit aussi intégrer les zones d'ombre.
+  </p>
+
+  <p>
+    La jalousie, l'impulsivité, la tendance à se refermer ou à éviter les conflits — ces traits ne sont pas des défauts à cacher, mais des <strong>données relationnelles essentielles</strong>. Deux personnes impulsives dans une relation créeront une dynamique radicalement différente qu'une personne impulsive associée à quelqu'un de calme et posé. L'IEA intègre cette réalité et en tire des insights concrets sur les points de friction potentiels et les vigilances à avoir.
+  </p>
+
+  <div class="info-box">
+    <div class="info-box-title">Le saviez-vous ?</div>
+    <p>Les recherches du psychologue John Gottman, qui a étudié des milliers de couples pendant plus de 40 ans, montrent que la compatibilité ne dépend pas de l'absence de conflits, mais de la <strong>façon dont les deux partenaires gèrent leurs différences</strong>. C'est exactement ce que l'IEA cherche à révéler.</p>
+  </div>
+
+  <!-- AD SLOT 3 — bas d'article -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; min-height:90px;"
+         data-ad-client="ca-pub-9722521927056719"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>L'IA peut-elle vraiment <em>comprendre</em> les relations humaines ?</h2>
+
+  <p>
+    C'est la question légitime que tout utilisateur de YouWizMe devrait se poser. La réponse courte : <em>non, pas de la façon dont un être humain le comprend</em>. Mais la réponse complète est bien plus intéressante.
+  </p>
+
+  <p>
+    Les grands modèles de langage ont été entraînés sur l'intégralité — ou presque — de la production écrite de l'humanité : littérature, philosophie, psychologie, récits de vie, poésie, sciences humaines. Ils ont absorbé des millions de descriptions de relations humaines, de conflits, de réconciliations, d'amours et de ruptures. Ils portent en eux une représentation dense et nuancée des <strong>patterns relationnels humains</strong>.
+  </p>
+
+  <p>
+    YouWizMe n'utilise pas cette capacité pour prédire l'avenir ou pour donner des conseils de vie. Il l'utilise de façon <em>poétique et symbolique</em> : pour nommer des dynamiques que l'intuition perçoit sans toujours savoir les formuler, pour révéler des résonances qui existent mais restent invisibles à l'œil nu. Le résultat n'est pas une vérité scientifique — c'est un <strong>miroir émotionnel</strong>, à usage poétique et ludique.
+  </p>
+
+  <p>
+    En ce sens, YouWizMe se situe dans la tradition des grands outils d'introspection — le tarot, l'astrologie, l'ennéagramme — non pas parce qu'il partage leur épistémologie, mais parce qu'il remplit la même fonction psychologique : <strong>donner un langage à ce qui est ressenti mais difficile à dire</strong>.
+  </p>
+
+  <div class="pull-quote">
+    <p>"YouWizMe ne prédit pas votre avenir. Il vous donne un langage pour ce que vous ressentez déjà."</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-label">Essayez maintenant · Gratuit · 30 secondes</div>
+    <div class="cta-title">Découvrez votre <em>résonance émotionnelle</em></div>
+    <div class="cta-sub">8 langues · Résultat immédiat · Analyse poétique & lucide</div>
+    <a class="cta-btn" href="index.html">Commencer l'analyse →</a>
+  </div>
+
+  <!-- AD SLOT 4 — après CTA -->
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+         style="display:block; width:100%; min-height:90px;"
+         data-ad-client="ca-pub-9722521927056719"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Conclusion : <em>et si votre prénom était le début de l'histoire ?</em></h2>
+
+  <p>
+    La compatibilité entre deux personnes est une question complexe que ni la science ni l'IA ne peuvent trancher définitivement. Mais les deux peuvent apporter un éclairage précieux — chacune à leur façon.
+  </p>
+
+  <p>
+    Ce que YouWizMe propose, c'est une <strong>porte d'entrée poétique</strong> vers cette question. En partant du prénom — ce premier mot qui nous désigne dans le monde — et en y associant une analyse fine des traits, des valeurs et des dynamiques relationnelles, l'IEA génère une cartographie émotionnelle qui invite à la réflexion, à la conversation et parfois à la surprise.
+  </p>
+
+  <p>
+    Parce que le plus beau dans une analyse de compatibilité, ce n'est pas le score final. C'est tout ce qu'on apprend sur soi et sur l'autre en répondant aux questions.
+  </p>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>YouWizMe · Intelligence Émotionnelle Artificielle · IEA™ · 2026</p>
+  <a href="index.html">← Retour au site</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="legal.html">Mentions légales</a>
+</footer>
+
+</body>
+</html>
